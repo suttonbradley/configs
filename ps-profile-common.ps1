@@ -26,6 +26,14 @@ function Open-MyPs {
     code $env:USERPROFILE\code\configs\ps-profile-common.ps1
 }
 
+# Update prompt
+function upd-pro {
+    pushd $env:USERPROFILE\code\configs
+    git pull
+    popd
+    . $profile
+}
+
 
 # ----- GIT ALIASES -----
 function gs { git status $args }
