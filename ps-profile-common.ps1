@@ -22,6 +22,10 @@ function Open-MyPoshTheme {
     code $env:USERPROFILE\code\configs\sutton.omp.json
 }
 
+function Open-MyPs {
+    code $env:USERPROFILE\code\configs\ps-profile-common.ps1
+}
+
 
 # ----- GIT ALIASES -----
 function gs { git status $args }
@@ -38,7 +42,7 @@ function gp { git push }
 function gpu { git push -u origin (git branch --show-current) }
 function glo { git log $args }
 function gb { git branch }
-function gcm { param ([Parameter(Mandatory)] [string]$msg)git commit -m $msg }
+function gcom { param ([Parameter(Mandatory)] [string]$msg)git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg)git commit -am $msg }
 function gas { git add * }
 
