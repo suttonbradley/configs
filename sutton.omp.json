@@ -42,7 +42,7 @@
             "commit_icon": "\u25b7 ",
             "display_status_detail": true,
             "display_status": true,
-            "display_stash_count": true,
+            "display_stash_count": false,
             "display_branch_status": true,
             "local_staged_icon": "\u21d1",
             "local_working_icon": "",
