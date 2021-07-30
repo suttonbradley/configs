@@ -36,6 +36,8 @@
           "powerline_symbol": "\ue0b0",
           "foreground": "#100e23",
           "background": "#95ffa4",
+          "leading_diamond": "",
+          "trailing_diamond": "",
           "properties": {
             "branch_ahead_icon": "\u2191",
             "branch_behind_icon": "\u2193",
@@ -67,10 +69,12 @@
           "powerline_symbol": "\uE0B0",
           "foreground": "#000000",
           "background": "lightCyan",
+          "leading_diamond": "",
+          "trailing_diamond": "",
           "properties": {
             "threshold": 1000,
             "style": "austin",
-            "prefix": " <#fefefe>\u231b</> "
+            "prefix": "\u231b"
           }
         }
       ],
