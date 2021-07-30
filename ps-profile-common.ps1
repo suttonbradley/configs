@@ -46,8 +46,8 @@ function gap { git add -p $args }
 function gco { git checkout $args }
 function gcp { git checkout -p $args }
 function gcn { git checkout -b $args }
-function gp { git push }
-function gpu { git push -u origin (git branch --show-current) }
+function gpu { git push }
+function gpuu { git push -u origin (git branch --show-current) }
 function glo { git log $args }
 function gb { git branch }
 function gcom { param ([Parameter(Mandatory)] [string]$msg)git commit -m $msg }
