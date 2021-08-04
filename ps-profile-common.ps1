@@ -28,12 +28,20 @@ function Open-MyPs {
 
 # Update prompt
 function upd-pro {
+    param (
+        [switch]$no_reload
+    )
+    # Pull new code
     pushd $env:USERPROFILE\code\configs
-    git pull
+    git pull | Out-Null
     popd
-    . $profile
-}
 
+    # Reload if necessary
+    # TODO also don't reload if git pull didn't change anything
+    if(!$no_reload.IsPresent) {
+        . $profile -no_update
+    }
+}
 
 # ----- GIT ALIASES -----
 function gs { git status $args }
@@ -109,4 +117,4 @@ function grb {
 
 
 # ----- MISC ALIASES -----
-function hist { Get-Content -Last 25 (Get-PSReadlineOption).HistorySavePath }
+function hist { param ([int]$num=25 ) Get-Content -Last $num (Get-PSReadlineOption).HistorySavePath }
