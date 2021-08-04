@@ -4,7 +4,7 @@
 #   and update to occur on profile load
 #   without an infinite loop.
 
-
+# --- IMPORT COMMON, UPDATE IF NECESSARY ---
 param (
     [switch]$no_update
 )
@@ -14,5 +14,6 @@ param (
 
 # Update if necessary
 if(!$no_update) {
-    upd-pro $reload
+    upd-pro
 }
+# ------------------------------------------

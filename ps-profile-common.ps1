@@ -28,19 +28,13 @@ function Open-MyPs {
 
 # Update prompt
 function upd-pro {
-    param (
-        [switch]$no_reload
-    )
     # Pull new code
     pushd $env:USERPROFILE\code\configs
     git pull | Out-Null
     popd
 
-    # Reload if necessary
-    # TODO also don't reload if git pull didn't change anything
-    if(!$no_reload.IsPresent) {
-        . $profile -no_update
-    }
+    # Reload profile, don't call update again
+    . $profile -no_update
 }
 
 # ----- GIT ALIASES -----
