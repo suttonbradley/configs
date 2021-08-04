@@ -75,8 +75,8 @@ function gdb {
     param (
         [string]$branchName
     )
-    Delete-RemoteBranch $branchName
-    Delete-LocalBranch  $branchName
+    gdrb $branchName
+    gdlb $branchName
 }
 
 
@@ -103,8 +103,8 @@ function grb {
     param (
         [string]$branchName
     )
-    Rename-RemoteBranch $branchName
-    Rename-LocalBranch  $branchName
+    grrb $branchName
+    grlb  $branchName
 }
 
 
