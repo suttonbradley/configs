@@ -72,6 +72,17 @@
           }
         },
         {
+          "type": "rust",
+          "background": "#bdbdbd",
+          "foreground": "#193549",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+            "prefix": "  "
+          }
+        },
+        {
           "type": "executiontime",
           "background": "#ff5e00",
           "foreground": "#000000",
