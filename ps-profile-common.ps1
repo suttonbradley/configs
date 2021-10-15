@@ -1,5 +1,4 @@
 # ----- PROMPT SETUP -----
-Import-Module posh-git
 Import-Module oh-my-posh
 Set-PoshPrompt -Theme $env:USERPROFILE\code\configs\sutton.omp.json
 

@@ -5,37 +5,25 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "path",
           "background": "#E36464",
           "foreground": "#fff",
+          "style": "diamond",
           "leading_diamond": "",
           "trailing_diamond": "",
           "properties": {
             "postfix": " ",
             "prefix": " ",
             "style": "full"
-          },
-          "style": "diamond",
-          "type": "path"
-        },
-        {
-          "background": "lightMagenta",
-          "foreground": "#fff",
-          "leading_diamond": "",
-          "trailing_diamond": "",
-          "properties": {
-            "postfix": " ",
-            "prefix": " ",
-            "time_format": "15:04"
-          },
-          "style": "diamond",
-          "type": "time"
+          }
         },
         {
           "type": "git",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b0",
-          "foreground": "#100e23",
           "background": "#95ffa4",
+          "foreground": "#100e23",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
           "properties": {
             "branch_identical_icon": "\u2261",
             "cherry_pick_icon": "\u2713 ",
@@ -56,11 +44,40 @@
           }
         },
         {
+          "type": "time",
+          "background": "lightMagenta",
+          "foreground": "#fff",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+            "postfix": " ",
+            "prefix": " ",
+            "time_format": "15:04"
+          }
+        },
+        {
+          "type": "exit",
+          "background": "#2e9599",
+          "foreground": "#ffffff",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+              "always_enabled": true,
+              "color_background": true,
+              "display_exit_code": false,
+              "error_color": "#f1184c",
+              "prefix": " "
+          }
+        },
+        {
           "type": "executiontime",
-          "style": "powerline",
-          "powerline_symbol": "\uE0B0",
+          "background": "#ff5e00",
           "foreground": "#000000",
-          "background": "lightCyan",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
           "properties": {
             "threshold": 1000,
             "style": "austin",
