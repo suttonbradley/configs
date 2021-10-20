@@ -3,21 +3,21 @@ Import-Module oh-my-posh
 Set-PoshPrompt -Theme $env:USERPROFILE\code\configs\sutton.omp.json
 
 # Install modules
-if((Get-Module PSReadLine).Version.ToString() -ne "2.2.0") {
-    Install-Module PSReadLine -RequiredVersion 2.2.0-beta1 -AllowPrerelease -AllowClobber -Force
-}
-if(!(Get-Module z)) {
-    Install-Module z -Force
-}
+# if((Get-Module PSReadLine).Version.ToString() -ne "2.2.0") {
+#     Install-Module PSReadLine -RequiredVersion 2.2.0-beta1 -AllowPrerelease -AllowClobber -Force
+# }
+# if(!(Get-Module z)) {
+#     Install-Module z -Force
+# }
+
+# Override "cd" with "z"
+# FIXME z doesn't complete as normal with aliasing
+# Remove-Alias cd -ErrorAction SilentlyContinue; Set-Alias -Name cd -Value z -Scope Global
 
 # Set PSReadLine history options
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -EditMode Windows
-
-# Override "cd" with "z"
-# FIXME z doesn't complete as normal with aliasing
-# Remove-Alias cd -ErrorAction SilentlyContinue; Set-Alias -Name cd -Value z -Scope Global
 
 function Show-PoshThemes {
     Get-ChildItem -Path "$env:USERPROFILE\AppData\Local\Programs\oh-my-posh\themes\*" -Include '*.omp.json' | Sort-Object Name | ForEach-Object -Process {
