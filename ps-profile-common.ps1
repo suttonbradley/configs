@@ -6,13 +6,16 @@ Set-PoshPrompt -Theme $env:USERPROFILE\code\configs\sutton.omp.json
 # if((Get-Module PSReadLine).Version.ToString() -ne "2.2.0") {
 #     Install-Module PSReadLine -RequiredVersion 2.2.0-beta1 -AllowPrerelease -AllowClobber -Force
 # }
-# if(!(Get-Module z)) {
-#     Install-Module z -Force
-# }
 
-# Override "cd" with "z"
-# FIXME z doesn't complete as normal with aliasing
-# Remove-Alias cd -ErrorAction SilentlyContinue; Set-Alias -Name cd -Value z -Scope Global
+# Add zoxide (https://github.com/ajeetdsouza/zoxide)
+if(!(Get-Command zoxide)) {
+    cargo install zoxide --locked
+}
+# Hook zoxide and replace cd with it
+Invoke-Expression (& {
+    $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
+    (zoxide init --cmd cd --hook $hook powershell) -join "`n"
+})
 
 # Set PSReadLine history options
 Set-PSReadLineOption -PredictionSource History
