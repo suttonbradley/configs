@@ -3,9 +3,8 @@ Import-Module oh-my-posh
 Set-PoshPrompt -Theme $env:USERPROFILE\code\configs\sutton.omp.json
 
 # Install modules
-# if((Get-Module PSReadLine).Version.ToString() -ne "2.2.0") {
-#     Install-Module PSReadLine -RequiredVersion 2.2.0-beta1 -AllowPrerelease -AllowClobber -Force
-# }
+# To install PSReadLine:
+#     Install-Module PSReadLine -AllowPrerelease -AllowClobber -Force
 
 # Add zoxide (https://github.com/ajeetdsouza/zoxide)
 if(!(Get-Command zoxide)) {
