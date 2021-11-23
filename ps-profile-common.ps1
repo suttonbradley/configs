@@ -6,8 +6,19 @@ Set-PoshPrompt -Theme $env:USERPROFILE\code\configs\sutton.omp.json
 # To install PSReadLine:
 #     Install-Module PSReadLine -AllowPrerelease -AllowClobber -Force
 
+# Add git-delta
+if(!(Get-Command delta -ErrorAction Ignore)) {
+    Write-Host "git-delta not found. Installing..."
+    cargo install git-delta
+}
+# Add ripgrep
+if(!(Get-Command rg -ErrorAction Ignore)) {
+    Write-Host "ripgrep not found. Installing..."
+    cargo install ripgrep
+}
 # Add zoxide (https://github.com/ajeetdsouza/zoxide)
-if(!(Get-Command zoxide)) {
+if(!(Get-Command zoxide -ErrorAction Ignore)) {
+    Write-Host "zoxide not found. Installing..."
     cargo install zoxide --locked
 }
 # Hook zoxide and replace cd with it
