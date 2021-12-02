@@ -141,4 +141,12 @@ function grb {
 
 
 # ----- MISC ALIASES -----
-function hist { param ([int]$num=25 ) Get-Content -Last $num (Get-PSReadlineOption).HistorySavePath }
+function hist { param ([int]$num=25 ) Get-Content -Tail $num (Get-PSReadlineOption).HistorySavePath }
+
+function tail {
+    param (
+        [string]$file,
+        [int]$tail_num=0
+    )
+    Get-Content -Tail $tail_num -Wait $file
+}
