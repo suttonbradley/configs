@@ -16,6 +16,10 @@ if(!(Get-Command rg -ErrorAction Ignore)) {
     Write-Host "ripgrep not found. Installing..."
     cargo install ripgrep
 }
+if(!(Get-Command cork -ErrorAction Ignore)) {
+    Write-Host "cork not found. Installing..."
+    cargo install cork
+}
 # Add zoxide (https://github.com/ajeetdsouza/zoxide)
 if(!(Get-Command zoxide -ErrorAction Ignore)) {
     Write-Host "zoxide not found. Installing..."
