@@ -89,6 +89,7 @@ function gcp { git checkout -p $args }
 function gcn { git checkout -b $args }
 function gpu { git push }
 function gpuu { git push -u origin (git branch --show-current) }
+function gpuf { git push -f }
 function gpl { git pull }
 function glo { git log $args }
 function gb { git branch }
