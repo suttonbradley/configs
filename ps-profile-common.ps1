@@ -1,10 +1,17 @@
 # ----- PROMPT SETUP -----
-Import-Module oh-my-posh
-Set-PoshPrompt -Theme $env:USERPROFILE\code\configs\sutton.omp.json
+# Import PSReadLine
+Import-Module PSReadLine
 
-# Install modules
-# To install PSReadLine:
-#     Install-Module PSReadLine -AllowPrerelease -AllowClobber -Force
+# List oh-my-posh install, install it if not already, upgrade it otherwise
+$omp_install = winget list --id JanDeDobbeleer.OhMyPosh
+if($lastexitcode -lt 0) {
+    Write-Host "Installing oh-my-posh. Remove old PS module installs!"
+    winget install JanDeDobbeleer.OhMyPosh
+} else {
+    Write-Host "Upgrading oh-my-posh..."
+    winget upgrade JanDeDobbeleer.OhMyPosh
+}
+oh-my-posh init pwsh --config $env:USERPROFILE\code\configs\sutton.omp.json | Invoke-Expression
 
 # Add git-delta
 if(!(Get-Command delta -ErrorAction Ignore)) {
