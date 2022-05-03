@@ -7,9 +7,6 @@ $omp_install = winget list --id JanDeDobbeleer.OhMyPosh
 if($lastexitcode -lt 0) {
     Write-Host "Installing oh-my-posh. Remove old PS module installs!"
     winget install JanDeDobbeleer.OhMyPosh
-} else {
-    Write-Host "Upgrading oh-my-posh..."
-    winget upgrade JanDeDobbeleer.OhMyPosh
 }
 oh-my-posh init pwsh --config $env:USERPROFILE\code\configs\sutton.omp.json | Invoke-Expression
 
