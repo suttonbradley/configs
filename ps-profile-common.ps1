@@ -42,7 +42,7 @@ Invoke-Expression (& {
 })
 
 # Adjust path
-$env:PATH += ";C:\Program Files\CMake\bin\;"
+$env:PATH += ";C:\Program Files\CMake\bin\;C:\Program Files\Vim\vim82;"
 
 # Set PSReadLine history options
 Set-PSReadLineOption -PredictionSource History
