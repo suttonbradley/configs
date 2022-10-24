@@ -72,17 +72,6 @@ function Open-MyPs {
     code $env:USERPROFILE\code\configs\ps-profile-common.ps1
 }
 
-# Update prompt
-function upd-pro {
-    # Pull new code
-    pushd $env:USERPROFILE\code\configs
-    git pull | Out-Null
-    popd
-
-    # Reload profile, don't call update again
-    . $profile -no_update
-}
-
 # ----- GIT ALIASES -----
 function gs { git status $args }
 function gd { git diff $args }
