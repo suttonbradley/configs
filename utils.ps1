@@ -49,7 +49,8 @@ function gmb {
         [string]$rev_one="main",
         [string]$rev_two=(git branch --show-current)
     )
-    Write-Host "Common ancestor between $rev_one and ${rev_two}: $(git merge-base $rev_one $rev_two)"
+    Write-Host "Common ancestor between $rev_one and ${rev_two}:"
+    return (git merge-base $rev_one $rev_two)
 }
 
 # Aliases for deleting local and remote branches

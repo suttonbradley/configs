@@ -6,9 +6,7 @@
 
 # Pull any updates
 Write-Host "Pulling profile updates..."
-pushd $env:USERPROFILE\code\configs
-git pull | Out-Null
-popd
+git -C $env:USERPROFILE\code\configs pull | Out-Null
 
 # Set up prompt
 Write-Host "Configuring prompt..."
