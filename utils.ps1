@@ -43,12 +43,19 @@ function glo { git log $args }
 function gb { git branch }
 function gcom { param ([Parameter(Mandatory)] [string]$msg)git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg)git commit -am $msg }
-function gas { git add * }
+
+function gmb {
+    param (
+        [string]$rev_one="main",
+        [string]$rev_two=(git branch --show-current)
+    )
+    Write-Host "Common ancestor between $rev_one and ${rev_two}: $(git merge-base $rev_one $rev_two)"
+}
 
 # Aliases for deleting local and remote branches
 function gdrb {
     param (
-        [string]$branchName=(git branch --show-current)
+        [Parameter(Mandatory)] [string]$branchName
     )
     Write-Host "Deleting remote branch $branchName..."
     git push --delete origin $branchName
@@ -56,7 +63,7 @@ function gdrb {
 
 function gdlb {
     param (
-        [string]$branchName
+        [Parameter(Mandatory)] [string]$branchName
     )
     Write-Host "Deleting local branch  $branchName..."
     git branch -D $branchName
@@ -64,17 +71,16 @@ function gdlb {
 
 function gdb {
     param (
-        [string]$branchName
+        [Parameter(Mandatory)] [string]$branchName
     )
     gdrb $branchName
     gdlb $branchName
 }
 
-
 # Aliases for renaming local and remote branches
 function grrb {
     param (
-        [string]$branchName
+        [Parameter(Mandatory)] [string]$branchName
     )
     Write-Host "Renaming remote branch..."
     $oldBranch = git branch --show-current
@@ -83,7 +89,7 @@ function grrb {
 
 function grlb {
     param (
-        [string]$branchName
+        [Parameter(Mandatory)] [string]$branchName
     )
     Write-Host "Renaming local branch..."
     git branch -m $branchName
@@ -92,7 +98,7 @@ function grlb {
 
 function grb {
     param (
-        [string]$branchName
+        [Parameter(Mandatory)] [string]$branchName
     )
     grrb $branchName
     grlb  $branchName
@@ -104,8 +110,15 @@ function hist { param ([int]$num=25 ) Get-Content -Tail $num (Get-PSReadlineOpti
 
 function tail {
     param (
-        [string]$file,
+        [Parameter(Mandatory)] [string]$file,
         [int]$tail_num=0
     )
     Get-Content -Tail $tail_num -Wait $file
+}
+
+function rmrf {
+    param (
+        [string]$dir
+    )
+    Remove-Item -force -recurse $dir
 }
