@@ -18,6 +18,9 @@ setopt APPEND_HISTORY
 # never beep
 setopt NO_BEEP
 
+# Better tab completion
+autoload -Uz compinit && compinit
+
 # oh-my-posh setup
 eval "$(oh-my-posh init zsh --config ~/code/configs/sutton.omp.json)"
 
