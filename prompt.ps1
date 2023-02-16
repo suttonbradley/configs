@@ -4,6 +4,15 @@
 # Import PSReadLine
 Import-Module PSReadLine
 
+# Ignore commands that start with space
+Set-PSReadLineOption -AddToHistoryHandler {
+    param($command)
+    if ($command -like ' *') {
+        return $false
+    }
+    return $true
+}
+
 # List oh-my-posh install, install it if not already, upgrade it otherwise
 winget list --id JanDeDobbeleer.OhMyPosh | Out-Null
 if($lastexitcode -lt 0) {
