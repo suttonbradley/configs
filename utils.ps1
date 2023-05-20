@@ -24,6 +24,10 @@ function Open-MyPs {
     code $env:USERPROFILE\code\configs\ps-profile-common.ps1
 }
 
+function Get-HistPath {
+    return (Get-PSReadlineOption).HistorySavePath
+}
+
 # ----- GIT ALIASES -----
 function gs { git status $args }
 function gd { git diff $args }
