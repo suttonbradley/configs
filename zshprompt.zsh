@@ -39,6 +39,13 @@ if [ $? -ne 0 ]; then
     cargo install ripgrep
 fi
 
+# Add ripgrep
+which fd > /dev/null
+if [ $? -ne 0 ]; then
+    echo "fd not found. Installling..."
+    cargo install fd-find
+fi
+
 # Add cork
 which cork > /dev/null
 if [ $? -ne 0 ]; then
