@@ -45,8 +45,9 @@ function gpuf { git push -f }
 function gpl { git pull }
 function glo { git log $args }
 function gb { git branch }
-function gcom { param ([Parameter(Mandatory)] [string]$msg)git commit -m $msg }
-function gcam { param ([Parameter(Mandatory)] [string]$msg)git commit -am $msg }
+function gbs { param ([Parameter(Mandatory)] [string]$search) git branch --list "*$search*" --format='%(refname:short)' } # git branch search
+function gcom { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
+function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
 
 function gmb {
     param (
