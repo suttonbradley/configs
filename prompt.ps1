@@ -36,6 +36,12 @@ if(!(Get-Command fd -ErrorAction Ignore)) {
     Write-Host "fd not found. Installing..."
     cargo install fd-find
 }
+# Add sccache and set RUSTC_WRAPPER to use it
+if(!(Get-Command sccache -ErrorAction Ignore)) {
+    Write-Host "fd not found. Installing..."
+    cargo install sccache
+}
+$env:RUSTC_WRAPPER="sccache"
 # Add cork
 if(!(Get-Command cork -ErrorAction Ignore)) {
     Write-Host "cork not found. Installing..."
