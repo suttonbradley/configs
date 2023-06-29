@@ -128,3 +128,6 @@ function rmrf {
     )
     Remove-Item -force -recurse $dir
 }
+
+# Alias code-insiders to codei
+function codei { code-insiders $args }
