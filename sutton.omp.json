@@ -63,15 +63,15 @@
           "trailing_diamond": "\ue0c6",
           "type": "exit"
         },
-        {
-          "background": "#bdbdbd",
-          "foreground": "#193549",
-          "leading_diamond": "\ue0c7",
-          "style": "diamond",
-          "template": " \ue7a8 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
-          "trailing_diamond": "\ue0c6",
-          "type": "rust"
-        },
+        // {
+        //   "background": "#bdbdbd",
+        //   "foreground": "#193549",
+        //   "leading_diamond": "\ue0c7",
+        //   "style": "diamond",
+        //   "template": " \ue7a8 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
+        //   "trailing_diamond": "\ue0c6",
+        //   "type": "rust"
+        // },
         {
           "background": "#ff5e00",
           "foreground": "#000000",
