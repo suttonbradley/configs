@@ -119,7 +119,11 @@ function tail {
         [Parameter(Mandatory)] [string]$file,
         [int]$tail_num=0
     )
-    Get-Content -Tail $tail_num -Wait $file
+    if($tail_num -eq 0) {
+        Get-Content $file -Tail $tail_num -Wait
+    } else {
+        Get-Content $file -Tail $tail_num
+    }
 }
 
 function rmrf {
