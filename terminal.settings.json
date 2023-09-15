@@ -12,6 +12,14 @@
             "keys": "ctrl+c"
         },
         {
+            "command": "unbound",
+            "keys": "alt+f4"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+f"
+        },
+        {
             "command": "paste",
             "keys": "ctrl+v"
         },
@@ -25,43 +33,29 @@
             "keys": "alt+shift+d"
         },
         {
-            "command": "unbound",
-            "keys": "alt+f4"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "command": "closeWindow",
             "keys": "ctrl+shift+w"
         },
         {
-            "command": "closePane",
-            "keys": "ctrl+w"
-        },
-        {
             "command": "find",
             "keys": "ctrl+f"
+        },
+        {
+            "command": "closePane",
+            "keys": "ctrl+w"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "firstWindowPreference": "persistedWindowLayout",
-    "newTabMenu": 
-    [
-        {
-            "type": "remainingProfiles"
-        }
-    ],
     "profiles": 
     {
         "defaults": 
         {
             "font": 
             {
-                "face": "CaskaydiaCove NF"
+                "face": "CaskaydiaCove Nerd Font"
             },
             "startingDirectory": "%USERPROFILE%\\code"
         },
@@ -88,7 +82,6 @@
             {
                 "colorScheme": "Campbell",
                 "commandline": "\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\"",
-                "elevate": true,
                 "guid": "{16712d8b-5a27-4972-8126-1866c2aa6684}",
                 "hidden": false,
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
@@ -101,10 +94,9 @@
                 "colorScheme": "Campbell",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "cursorShape": "bar",
-                "elevate": true,
                 "font": 
                 {
-                    "size": 12.0
+                    "size": 12
                 },
                 "guid": "{95afa036-0fc9-437f-acdd-055f58abd90a}",
                 "hidden": false,
@@ -116,22 +108,22 @@
                 "useAcrylic": false
             },
             {
-                "guid": "{ed70dd33-f2a4-54b7-978c-8b888ec1030d}",
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{6e1f9720-1ff8-5dac-aedd-cdbc32cf15da}",
                 "hidden": false,
                 "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{3636fb20-e9d0-5105-9608-dd185e5f9836}",
+                "guid": "{52f824b5-2854-55be-a586-775315e32fd6}",
                 "hidden": false,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
             }
         ]
     },
@@ -343,51 +335,6 @@
             "selectionBackground": "#FFFFFF",
             "white": "#C0C0C0",
             "yellow": "#808000"
-        }
-    ],
-    "themes": 
-    [
-        {
-            "name": "legacyDark",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "dark",
-                "useMica": false
-            }
-        },
-        {
-            "name": "legacyLight",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "light",
-                "useMica": false
-            }
-        },
-        {
-            "name": "legacySystem",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "system",
-                "useMica": false
-            }
         }
     ]
 }
