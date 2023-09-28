@@ -7,8 +7,8 @@ Import-Module PSReadLine
 # Ignore commands that start with space
 Set-PSReadLineOption -AddToHistoryHandler {
     param($command)
-    $like_ignore_list = @(" *", "gcam *")
-    foreach($ignore_command in $like_ignore_list) {
+    $ignore_commands_regex = @(" *", "gcam *", "gdb *", "gdrb *", "gdlb *")
+    foreach($ignore_command in $ignore_commands_regex) {
         if($command -like $ignore_command) {
             return $false
         }
