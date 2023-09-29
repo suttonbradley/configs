@@ -45,9 +45,21 @@ function gpuf { git push -f }
 function gpl { git pull }
 function glo { git log $args }
 function gb { git branch }
-function gbs { param ([Parameter(Mandatory)] [string]$search) git branch --list "*$search*" --format='%(refname:short)' } # git branch search
 function gcom { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
+
+function gbs {
+    param (
+        [Parameter(Mandatory)]
+        [string]$search,
+        [Alias('r')]
+        [switch]$remote
+    )
+
+    $remote_arg = $remote ? "-r" : "" # Pass this switch on
+    # Search git branches for anything containing the search (regex "*<search>*")
+    git branch --list "*$search*" --format='%(refname:short)' $remote_arg
+}
 
 function gmb {
     param (
