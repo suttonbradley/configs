@@ -1,0 +1,23 @@
+# Add the following to the espanso file at $env:userprofile\AppData\Roaming\espanso\match\base.yml
+
+# --- Windows ---
+# Import from shared config
+# imports:
+#   - "C:\\Users\\<USER>\\code\\configs\\espanso.yaml"
+# --- Mac ---
+# Import from shared config
+# imports:
+#   - "~/code/configs/espanso.yaml"
+
+matches:
+  # Print the current date
+  - trigger: "/date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  - trigger: "/shrug"
+    replace: "¯\\_(ツ)_/¯"
