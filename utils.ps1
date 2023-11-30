@@ -28,6 +28,32 @@ function Get-HistPath {
     return (Get-PSReadlineOption).HistorySavePath
 }
 
+# Executes the command following it and notifies when complete
+# Usage: `notif <command>`, e.g. `notif git push -f`
+function notif {
+    if($args) {
+        $args_string = $args -Join " "
+        Invoke-Expression $args_string
+    } else {
+        $args_string = ""
+    }
+
+    New-BurntToastNotification -Text "Command completed", $args_string
+}
+
+# Brings up a notification with the message parameter(s)
+# Usage: `<command> && notif-msg "Success" || notif-msg "Failure"
+function notif-msg {
+    param (
+        [Parameter(Mandatory, Position=0)]
+        $header,
+        [Parameter(Position=1)]
+        $footer=""
+    )
+
+    New-BurntToastNotification -Text $header, $footer
+}
+
 # ----- GIT ALIASES -----
 function gs { git status $args }
 function gd { git diff $args }
