@@ -24,6 +24,10 @@ if($lastexitcode -lt 0) {
 }
 oh-my-posh init pwsh --config $env:USERPROFILE\code\configs\sutton.omp.json | Invoke-Expression
 
+# Enable posh git to get branch auto-complete
+Install-Module posh-git
+$env:POSH_GIT_ENABLED = $true
+
 # Add git-delta
 if(!(Get-Command delta -ErrorAction Ignore)) {
     Write-Host "git-delta not found. Installing..."
