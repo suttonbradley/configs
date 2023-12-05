@@ -45,7 +45,7 @@ if(!(Get-Command fd -ErrorAction Ignore)) {
 }
 # Add sccache and set RUSTC_WRAPPER to use it
 if(!(Get-Command sccache -ErrorAction Ignore)) {
-    Write-Host "fd not found. Installing..."
+    Write-Host "sccache not found. Installing..."
     cargo install sccache
 }
 $env:RUSTC_WRAPPER="sccache"
