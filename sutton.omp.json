@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "pwd": "osc99", // https://github.com/JanDeDobbeleer/oh-my-posh/discussions/1532
+  "pwd": "osc99", // Set Windows terminal to remember dirs on session restore: https://github.com/JanDeDobbeleer/oh-my-posh/discussions/1532
   "blocks": [
     {
       "alignment": "left",
