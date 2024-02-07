@@ -10,13 +10,13 @@ git -C ~/code/configs pull > /dev/null
 
 # Import env
 echo "Importing env..."
-. ~/code/configs/zshenv.zsh
+. ~/code/configs/zsh/zshenv.zsh
 
 # Set up prompt
 echo "Configuring prompt..."
-. ~/code/configs/zshprompt.zsh
+. ~/code/configs/zsh/zshprompt.zsh
 
 # Import utils
 echo "Importing utils..."
-. ~/code/configs/zshutils.zsh
+. ~/code/configs/zsh/zshutils.zsh
 # ------------------------------------------

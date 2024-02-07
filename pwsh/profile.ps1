@@ -6,7 +6,7 @@
 
 # Pull any updates
 Write-Host "Pulling profile updates..."
-git -C $env:USERPROFILE\code\configs\pwsh pull | Out-Null
+git -C $env:USERPROFILE\code\configs pull | Out-Null
 
 # Set up prompt
 Write-Host "Configuring prompt..."
