@@ -1,5 +1,3 @@
-source ~/.oh-my-posh.nu # Generate this per-machine with: `oh-my-posh init nu --config ~/code/configs/sutton.omp.json`
-
 # TODO: fix, Github issue here: https://github.com/ajeetdsouza/zoxide/issues/681
 # source ~/.zoxide.nu # Generate this per-machine with: `zoxide init nushell | save -f ~/.zoxide.nu`
 
