@@ -53,8 +53,18 @@ def gmb [
 
 # ----- Branch deletion/renaming -----
 
-alias gdrb = git push --delete origin # Delete remote branch
-alias gdlb = git branch -D # Delete local branch
+# Delete remote branch
+def gdrb [
+    branchName: string@"nu-complete git local branches" # TODO: fix
+] {
+    git push --delete origin $branchName
+}
+# Delete local branch
+def gdlb [
+    branchName: string@"nu-complete git local branches"
+] {
+    git branch -D $branchName
+}
 
 # Delete local and remote branch
 def gdb [
