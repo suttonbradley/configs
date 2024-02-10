@@ -5,8 +5,8 @@
 # Copy the next line into $nu.config-path (or just do `config nu`):
 #   source ~\code\configs\nu\shim.nu
 
-echo "Pulling profile updates..."
-git -C ($env.USERPROFILE | path join "code/configs") pull | null
+# Pull configs (this file should just source other files so that changes can be pulled here)
+git -C ~/code/configs pull | null
 
 # Completions
 source ./custom-completions/cargo/cargo-completions.nu

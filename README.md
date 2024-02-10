@@ -19,7 +19,7 @@ These are my configurations for terminals/shells and other dev environment thing
     - [nushell only] Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu` (source'ing is taken care of in [config.nu from this repo](./nu/config.nu))
 - Use the common profile:
   - For nushell:
-    - `config nu` then replace contents with `source ~\code\configs\nu\shim.nu`
-    - `config env` then replace contents with `source ~\code\configs\nu\env.nu`
+    - `config nu` then replace contents with `source ~/code/configs/nu/shim.nu`
+    - `config env` then replace contents with `source ~/code/configs/nu/env.nu`
   - For powershell, `code $profile` then paste `. $env:USERPROFILE\code\configs\pwsh\profile.ps1`
   - For zsh, copy this into your `.zshrc`: `. ~/code/configs/zshrc.zsh`
