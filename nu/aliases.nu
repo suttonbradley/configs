@@ -24,20 +24,6 @@ alias gb = git branch
 alias gcom = git commit -am
 alias gcam = git commit -am
 
-# TODO: re-implement this branch search from powershell
-# function gbs {
-#     param (
-#         [Parameter(Mandatory)]
-#         [string]$search,
-#         [Alias('r')]
-#         [switch]$remote
-#     )
-
-#     $remote_arg = $remote ? "-r" : "" # Pass this switch on
-#     # Search git branches for anything containing the search (regex "*<search>*")
-#     git branch --list "*$search*" --format='%(refname:short)' $remote_arg
-# }
-
 # Find the last common ancestor of two refs
 def gmb [
     rev_one?: string@"nu-complete git local branches" = "main"
