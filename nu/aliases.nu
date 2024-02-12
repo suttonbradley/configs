@@ -1,7 +1,29 @@
 alias cat = open
-alias cd = z
 if (platform_is_windows) {
     def where [exe: string] { pwsh -NoProfile -c $"Get-Command ($exe)" }
+}
+    
+# ---------- dir changes ----------
+# NOTE: $env.DIRS_LIST is used by nushell to track w.r.t. enter/exit commands
+
+alias cd = z
+
+# Alias for "enter" but use zoxide for matching to common dirs.
+# The "def --env" is needed for doing these ops *in the current environment*,
+# rather than cd'ing in the function and then returning to original dir in the scope above.
+def --env e [dir: string] {
+    if ($dir | path exists) {
+        # Literal path exists, go to it
+        enter $dir
+    } else {
+        # Try to use zoxide, printing but otherwise no-op'ing if unsuccessful
+        let res = zoxide query -l $dir | lines
+        if not ($res | is-empty) {
+            enter $res.0
+        } else {
+            echo $"no match for \"($dir)\""
+        }
+    }
 }
 
 # ---------- git aliases ----------
