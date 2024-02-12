@@ -1,5 +1,4 @@
 alias cat = open
-def ssh-d [] { ssh sutton_desktop.corp.microsoft.com }
 if (platform_is_windows) {
     def where [exe: string] { pwsh -NoProfile -c $"Get-Command ($exe)" }
 }
