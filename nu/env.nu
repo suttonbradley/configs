@@ -1,6 +1,6 @@
 # MY NU ENV
 # Copy the next line into $nu.config-path (or just do `config env`):
-#   source ~\code\configs\nu\env.nu
+#   source ~/code/configs/nu/env.nu
 
 $env.config = {} # make config empty record so oh-my-posh.nu upsert doesn't fail
 source ~/.oh-my-posh.nu # Generate this per-machine with: `oh-my-posh init nu --config ~/code/configs/sutton.omp.json`
