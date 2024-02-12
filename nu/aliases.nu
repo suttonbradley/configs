@@ -1,4 +1,5 @@
 alias cat = open
+alias cd = z
 if (platform_is_windows) {
     def where [exe: string] { pwsh -NoProfile -c $"Get-Command ($exe)" }
 }
