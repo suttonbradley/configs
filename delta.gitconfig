@@ -1,6 +1,7 @@
 # Do the following command and paste the config below:
 # git config --global --edit
 
+# ----- git-delta config -----
 [pager]
     diff = delta
     log = delta
@@ -26,3 +27,4 @@
     hunk-header-file-style = red
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
+# ----------------------------
