@@ -44,7 +44,7 @@ alias gpuf = git push -f
 alias gpl = git pull
 alias glo = git log
 alias gb = git branch
-alias gcom = git commit -am
+alias gcom = git commit -m
 alias gcam = git commit -am
 
 # Find the last common ancestor of two refs
