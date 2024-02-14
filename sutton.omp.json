@@ -11,9 +11,11 @@
           "style": "powerline",
           "foreground": "#ffffff",
           "background": "#6546ac",
+          // For showing shell version
+          // "template": "{{.Version}}",
           "properties": {
             "mapped_shell_names": {
-              "pwsh": "ps" // Covers powershell 5 and 7
+              "pwsh": "ps" // "pwsh" includes powershell 5 and 7
             }
           }
         },
