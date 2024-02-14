@@ -24,50 +24,6 @@ autoload -Uz compinit && compinit
 # oh-my-posh setup
 eval "$(oh-my-posh init zsh --config ~/code/configs/sutton.omp.json)"
 
-# ----- Cargo installs -----
-# Add git-delta
-which delta > /dev/null
-if [ $? -ne 0 ]; then
-    echo "git-delta not found. Installling..."
-    cargo install git-delta
-fi
-
-# Add ripgrep
-which rg > /dev/null
-if [ $? -ne 0 ]; then
-    echo "ripgrep not found. Installling..."
-    cargo install ripgrep
-fi
-
-# Add ripgrep
-which fd > /dev/null
-if [ $? -ne 0 ]; then
-    echo "fd not found. Installling..."
-    cargo install fd-find
-fi
-
-# Add cork
-which cork > /dev/null
-if [ $? -ne 0 ]; then
-    echo "cork not found. Installling..."
-    cargo install cork
-fi
-
-# Add tokei
-which tokei > /dev/null
-if [ $? -ne 0 ]; then
-    echo "tokei not found. Installling..."
-    cargo install tokei
-fi
-
-# Add zoxide
-which zoxide > /dev/null
-if [ $? -ne 0 ]; then
-    echo "zoxide not found. Installling..."
-    cargo install zoxide --locked
-fi
-# ------------------------------
-
 # Install fzf for zoxide
 which fzf > /dev/null
 if [ $? -ne 0 ]; then

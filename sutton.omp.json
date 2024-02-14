@@ -13,7 +13,7 @@
           "background": "#6546ac",
           "properties": {
             "mapped_shell_names": {
-              "pwsh": "PS"
+              "pwsh": "ps" // Covers powershell 5 and 7
             }
           }
         },
