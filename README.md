@@ -5,7 +5,6 @@ These are my configurations for terminals/shells and other dev environment thing
 ## Installs for all shells
 - `oh-my-posh`
     - [Install](https://ohmyposh.dev/docs/installation/windows)
-    - Generate nu script (saved to `~/.oh-my-posh.nu`) by doing `oh-my-posh init nu --config ~/code/configs/sutton.omp.json`
 - Cargo-installable utils
     ```
     cargo install git-delta
@@ -22,7 +21,8 @@ These are my configurations for terminals/shells and other dev environment thing
 - Get posh-git for git auto-completion: `Install-Module posh-git`
 
 ### nushell-specific
-Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu` (source'ing is taken care of in [config.nu from this repo](./nu/config.nu))
+- Generate nu script (saved to `~/.oh-my-posh.nu`) by doing `oh-my-posh init nu --config ~/code/configs/sutton.omp.json`
+- Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu` (source'ing is taken care of in [config.nu from this repo](./nu/config.nu))
 
 ## Using the configs/profiles in this repo
 ### nushell
