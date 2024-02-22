@@ -2,7 +2,12 @@ alias cat = open
 if (platform_is_windows) {
     def where [exe: string] { pwsh -NoProfile -c $"Get-Command ($exe)" }
 }
-    
+
+# Sorted ripgrep for aliases that process ripgrep output.
+# Include line numbers in ACTUAL ripgrep output (normally doesn't go through pipe)
+# https://github.com/BurntSushi/ripgrep/issues/796
+alias rgs = rg -n --sort-files
+
 # ---------- dir changes ----------
 # NOTE: $env.DIRS_LIST is used by nushell to track w.r.t. enter/exit commands
 

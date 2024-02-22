@@ -20,5 +20,6 @@ source ./config.nu
 source ./default-config.nu
 source ./aliases.nu
 source ./sourcebat.nu
+source ./ripgrep-open.nu
 
 # ------------------------------------------
