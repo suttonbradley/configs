@@ -18,5 +18,3 @@ if not (platform_is_macos) {
 if (platform_is_windows) {
     $env.Path = $env.Path | append ';C:\Program Files\CMake\bin\;C:\Program Files\Vim\vim82' | append ($env.LOCALAPPDATA | path join "VPack")
 }
-
-source ./sourcebat.nu
