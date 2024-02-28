@@ -1,4 +1,4 @@
-# Add the following to the espanso file at $env:userprofile\AppData\Roaming\espanso\match\base.yml
+# Add the following to the espanso file at ~\AppData\Roaming\espanso\match\base.yml
 
 # --- Windows ---
 # Import from shared config
