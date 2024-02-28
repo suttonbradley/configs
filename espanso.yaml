@@ -21,3 +21,17 @@ matches:
 
   - trigger: "/shrug"
     replace: "¯\\_(ツ)_/¯"
+
+  # Copied link
+  - trigger: "/l/"
+    replace: "[]({{clip}})"
+    vars:
+      - name: "clip"
+        type: "clipboard"
+
+  # Copied link w/ hyperlink text
+  - regex: "/l(?P<desc>[^/]+)/"
+    replace: "[{{desc}}]({{clip}})"
+    vars:
+      - name: "clip"
+        type: "clipboard"
