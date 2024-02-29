@@ -1,6 +1,28 @@
 # This script consists of functions and aliases that can be reused.
 # Importing it should not run any code.
 
+function Enter-DevPowershell {
+    # Find vswhere
+    $vswhere_path = "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
+    if(!(Test-Path $vswhere_path)) {
+        Write-Host "ERROR: Could not find vswhere at `"$vswhere_path`""
+        return
+    }
+
+    # Find vs dev shell powershell script
+    $version_range = "[16.7.2, 18.0)"
+    $vs_devshell_rel = "Common7\Tools\Launch-VsDevShell.ps1"
+    $vs_devshell_abs = & $vswhere_path -nologo -latest -products 'Microsoft.VisualStudio.Product.BuildTools' -version $version_range `
+        -products Microsoft.VisualStudio.Product.Enterprise Microsoft.VisualStudio.Product.BuildTools `
+        -find $vs_devshell_rel
+    if($null -eq $vs_devshell_abs) {
+        Write-Host "ERROR: Could not find `"$vs_devshell_rel`" in VS install matching version range `"$version_range`""
+        return
+    }
+
+    & $vs_devshell_abs
+}
+
 function Show-PoshThemes {
     Get-ChildItem -Path "$env:USERPROFILE\AppData\Local\Programs\oh-my-posh\themes\*" -Include '*.omp.json' | Sort-Object Name | ForEach-Object -Process {
         $esc = [char]27
