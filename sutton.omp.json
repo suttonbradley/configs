@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "pwd": "osc99", // Set Windows terminal to remember dirs on session restore: https://github.com/JanDeDobbeleer/oh-my-posh/discussions/1532
+  "pwd": "osc99",
   "blocks": [
     {
       "alignment": "left",
@@ -19,11 +19,9 @@
           "style": "powerline",
           "foreground": "#ffffff",
           "background": "#6546ac",
-          // For showing shell version
-          // "template": "{{.Version}}",
           "properties": {
             "mapped_shell_names": {
-              "pwsh": "ps" // "pwsh" includes powershell 5 and 7
+              "pwsh": "ps"
             }
           }
         },
@@ -54,7 +52,6 @@
             "tag_icon": "\u25b6 "
           },
           "style": "powerline",
-          // "template": " {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }}{{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} \u2502{{ end }}{{ if .Staging.Changed }}\u21d1{{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}}{{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
           "type": "git"
         },
         {
