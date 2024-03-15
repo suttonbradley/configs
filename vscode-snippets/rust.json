@@ -1,0 +1,21 @@
+{
+	"impl Widget + WidgetRef": {
+		"prefix": ["impl Widget", "Widget"],
+		"body": ["impl Widget for $1 {",
+			"\tfn render(self, area: Rect, buf: &mut Buffer)",
+			"\twhere",
+			"\t\tSelf: Sized,",
+			"\t{",
+			"\t\tself.render_ref(area, buf);",
+			"\t}",
+			"}",
+			"",
+			"impl WidgetRef for $1 {",
+			"\tfn render_ref(&self, area: Rect, buf: &mut Buffer) {",
+			"\t\t",
+			"\t}",
+			"}"
+		],
+		"description": "ratitui Widget + WidgetRef template"
+	}
+}
