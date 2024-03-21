@@ -79,12 +79,13 @@ function notif-msg {
 # ----- GIT ALIASES -----
 function gs { git status $args }
 function gd { git diff $args }
+function gdm { git diff --merge-base $args }
 function gdn { git diff --name-only $args }
 function gg { git log }
 function ga { git add $args }
 function gau { git add -u $args }
 function gap { git add -p $args }
-function gco { git checkout $args }
+function gc { git checkout $args }
 function gcp { git checkout -p $args }
 function gcn { git checkout -b $args }
 function gpu { git push }
@@ -95,6 +96,8 @@ function glo { git log $args }
 function gb { git branch }
 function gcom { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
+function gco { git commit --amend $args }
+function gca { param ([Parameter(Mandatory)] [string]$msg) git commit --amend -a $args }
 
 function gbs {
     param (

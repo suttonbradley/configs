@@ -35,8 +35,9 @@ def --env e [dir: string] {
 source ./custom-completions/git/git-completions.nu
 
 alias gs = git status
-alias gco = git checkout
+alias gc = git checkout
 alias gd = git diff
+alias gdm = git diff --merge-base
 alias gdn = git diff --name-only
 alias gl = git log
 alias ga = git add
@@ -51,6 +52,8 @@ alias glo = git log
 alias gb = git branch
 alias gcom = git commit -m
 alias gcam = git commit -am
+alias gca = git commit -a --amend
+alias gco = git commit --amend
 
 # Find the last common ancestor of two refs
 def gmb [
