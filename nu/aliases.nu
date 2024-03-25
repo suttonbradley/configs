@@ -73,11 +73,16 @@ def gmb [
 
 # Delete remote branch
 def gdrb [
-    branchName: string@"nu-complete git local branches" # TODO: fix
+    branchName: string@"nu-complete git remote branches local and nonlocal without prefix"
+    no_fail: bool = false
 ] {
     let conf = (input $"Are you sure you would like to delete branch ($branchName) on the remote \(y/n\)? ")
     if $conf == "y" {
-        git push --delete origin $branchName
+        if $no_fail {
+            git push --delete origin $branchName | complete
+        } else {
+            git push --delete origin $branchName
+        }
     } else {
         echo $"Did not delete remote branch $branchName"
     }
@@ -93,8 +98,8 @@ def gdlb [
 def gdb [
     branchName: string@"nu-complete git local branches"
 ] {
+    gdrb $branchName true #no_fail so that local deletion still works
     gdlb $branchName
-    gdrb $branchName
 }
 
 # Rename remote branch

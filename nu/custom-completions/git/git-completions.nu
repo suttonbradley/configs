@@ -43,6 +43,12 @@ def "nu-complete git remote branches nonlocal without prefix" [] {
   ^git branch -r | lines | parse -r (['^[\* ]+', $remotes_regex, '?(?P<branch>\S+)'] | flatten | str join) | get branch | uniq | where {|branch| $branch != "HEAD"} | where {|branch| $branch not-in $local_branches }
 }
 
+# Yield local branches + remote branches nonlocal without prefix
+def "nu-complete git remote branches local and nonlocal without prefix" [] {
+  mut result = nu-complete git local branches
+  $result ++ (nu-complete git remote branches nonlocal without prefix)
+}
+
 def "nu-complete git switch" [] {
   (nu-complete git local branches)
   | parse "{value}"
