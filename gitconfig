@@ -26,7 +26,7 @@
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
 
-# VSCode as diff tool
+# VSCode as diff tool (from https://www.roboleary.net/vscode/2020/09/15/vscode-git.html)
 [core]
   editor = code --wait
 [diff]
