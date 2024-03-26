@@ -15,7 +15,7 @@ These are my configurations for terminals/shells and other dev environment thing
     cargo install tokei
     cargo install zoxide --locked
     ```
-    - **Set up git-delta** by pasting [delta.gitconfig](./delta.gitconfig) into global git config (`git config --global --edit`)
+    - **Set up git** (including git-delta and vscode options) config by pasting [gitconfig](./gitconfig) into global git config (`git config --global --edit`)
 
 ### Powershell-specific
 - Get posh-git for git auto-completion: `Install-Module posh-git`
