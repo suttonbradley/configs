@@ -1,24 +1,22 @@
-# Do the following command and paste the config below:
-# git config --global --edit
+# My info
+[user]
+	name = Sutton Bradley
+	email = sbradley4646@gmail.com
 
-# ----- git-delta config -----
+# git-delta
 [pager]
     diff = delta
     log = delta
     reflog = delta
     show = delta
-
 [interactive]
     diffFilter = delta --color-only --features=interactive
-
 [delta]
     features = decorations
     line-numbers = true
     syntax-theme = Visual Studio Dark+
-
 [delta "interactive"]
     keep-plus-minus-markers = false
-
 [delta "decorations"]
     commit-decoration-style = blue ol
     commit-style = raw
@@ -27,4 +25,15 @@
     hunk-header-file-style = red
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
-# ----------------------------
+
+# VSCode as diff tool
+[core]
+  editor = code --wait
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
