@@ -37,15 +37,21 @@ These are my configurations for terminals/shells and other dev environment thing
 copy this into your `.zshrc`: `. ~/code/configs/zshrc.zsh`
 
 # Non-shell setup
+To incorporate `vscode-snippets`, you can create a symlink from the location VSCode expects to the `vscode-snippets` dir here by doing the following:
+1. Remove the old `snippets` dir, **after making sure there's nothing valuable there**
+2. Create the symlink
 ## Windows
-To incorporate `vscode-snippets`, you can create a symlink from the 
-1. Remove the old `snippets` dir after making sure there's nothing valuable there:
 ```
 Remove-Item -Recurse -Force $env:USERPROFILE\AppData\Roaming\Code\User\snippets
 ```
-2. Create the symlink **in Admin Powershell**:
+From **Admin Powershell**:
 ```
 New-Item -ItemType SymbolicLink -Path (Join-Path $env:USERPROFILE "AppData\Roaming\Code\User\snippets") -Value (Join-Path $env:USERPROFILE "code\configs\vscode-snippets")
 ```
 ## Mac/Linux
-TODO
+```
+rm -rf `~/Library/Application Support/Code/User/snippets`
+```
+```
+ln -s ~/code/configs/vscode-snippets `~/Library/Application Support/Code/User/snippets`
+```
