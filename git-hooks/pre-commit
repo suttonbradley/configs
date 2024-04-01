@@ -5,7 +5,7 @@ if $meta.exit_code != 0 {
 }
 let check = (cargo fmt --check out+err> /dev/null | complete)
 if $check.exit_code != 0 {
-    print "cargo fmt failed!"
+    print "cargo fmt check failed!"
     exit 1
 }
 exit 0
