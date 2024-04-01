@@ -37,3 +37,7 @@
   tool = vscode
 [mergetool "vscode"]
   cmd = code --wait $MERGED
+
+# Commit hooks
+[core]
+  hooksPath = "~/code/configs/git-hooks"

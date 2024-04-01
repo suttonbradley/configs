@@ -1,0 +1,11 @@
+#!/usr/bin/env nu
+let meta = (cargo metadata --format-version 1 out+err> /dev/null | complete)
+if $meta.exit_code != 0 {
+    exit 0
+}
+let check = (cargo fmt --check out+err> /dev/null | complete)
+if $check.exit_code != 0 {
+    print "cargo fmt failed!"
+    exit 1
+}
+exit 0
