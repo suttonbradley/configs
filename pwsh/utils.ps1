@@ -77,6 +77,7 @@ function notif-msg {
 }
 
 # ----- GIT ALIASES -----
+Remove-Item alias:gc -Force
 function gs { git status $args }
 function gd { git diff $args }
 function gdm { git diff --merge-base $args }
