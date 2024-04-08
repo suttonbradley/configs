@@ -77,7 +77,12 @@ function notif-msg {
 }
 
 # ----- GIT ALIASES -----
-Remove-Item alias:gc -Force
+# See if gc alias exists (Get-Content) and remove if so
+Get-Alias gc *>&1 | Out-Null
+if($?) {
+    Remove-Item alias:gc -Force
+}
+# Standard git aliases
 function gs { git status $args }
 function gd { git diff $args }
 function gdm { git diff --merge-base $args }
