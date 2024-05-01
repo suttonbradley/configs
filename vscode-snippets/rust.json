@@ -1,7 +1,8 @@
 {
 	"impl Widget + WidgetRef": {
 		"prefix": ["impl Widget", "Widget"],
-		"body": ["impl Widget for $1 {",
+		"body": [
+			"impl Widget for $1 {",
 			"\tfn render(self, area: Rect, buf: &mut Buffer)",
 			"\twhere",
 			"\t\tSelf: Sized,",
@@ -17,5 +18,19 @@
 			"}"
 		],
 		"description": "ratitui Widget + WidgetRef template"
+	},
+	"test": {
+		"prefix": ["mod test", "#[cfg(test)]"],
+		"body": [
+			"#[cfg(test)]",
+			"mod test {",
+			"\tuse super::*;",
+			"",
+			"\t#[test]",
+			"\tfn it_works() {",
+			"\t\t",
+			"\t}",
+			"}"
+		]
 	}
 }
