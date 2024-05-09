@@ -58,6 +58,19 @@ rm -rf `~/Library/Application Support/Code/User/snippets`
 ln -s ~/code/configs/vscode-snippets `~/Library/Application Support/Code/User/snippets`
 ```
 
+## erdtree config
+Create a symbolic link from the location erdtree expects to the the `.erdtree.toml` here:
+### Windows
+```
+if(Test-Path $env:APPDATA\erdtree) {
+    Remove-Item -Recurse $env:APPDATA\erdtree
+}
+New-Item -ItemType Directory $env:APPDATA\erdtree
+New-Item -ItemType SymbolicLink -Path $env:APPDATA\erdtree\.erdtree.toml -Value (Join-Path $env:USERPROFILE "code\configs\.erdtree.toml")
+```
+### Mac/Linux
+TODO
+
 ## [Windows] Disabling web search on start menu
 Write a reg key `BingSearchEnabled` (DWord w/ value 0) under `Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`:
 
