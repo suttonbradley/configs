@@ -27,6 +27,14 @@
         },
         {
           "powerline_symbol": "",
+          "style": "powerline",
+          "background": "#29dfff",
+          "foreground": "#000000",
+          "type": "text",
+          "template": "{{if .Env.SDXROOT}}raz{{end}}"
+        },
+        {
+          "powerline_symbol": "",
           "background": "#E36464",
           "foreground": "#fff",
           "properties": {
