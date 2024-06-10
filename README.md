@@ -3,9 +3,22 @@ These are my configurations for terminals/shells and other dev environment thing
 
 # Setup
 ## Installs for all shells
-- [oh-my-posh](https://ohmyposh.dev/docs/installation/windows)
+### oh-my-posh
+```
+winget install JanDeDobbeleer.OhMyPosh
+```
+
+In Powershell: `Install-Module posh-git`
+
+In nushell:
+1. `oh-my-posh init nu --config ~/code/configs/sutton.omp.json` (saves file to `~/.oh-my-posh.nu`)
+1. Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu` (source'ing is taken care of in [config.nu from this repo](./nu/config.nu))
+
+### Rust and Rust-based utils
+- Install Rust toolchain (don't forget to install [VS Build Tools](https://visualstudio.microsoft.com/))
     ```
-    winget install JanDeDobbeleer.OhMyPosh
+    Invoke-WebRequest -Uri https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe -OutFile $env:USERPROFILE\rustup-init.exe
+    . $env:USERPROFILE\rustup-init.exe
     ```
 - Cargo-installable utils
     ```
@@ -19,18 +32,13 @@ These are my configurations for terminals/shells and other dev environment thing
     ```
     - **Set up git** config (including git-delta, vscode, and hooks) by pasting [gitconfig](./gitconfig) into global git config (`git config --global --edit`)
 
-### Powershell-specific
-- Get posh-git for git auto-completion: `Install-Module posh-git`
-
-### nushell-specific
-- Generate nu script (saved to `~/.oh-my-posh.nu`) by doing `oh-my-posh init nu --config ~/code/configs/sutton.omp.json`
-- Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu` (source'ing is taken care of in [config.nu from this repo](./nu/config.nu))
-
 ## Using the configs/profiles in this repo
 ### nushell
-`config nu` then replace contents with `source ~/code/configs/nu/shim.nu`
-
-`config env` then replace contents with `source ~/code/configs/nu/env.nu`
+```
+$env.EDITOR = code
+config nu  # replace contents with "source ~/code/configs/nu/shim.nu"
+config env  # replace contents with "source ~/code/configs/nu/env.nu"
+```
 
 ### powershell
 `code $profile` then paste `. $env:USERPROFILE\code\configs\pwsh\profile.ps1`

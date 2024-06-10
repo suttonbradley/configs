@@ -19,7 +19,7 @@ source ./custom-completions/vscode/vscode-completions.nu
 source ./config.nu
 source ./default-config.nu
 source ./aliases.nu
-source ./sourcebat.nu
+# source ./sourcebat.nu
 source ./ripgrep-open.nu
 
 # ------------------------------------------
