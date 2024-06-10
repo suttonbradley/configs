@@ -3,8 +3,10 @@ These are my configurations for terminals/shells and other dev environment thing
 
 # Setup
 ## Installs for all shells
-- `oh-my-posh`
-    - [Install](https://ohmyposh.dev/docs/installation/windows)
+- [oh-my-posh](https://ohmyposh.dev/docs/installation/windows)
+    ```
+    winget install JanDeDobbeleer.OhMyPosh
+    ```
 - Cargo-installable utils
     ```
     cargo install git-delta
