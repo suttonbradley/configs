@@ -11,7 +11,7 @@
 
 matches:
   # Print the current date
-  - trigger: "/date"
+  - trigger: ":date"
     replace: "{{mydate}}"
     vars:
       - name: mydate
@@ -19,18 +19,31 @@ matches:
         params:
           format: "%m/%d/%Y"
 
-  - trigger: "/shrug"
+  # Kaomojis
+  - trigger: ":shrug"
     replace: "¯\\_(ツ)_/¯"
+  - trigger: ":wat"
+    replace: "(」°ロ°)」"
+  - trigger: ":doubt"
+    replace: "(￢_￢)"
+  - trigger: ":hug"
+    replace: "(づ ◕‿◕ )づ"
+  - trigger: ":browraise"
+    replace: "( ͠° ͟ʖ ͡°)"
+  - trigger: ":happy"
+    replace: "＼(￣▽￣)／"
+  - trigger: ":content"
+    replace: "⸜( ´ ꒳ ` )⸝"
 
   # Copied link
-  - trigger: "/l/"
+  - trigger: ":l:"
     replace: "[]({{clip}})"
     vars:
       - name: "clip"
         type: "clipboard"
 
   # Copied link w/ hyperlink text
-  - regex: "/l(?P<desc>[^/]+)/"
+  - regex: ":l(?P<desc>[^:]+):"
     replace: "[{{desc}}]({{clip}})"
     vars:
       - name: "clip"
