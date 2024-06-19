@@ -31,8 +31,9 @@
   editor = code --wait
 [diff]
   tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+# Makes "git diff" on command line open vscode. Instead use git-delta on command line, or in vscode use "GitLens: Open All Changes (difftool)"
+# [difftool "vscode"]
+#   cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
   tool = vscode
 [mergetool "vscode"]
