@@ -37,6 +37,7 @@ source ./custom-completions/git/git-completions.nu
 alias gs = git status
 alias gc = git checkout
 alias gd = git diff
+alias gds = git diff --staged
 alias gdm = git diff --merge-base
 alias gdn = git diff --name-only
 alias gl = git log
