@@ -94,6 +94,12 @@ function e {
         [Parameter(Mandatory)]
         [string]$dir
     )
+    # Check and resolve path
+    if(!(Test-Path $dir)) {
+        Write-Host "Directory `"$dir`" does not exist"
+        return
+    }
+    $dir = Resolve-Path $dir
     # Save current, append new, go to new, set index
     $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] = $(Get-Location)
     $SHELL_SWITCHER.shells += $dir
@@ -142,9 +148,16 @@ function g {
 
 # List all shell locations
 function shells {
+    Write-Host -NoNewline "Shell locations ("
+    Write-Host -NoNewline -ForegroundColor Blue "active in blue"
+    Write-Host "):"
     foreach ($index in 0..($SHELL_SWITCHER.shells.Count - 1)) {
         $dir = $SHELL_SWITCHER.shells[$index]
-        Write-Host -NoNewline -ForegroundColor Blue "$index`: "
+        if ($index -eq $SHELL_SWITCHER.idx) {
+            Write-Host -NoNewline -ForegroundColor Blue "$index`: "
+        } else {
+            Write-Host -NoNewline "$index`: "
+        }
         Write-Host -ForegroundColor Green $dir
     }
 }
