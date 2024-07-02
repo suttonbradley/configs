@@ -76,6 +76,79 @@ function notif-msg {
     New-BurntToastNotification -Text $header, $footer
 }
 
+# ----- nushell-style dir switch -----
+$SHELL_SWITCHER = @{
+    shells = @()
+    idx = 0
+}
+$SHELL_SWITCHER.shells += $(Get-Location)
+# See if n alias exists (notepad) and remove if so
+Get-Alias n *>&1 | Out-Null
+if($?) {
+    Remove-Item alias:n -Force
+}
+
+# Enter shell
+function e {
+    param (
+        [Parameter(Mandatory)]
+        [string]$dir
+    )
+    # Save current, append new, go to new, set index
+    $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] = $(Get-Location)
+    $SHELL_SWITCHER.shells += $dir
+    $SHELL_SWITCHER.idx = $SHELL_SWITCHER.shells.Count - 1
+    Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
+}
+
+# Exit shell
+function shellexit {
+    # Remove current, go to previous
+    $SHELL_SWITCHER.shells = $SHELL_SWITCHER.shells | Where-Object -FilterScript { $_ -ne $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] }
+    $SHELL_SWITCHER.idx = ($SHELL_SWITCHER.idx - 1) % $SHELL_SWITCHER.shells.Count
+    Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
+}
+
+# Go to next shell location
+function n {
+    # Save current, go to next
+    $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] = $(Get-Location)
+    $SHELL_SWITCHER.idx = ($SHELL_SWITCHER.idx + 1) % $SHELL_SWITCHER.shells.Count
+    Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
+}
+
+# Go to previous shell location
+function p {
+    # Save current, go to previous
+    $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] = $(Get-Location)
+    $SHELL_SWITCHER.idx = ($SHELL_SWITCHER.idx - 1) % $SHELL_SWITCHER.shells.Count
+    Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
+}
+
+# Go to index
+function g {
+    param (
+        [Parameter(Mandatory)]
+        [int]$idx
+    )
+    if($idx -ge 0 -and $idx -lt $SHELL_SWITCHER.shells.Count) {
+        $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] = $(Get-Location)
+        $SHELL_SWITCHER.idx = $idx
+        Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
+    } else {
+        Write-Host "Shell index out of range"
+    }
+}
+
+# List all shell locations
+function shells {
+    foreach ($index in 0..($SHELL_SWITCHER.shells.Count - 1)) {
+        $dir = $SHELL_SWITCHER.shells[$index]
+        Write-Host -NoNewline -ForegroundColor Blue "$index`: "
+        Write-Host -ForegroundColor Green $dir
+    }
+}
+
 # ----- GIT ALIASES -----
 # See if gc alias exists (Get-Content) and remove if so
 Get-Alias gc *>&1 | Out-Null
