@@ -84,7 +84,7 @@ if($?) {
 }
 # Standard git aliases
 function gs { git status $args }
-function gd { git diff $args }
+function gd { git diff }
 function gds { git diff --staged $args }
 function gdm { git diff --merge-base $args }
 function gdn { git diff --name-only $args }
