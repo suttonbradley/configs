@@ -30,7 +30,9 @@ In nushell:
     cargo install tokei
     cargo install zoxide --locked
     ```
-    - **Set up git** config (including git-delta, vscode, and hooks) by pasting [gitconfig](./gitconfig) into global git config (`git config --global --edit`)
+
+## Git Config
+- **Set up git** config (including git-delta, vscode, and hooks) by pasting [gitconfig](./gitconfig) into global git config (`git config --global --edit`)
 
 ## Using the configs/profiles in this repo
 ### nushell
