@@ -22,6 +22,7 @@ In nushell:
     ```
 - Cargo-installable utils
     ```
+    cargo install erdtree
     cargo install git-delta
     cargo install ripgrep
     cargo install fd-find
