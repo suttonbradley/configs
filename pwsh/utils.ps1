@@ -111,6 +111,10 @@ function e {
 function shellexit {
     # Remove current, go to previous
     $SHELL_SWITCHER.shells = $SHELL_SWITCHER.shells | Where-Object -FilterScript { $_ -ne $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] }
+    # Dumb powershell behavior where if there's only one element, it's not an array
+    if($SHELL_SWITCHER.shells.GetType().FullName -eq "System.Management.Automation.PathInfo") {
+        $SHELL_SWITCHER.shells = @($SHELL_SWITCHER.shells)
+    }
     $SHELL_SWITCHER.idx = ($SHELL_SWITCHER.idx - 1) % $SHELL_SWITCHER.shells.Count
     Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
 }
