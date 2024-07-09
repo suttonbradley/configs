@@ -77,11 +77,14 @@ function notif-msg {
 }
 
 # ----- nushell-style dir switch -----
-$SHELL_SWITCHER = @{
-    shells = @()
-    idx = 0
+# Init if new session
+if(!(Test-Path variable:SHELL_SWITCHER)) {
+    $SHELL_SWITCHER = @{
+        shells = @()
+        idx = 0
+    }
+    $SHELL_SWITCHER.shells += $(Get-Location)
 }
-$SHELL_SWITCHER.shells += $(Get-Location)
 # See if n alias exists (notepad) and remove if so
 Get-Alias n *>&1 | Out-Null
 if($?) {
