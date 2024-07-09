@@ -128,7 +128,7 @@ function shellexit {
     if($SHELL_SWITCHER.shells.GetType().FullName -eq "System.Management.Automation.PathInfo") {
         $SHELL_SWITCHER.shells = @($SHELL_SWITCHER.shells)
     }
-    $SHELL_SWITCHER.idx = max(0, $SHELL_SWITCHER.idx - 1) % $SHELL_SWITCHER.shells.Count
+    $SHELL_SWITCHER.idx = [Math]::Max(0, $SHELL_SWITCHER.idx - 1) % $SHELL_SWITCHER.shells.Count
     Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
 }
 
