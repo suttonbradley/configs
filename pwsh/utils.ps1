@@ -103,7 +103,17 @@ function e {
         return
     }
     $dir = Resolve-Path $dir
-    # Save current, append new, go to new, set index
+    # If already in list, go to it
+    $index = $SHELL_SWITCHER.shells.IndexOf($dir)
+    if($index -ne -1) {
+        Write-Host "Already in shells. Switching..."
+        $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] = $(Get-Location)
+        $SHELL_SWITCHER.idx = $index
+        Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
+        return
+    }
+
+    # Else, append new, go to new, set index
     $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] = $(Get-Location)
     $SHELL_SWITCHER.shells += $dir
     $SHELL_SWITCHER.idx = $SHELL_SWITCHER.shells.Count - 1
@@ -118,7 +128,7 @@ function shellexit {
     if($SHELL_SWITCHER.shells.GetType().FullName -eq "System.Management.Automation.PathInfo") {
         $SHELL_SWITCHER.shells = @($SHELL_SWITCHER.shells)
     }
-    $SHELL_SWITCHER.idx = ($SHELL_SWITCHER.idx - 1) % $SHELL_SWITCHER.shells.Count
+    $SHELL_SWITCHER.idx = max(0, $SHELL_SWITCHER.idx - 1) % $SHELL_SWITCHER.shells.Count
     Set-Location $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx]
 }
 
