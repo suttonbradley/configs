@@ -36,7 +36,7 @@
         {
           "powerline_symbol": "",
           "background": "#E36464",
-          "foreground": "#fff",
+          "foreground": "#000000",
           "properties": {
             "style": "full"
           },
