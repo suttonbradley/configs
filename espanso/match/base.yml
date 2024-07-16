@@ -9,6 +9,9 @@
 # imports:
 #   - "~/code/configs/espanso.yaml"
 
+imports:
+  - "C:\\Users\\suttonb\\OneDrive - Microsoft\\espanso.yaml"
+
 matches:
   # Print the current date
   - trigger: ":date"
