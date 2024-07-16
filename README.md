@@ -84,6 +84,22 @@ New-Item -ItemType SymbolicLink -Path $env:APPDATA\erdtree\.erdtree.toml -Value 
 ### Mac/Linux
 TODO
 
+
+## espanso
+[Install espanso](https://espanso.org/install/), then:
+
+### Windows
+```
+if(Test-Path $env:APPDATA\espanso) {
+    Remove-Item -Recurse $env:APPDATA\espanso
+}
+New-Item -ItemType SymbolicLink -Path $env:APPDATA\espanso -Value (Join-Path $env:USERPROFILE "code\configs\espanso")
+```
+
+### Mac
+Copy `espanso.yaml` contents into config
+
+
 ## [Windows] Disabling web search on start menu
 Write a reg key `BingSearchEnabled` (DWord w/ value 0) under `Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`:
 
