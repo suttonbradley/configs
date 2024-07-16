@@ -1,21 +1,15 @@
-# espanso match file
+# Add the following to the espanso file at ~\AppData\Roaming\espanso\match\base.yml
 
-# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+# --- Windows ---
+# Import from shared config
+# imports:
+#   - "C:\\Users\\<USER>\\code\\configs\\espanso.yaml"
+# --- Mac ---
+# Import from shared config
+# imports:
+#   - "~/code/configs/espanso.yaml"
 
-# You can use this file to define the base matches (aka snippets)
-# that will be available in every application when using espanso.
-
-# Matches are substitution rules: when you type the "trigger" string
-# it gets replaced by the "replace" string.
 matches:
-  # Simple text replacement
-  - trigger: ":espanso"
-    replace: "Hi there!"
-
-  # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
-
-  # But matches can also be dynamic:
-
   # Print the current date
   - trigger: ":date"
     replace: "{{mydate}}"
@@ -25,13 +19,32 @@ matches:
         params:
           format: "%m/%d/%Y"
 
-  # Print the output of a shell command
-  - trigger: ":shell"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: "echo 'Hello from your shell'"
+  # Kaomojis
+  - trigger: ":shrug"
+    replace: "¯\\_(ツ)_/¯"
+  - trigger: ":wat"
+    replace: "(」°ロ°)」"
+  - trigger: ":doubt"
+    replace: "(￢_￢)"
+  - trigger: ":hug"
+    replace: "(づ ◕‿◕ )づ"
+  - trigger: ":browraise"
+    replace: "( ͠° ͟ʖ ͡°)"
+  - trigger: ":happy"
+    replace: "＼(￣▽￣)／"
+  - trigger: ":content"
+    replace: "⸜( ´ ꒳ ` )⸝"
 
-  # And much more! For more information, visit the docs: https://espanso.org/docs/
+  # Copied link
+  - trigger: ":l:"
+    replace: "[]({{clip}})"
+    vars:
+      - name: "clip"
+        type: "clipboard"
+
+  # Copied link w/ hyperlink text
+  - regex: ":l(?P<desc>[^:]+):"
+    replace: "[{{desc}}]({{clip}})"
+    vars:
+      - name: "clip"
+        type: "clipboard"
