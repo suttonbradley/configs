@@ -98,7 +98,7 @@ function e {
         [string]$dir
     )
     # Check and resolve path
-    if(!(Test-Path $dir)) {
+    if(!(Test-Path -Path $dir -PathType Container)) {
         Write-Host "Directory `"$dir`" does not exist"
         return
     }
