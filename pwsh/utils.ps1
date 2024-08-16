@@ -187,40 +187,37 @@ if($?) {
 }
 # Standard git aliases
 function gs { git status $args }
-function gd { git diff }
-function gds { git diff --staged $args }
-function gdm { git diff --merge-base $args }
-function gdn { git diff --name-only $args }
-function gg { git log }
+function gd { param([Parameter(Mandatory, Position=0)]$ref) git diff $ref }
+function gdm { param([Parameter(Mandatory, Position=0)]$ref) git diff --merge-base $ref }
+function gdn { param([Parameter(Mandatory, Position=0)]$ref) git diff --name-only $ref }
 function ga { git add $args }
-function gau { git add -u $args }
 function gap { git add -p $args }
-function gc { git checkout $args }
-function gcp { git checkout -p $args }
-function gcn { git checkout -b $args }
+function gc { param([Parameter(Mandatory, Position=0)]$ref) git checkout $ref }
+function gcn { Invoke-Expression "git switch -c $ref" }
 function gpu { git push }
 function gpuu { git push -u origin (git branch --show-current) }
 function gpuf { git push -f }
-function gpl { git pull }
-function glo { git log $args }
+function gf { git fetch $args }
+function gpl { git pull $args }
+function glo { param([Parameter(Mandatory, Position=0)]$ref) git log $ref }
 function gb { git branch }
 function gcom { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
-function gco { git commit --amend $args }
-function gca { param ([Parameter(Mandatory)] [string]$msg) git commit --amend -a $args }
+function gca { git commit --amend $args }
+function gcaa { param ([Parameter(Mandatory)] [string]$msg) git commit --amend -a $args }
 
-function gbs {
-    param (
-        [Parameter(Mandatory)]
-        [string]$search,
-        [Alias('r')]
-        [switch]$remote
-    )
+# function gbs {
+#     param (
+#         [Parameter(Mandatory)]
+#         [string]$search,
+#         [Alias('r')]
+#         [switch]$remote
+#     )
 
-    $remote_arg = $remote ? "-r" : "" # Pass this switch on
-    # Search git branches for anything containing the search (regex "*<search>*")
-    git branch --list "*$search*" --format='%(refname:short)' $remote_arg
-}
+#     $remote_arg = $remote ? "-r" : "" # Pass this switch on
+#     # Search git branches for anything containing the search (regex "*<search>*")
+#     git branch --list "*$search*" --format='%(refname:short)' $remote_arg
+# }
 
 function gmb {
     param (
@@ -234,38 +231,29 @@ function gmb {
 # Aliases for deleting local and remote branches
 function gdrb {
     param (
-        [Parameter(Mandatory)] [string]$branchName
+        [Parameter(Mandatory, Position=0)] [string]$ref
     )
-    Write-Host "Deleting remote branch $branchName..."
-    git push --delete origin $branchName
+    Write-Host "Deleting remote branch $ref..."
+    git push --delete origin $ref
 }
 
 function gdlb {
     param (
-        [Parameter(Mandatory)] [string]$branchName
+        [Parameter(Mandatory, Position=0)] [string]$ref
     )
-    Write-Host "Deleting local branch  $branchName..."
-    git branch -D $branchName
+    Write-Host "Deleting local branch  $ref..."
+    git branch -D $ref
 }
 
 function gdb {
     param (
-        [Parameter(Mandatory)] [string]$branchName
+        [Parameter(Mandatory, Position=0)] [string]$ref
     )
-    gdrb $branchName
-    gdlb $branchName
+    gdrb $ref
+    gdlb $ref
 }
 
-# Aliases for renaming local and remote branches
-function grrb {
-    param (
-        [Parameter(Mandatory)] [string]$branchName
-    )
-    Write-Host "Renaming remote branch..."
-    $oldBranch = git branch --show-current
-    git push origin origin/$($oldBranch):refs/heads/$branchName :$oldBranch
-}
-
+# Aliases for renaming branches
 function grlb {
     param (
         [Parameter(Mandatory)] [string]$branchName
@@ -279,10 +267,12 @@ function grb {
     param (
         [Parameter(Mandatory)] [string]$branchName
     )
-    grrb $branchName
+    Write-Host "Renaming remote branch..."
+    $oldBranch = git branch --show-current
+    git push origin origin/$($oldBranch):refs/heads/$branchName :$oldBranch
+
     grlb  $branchName
 }
-
 
 # ----- MISC ALIASES -----
 function hist { param ([int]$num=25 ) Get-Content -Tail $num (Get-PSReadlineOption).HistorySavePath }
@@ -308,3 +298,29 @@ function rmrf {
 
 # Alias code-insiders to codei
 function codei { code-insiders $args }
+
+# ----- Argument completion -----
+# TODO: filter out current branch from these?
+$COMPLETER_GetGitLocalBranches = {
+    param($commandName, $parameterName, $wordsToComplete, $commandAst, $fakeBoundParameter)
+    (git branch --list "*$wordsToComplete*" --format='%(refname:short)').ForEach({
+        [System.Management.Automation.CompletionResult]::new($_)
+    })
+}
+$COMPLETER_GetGitRemoteBranches = {
+    param($commandName, $parameterName, $wordsToComplete, $commandAst, $fakeBoundParameter)
+    (git branch --remotes --list "*$wordsToComplete*" --format='%(refname:short)').ForEach({
+        [System.Management.Automation.CompletionResult]::new($_)
+    })
+}
+# $COMPLETER_GetGitAllBranches = {
+#     param($commandName, $parameterName, $wordsToComplete, $commandAst, $fakeBoundParameter)
+#     Out-File -Append -InputObject "$wordsToComplete" -FilePath (Join-Path $env:userprofile "debug.txt") | Out-Null
+#     (git branch --all --list "*$wordsToComplete*" --format='%(refname:short)').ForEach({
+#         [System.Management.Automation.CompletionResult]::new($_)
+#     })
+# }
+
+Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitLocalBranches -ParameterName 'ref' -CommandName gc,gdlb,gdb,gd,gdm,gdn,glo
+Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitRemoteBranches -ParameterName 'ref' -CommandName gdrb
+# Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitAllBranches -ParameterName 'ref' -CommandName gd,gds,gdm,gdn,glo

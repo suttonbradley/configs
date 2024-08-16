@@ -16,10 +16,10 @@ Set-PSReadLineOption -AddToHistoryHandler {
     return $true
 }
 
-# Init oh-my-posh
-oh-my-posh init pwsh --config $env:USERPROFILE\code\configs\sutton.omp.json | Invoke-Expression
 # Enable posh git to get branch auto-complete
 $env:POSH_GIT_ENABLED = $true
+# Init oh-my-posh
+oh-my-posh init pwsh --config $env:USERPROFILE\code\configs\sutton.omp.json | Invoke-Expression
 
 # Set rustc to use sccache
 $env:RUSTC_WRAPPER="sccache"
