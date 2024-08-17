@@ -187,9 +187,9 @@ if($?) {
 }
 # Standard git aliases
 function gs { git status $args }
-function gd { param([Parameter(Mandatory, Position=0)]$ref) git diff $ref }
-function gdm { param([Parameter(Mandatory, Position=0)]$ref) git diff --merge-base $ref }
-function gdn { param([Parameter(Mandatory, Position=0)]$ref) git diff --name-only $ref }
+function gd { param([Parameter(Position=0)]$ref) git diff $ref }
+function gdm { param([Parameter(Position=0)]$ref) git diff --merge-base $ref }
+function gdn { param([Parameter(Position=0)]$ref) git diff --name-only $ref }
 function ga { git add $args }
 function gap { git add -p $args }
 function gc { param([Parameter(Mandatory, Position=0)]$ref) git checkout $ref }
@@ -199,7 +199,7 @@ function gpuu { git push -u origin (git branch --show-current) }
 function gpuf { git push -f }
 function gf { git fetch $args }
 function gpl { git pull $args }
-function glo { param([Parameter(Mandatory, Position=0)]$ref) git log $ref }
+function glo { param([Parameter(Position=0)]$ref) git log $ref }
 function gb { git branch }
 function gcom { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
