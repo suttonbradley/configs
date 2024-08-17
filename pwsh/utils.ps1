@@ -193,7 +193,7 @@ function gdn { param([Parameter(Position=0)]$ref) git diff --name-only $ref }
 function ga { git add $args }
 function gap { git add -p $args }
 function gc { param([Parameter(Mandatory, Position=0)]$ref) git checkout $ref }
-function gcn { Invoke-Expression "git switch -c $ref" }
+function gcn { param([Parameter(Mandatory, Position=0)]$ref) Invoke-Expression "git switch -c $ref" }
 function gpu { git push }
 function gpuu { git push -u origin (git branch --show-current) }
 function gpuf { git push -f }
