@@ -235,6 +235,7 @@ function gcom { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
 function gca { git commit --amend $args }
 function gcaa { param ([Parameter(Mandatory)] [string]$msg) git commit --amend -a $args }
+function gr { param ([Parameter(Mandatory)] [string]$ref) git rebase $ref $args }
 
 # function gbs {
 #     param (
@@ -343,14 +344,14 @@ $COMPLETER_GetGitRemoteBranches = {
         [System.Management.Automation.CompletionResult]::new($_)
     })
 }
-# $COMPLETER_GetGitAllBranches = {
-#     param($commandName, $parameterName, $wordsToComplete, $commandAst, $fakeBoundParameter)
-#     Out-File -Append -InputObject "$wordsToComplete" -FilePath (Join-Path $env:userprofile "debug.txt") | Out-Null
-#     (git branch --all --list "*$wordsToComplete*" --format='%(refname:short)').ForEach({
-#         [System.Management.Automation.CompletionResult]::new($_)
-#     })
-# }
+$COMPLETER_GetGitAllBranches = {
+    param($commandName, $parameterName, $wordsToComplete, $commandAst, $fakeBoundParameter)
+    Out-File -Append -InputObject "$wordsToComplete" -FilePath (Join-Path $env:userprofile "debug.txt") | Out-Null
+    (git branch --all --list "*$wordsToComplete*" --format='%(refname:short)').ForEach({
+        [System.Management.Automation.CompletionResult]::new($_)
+    })
+}
 
 Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitLocalBranches -ParameterName 'ref' -CommandName gc,gdlb,gdb,gd,gdm,gdn,glo
 Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitRemoteBranches -ParameterName 'ref' -CommandName gdrb
-# Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitAllBranches -ParameterName 'ref' -CommandName gd,gds,gdm,gdn,glo
+Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitAllBranches -ParameterName 'ref' -CommandName gr
