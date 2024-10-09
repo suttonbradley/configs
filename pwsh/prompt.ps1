@@ -30,9 +30,6 @@ Invoke-Expression (& {
     (zoxide init --cmd cd --hook $hook powershell) -join "`n"
 })
 
-# Adjust path
-$env:PATH += ";C:\Program Files\CMake\bin\;C:\Program Files\Vim\vim82;"
-
 # Set PSReadLine history options
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
