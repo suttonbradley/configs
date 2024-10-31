@@ -223,6 +223,7 @@ function gdn {
 function ga { git add $args }
 function gap { git add -p $args }
 function gc { param([Parameter(Mandatory, Position=0)]$ref) git checkout $ref }
+function gsw { param([Parameter(Mandatory, Position=0)]$ref) Invoke-Expression "git switch --merge $ref" }
 function gcn { param([Parameter(Mandatory, Position=0)]$ref) Invoke-Expression "git switch -c $ref" }
 function gpu { git push }
 function gpuu { git push -u origin (git branch --show-current) }
@@ -291,7 +292,6 @@ function grlb {
     )
     Write-Host "Renaming local branch..."
     git branch -m $branchName
-    git branch -u origin/$branchName
 }
 
 function grb {
@@ -352,6 +352,6 @@ $COMPLETER_GetGitAllBranches = {
     })
 }
 
-Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitLocalBranches -ParameterName 'ref' -CommandName gc,gdlb,gdb,gd,gdm,gdn,glo
+Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitLocalBranches -ParameterName 'ref' -CommandName gc,gsw,gdlb,gdb,gd,gdm,gdn,glo
 Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitRemoteBranches -ParameterName 'ref' -CommandName gdrb
 Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitAllBranches -ParameterName 'ref' -CommandName gr
