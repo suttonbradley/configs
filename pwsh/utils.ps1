@@ -237,6 +237,7 @@ function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg 
 function gca { git commit --amend $args }
 function gcaa { param ([Parameter(Mandatory)] [string]$msg) git commit --amend -a $args }
 function gr { param ([Parameter(Mandatory)] [string]$ref) git rebase $ref $args }
+function gsu { git submodule update $args }
 
 # function gbs {
 #     param (
