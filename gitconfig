@@ -40,5 +40,5 @@
   cmd = code --wait $MERGED
 
 # Commit hooks
-# [core]
-#   hooksPath = "~/code/configs/git-hooks"
+[core]
+  hooksPath = "~/code/configs/git-hooks"
