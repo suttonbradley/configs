@@ -2,9 +2,29 @@
 These are my configurations for terminals/shells and other dev environment things. They're pretty customized and include a lot of aliasing (git especially), custom commands, and prompt customization. Rip whatever you want at your own risk.
 
 # Setup
+## Installs from online
+- [VS build tools](https://visualstudio.microsoft.com/downloads/)
+- [CaskaydiaCove nerd font](https://www.nerdfonts.com/font-downloads)
+- [PowerToys](https://aka.ms/installpowertoys)
+
+## Get Powershell 7
+```powershell
+winget install Microsoft.Powershell
+```
+
+## Alias Windows Terminal settings to the file in this repo
+_probably don't do this on dev machines b/c Raz_
+```powershell
+$settings_json_path = Join-Path (Get-ChildItem (Join-Path $env:LOCALAPPDATA "Packages/Microsoft.WindowsTerminal_*"))[0].FullName "LocalState/settings.json"
+if(Test-Path $settings_json_path) {
+    Remove-Item $settings_json_path
+}
+New-Item -ItemType SymbolicLink -Path $settings_json_path -Value (Join-Path $env:USERPROFILE "code\configs\terminal.settings.json")
+```
+
 ## Installs for all shells
 ### oh-my-posh
-```
+```powershell
 winget install JanDeDobbeleer.OhMyPosh
 ```
 
@@ -16,7 +36,7 @@ In nushell:
 
 ### Rust and Rust-based utils
 - Install Rust toolchain (don't forget to install [VS Build Tools](https://visualstudio.microsoft.com/))
-    ```
+    ```powershell
     Invoke-WebRequest -Uri https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe -OutFile $env:USERPROFILE\rustup-init.exe
     . $env:USERPROFILE\rustup-init.exe
     ```
@@ -56,25 +76,21 @@ To incorporate `vscode-snippets`, you can create a symlink from the location VSC
 1. Remove the old `snippets` dir, **after making sure there's nothing valuable there**
 2. Create the symlink
 ### Windows
-```
-Remove-Item -Recurse -Force $env:USERPROFILE\AppData\Roaming\Code\User\snippets
-```
 From **Admin Powershell**:
 ```
+Remove-Item -Recurse -Force $env:USERPROFILE\AppData\Roaming\Code\User\snippets
 New-Item -ItemType SymbolicLink -Path (Join-Path $env:USERPROFILE "AppData\Roaming\Code\User\snippets") -Value (Join-Path $env:USERPROFILE "code\configs\vscode-snippets")
 ```
 ### Mac/Linux
-```
+```bash
 rm -rf `~/Library/Application Support/Code/User/snippets`
-```
-```
 ln -s ~/code/configs/vscode-snippets `~/Library/Application Support/Code/User/snippets`
 ```
 
 ## erdtree config
 Create a symbolic link from the location erdtree expects to the the `.erdtree.toml` here:
 ### Windows
-```
+```powershell
 if(Test-Path $env:APPDATA\erdtree) {
     Remove-Item -Recurse $env:APPDATA\erdtree
 }
@@ -89,7 +105,7 @@ TODO
 [Install espanso](https://espanso.org/install/), then:
 
 ### Windows
-```
+```powershell
 if(Test-Path $env:APPDATA\espanso) {
     Remove-Item -Recurse $env:APPDATA\espanso
 }
@@ -103,6 +119,6 @@ Copy `espanso.yaml` contents into config
 ## [Windows] Disabling web search on start menu
 Write a reg key `BingSearchEnabled` (DWord w/ value 0) under `Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`:
 
-```
+```powershell
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled" -Value 0 -Type DWord
 ```

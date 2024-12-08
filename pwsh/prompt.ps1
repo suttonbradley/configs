@@ -24,13 +24,10 @@ oh-my-posh init pwsh --config $env:USERPROFILE\code\configs\sutton.omp.json | In
 # Set rustc to use sccache
 $env:RUSTC_WRAPPER="sccache"
 
-# Hook zoxide and replace cd with it
-Invoke-Expression (& {
-    $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
-    (zoxide init --cmd cd --hook $hook powershell) -join "`n"
-})
-
 # Set PSReadLine history options
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -EditMode Windows
+
+# Hook zoxide and replace cd with it
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
