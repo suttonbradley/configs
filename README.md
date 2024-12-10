@@ -121,7 +121,8 @@ cp -Force $home/code/configs/espanso/config/default.yml $env:appdata/espanso/con
 ### Mac
 nushell
 ```nushell
-TODO
+cp -f $"($env.home)/code/configs/espanso/config/default.yml" $"($env.home)/Library/Application Support/espanso/config"
+echo $"imports:\n  - \"($env.home)/code/configs/espanso/match/base.yml\"\n  - \"($env.home)/espanso.yml\"\n" | save -f $"($env.home)/Library/Application Support/espanso/match/base.yml"
 ```
 
 ## [Windows] Disabling web search on start menu

@@ -25,6 +25,8 @@ matches:
     replace: "＼(￣▽￣)／"
   - trigger: ":content"
     replace: "⸜( ´ ꒳ ` )⸝"
+  - trigger: ":smallsmile"
+    replace: "ᵕ̈"
 
   # Copied link
   - trigger: ":l:"
