@@ -1,16 +1,4 @@
-# Add the following to the espanso file at ~\AppData\Roaming\espanso\match\base.yml
-
-# --- Windows ---
-# Import from shared config
-# imports:
-#   - "C:\\Users\\<USER>\\code\\configs\\espanso.yaml"
-# --- Mac ---
-# Import from shared config
-# imports:
-#   - "~/code/configs/espanso.yaml"
-
-imports:
-  - "C:\\Users\\suttonb\\OneDrive - Microsoft\\espanso.yaml"
+# Meant to be imported. See README.
 
 matches:
   # Print the current date

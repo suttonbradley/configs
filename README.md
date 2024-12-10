@@ -105,16 +105,24 @@ TODO
 [Install espanso](https://espanso.org/install/), then:
 
 ### Windows
+For home:
 ```powershell
-if(Test-Path $env:APPDATA\espanso) {
-    Remove-Item -Recurse $env:APPDATA\espanso
-}
-New-Item -ItemType SymbolicLink -Path $env:APPDATA\espanso -Value (Join-Path $env:USERPROFILE "code\configs\espanso")
+cp -Force $home/code/configs/espanso/config/default.yml $env:appdata/espanso/config/
+"imports:`n  - `"$($home -replace '\\', '\\')\\code\\configs\\espanso\\match\\base.yml`"" | Out-File -Force $env:appdata/espanso/match/base.yml
+```
+(Note the replace looks like it does nothing here but the first one you're escaping the regex sequence so it's really replacing '\' with '\\')
+
+For work:
+```powershell
+cp -Force $home/code/configs/espanso/config/default.yml $env:appdata/espanso/config/
+"imports:`n  - `"$($home -replace '\\', '\\')\\code\\configs\\espanso\\match\\base.yml`"`n  - `"$($home -replace '\\', '\\')\\OneDrive - Microsoft\\espanso.yaml`"" | Out-File -Force $env:appdata/espanso/match/base.yml
 ```
 
 ### Mac
-Copy `espanso.yaml` contents into config
-
+nushell
+```nushell
+TODO
+```
 
 ## [Windows] Disabling web search on start menu
 Write a reg key `BingSearchEnabled` (DWord w/ value 0) under `Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`:
