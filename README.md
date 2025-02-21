@@ -66,9 +66,6 @@ config env  # replace contents with "source ~/code/configs/nu/env.nu"
 ### powershell
 `code $profile` then paste `. $env:USERPROFILE\code\configs\pwsh\profile.ps1`
 
-### zsh
-copy this into your `.zshrc`: `. ~/code/configs/zshrc.zsh`
-
 # Non-shell setup
 
 ## VSCode Snippets
