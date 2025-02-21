@@ -31,8 +31,9 @@ winget install JanDeDobbeleer.OhMyPosh
 In Powershell: `Install-Module posh-git`
 
 In nushell:
-1. `oh-my-posh init nu --config ~/code/configs/sutton.omp.json` (saves file to `~/.oh-my-posh.nu`)
-1. Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu` (source'ing is taken care of in [config.nu from this repo](./nu/config.nu))
+1. Generate oh-my-posh script: `oh-my-posh init nu --config ~/code/configs/sutton.omp.json` (saves file to `~/.oh-my-posh.nu`)
+1. Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu`
+`source`ing done in `env.nu`
 
 ### Rust and Rust-based utils
 - Install Rust toolchain (don't forget to install [VS Build Tools](https://visualstudio.microsoft.com/))
@@ -57,11 +58,17 @@ In nushell:
 
 ## Using the configs/profiles in this repo
 ### nushell
+Windows:
+```powershell
+if(Test-Path $env:APPDATA\nushell) {
+    Remove-Item -Recurse $env:APPDATA\nushell
+}
+New-Item -ItemType Directory $env:APPDATA\nushell
+New-Item -ItemType SymbolicLink -Path $env:APPDATA\nushell\env.nu -Value (Join-Path $env:USERPROFILE "code\configs\nu\env.nu")
+New-Item -ItemType SymbolicLink -Path $env:APPDATA\nushell\config.nu -Value (Join-Path $env:USERPROFILE "code\configs\nu\config.nu")
 ```
-$env.EDITOR = code
-config nu  # replace contents with "source ~/code/configs/nu/shim.nu"
-config env  # replace contents with "source ~/code/configs/nu/env.nu"
-```
+MacOS:
+**TODO**
 
 ### powershell
 `code $profile` then paste `. $env:USERPROFILE\code\configs\pwsh\profile.ps1`

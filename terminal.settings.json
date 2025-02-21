@@ -12,6 +12,10 @@
             "id": "User.copy.644BA8F2"
         },
         {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -19,10 +23,6 @@
                 "splitMode": "duplicate"
             },
             "id": "User.splitPane.A6751878"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
         },
         {
             "command": "paste",
@@ -40,28 +40,28 @@
     "keybindings": 
     [
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "id": "User.find",
-            "keys": "ctrl+f"
+            "id": null,
+            "keys": "ctrl+shift+w"
         },
         {
             "id": null,
             "keys": "ctrl+shift+f"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+w"
+            "id": "User.find",
+            "keys": "ctrl+f"
         },
         {
-            "id": "User.closePane",
-            "keys": "ctrl+w"
+            "id": "User.paste",
+            "keys": "ctrl+v"
         },
         {
             "id": null,
             "keys": "ctrl+shift+c"
+        },
+        {
+            "id": "User.closePane",
+            "keys": "ctrl+w"
         },
         {
             "id": "User.copy.644BA8F2",
@@ -131,6 +131,12 @@
                 "icon": "ms-appx:///ProfileIcons/vs-powershell.png",
                 "name": "Developer PowerShell for VS 2022 (Copy)",
                 "startingDirectory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise"
+            },
+            {
+                "guid": "{47302f9c-1ac4-566c-aa3e-8cf29889d6ab}",
+                "hidden": false,
+                "name": "Nushell",
+                "source": "nu"
             }
         ]
     },
