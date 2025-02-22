@@ -223,7 +223,6 @@ function gdn {
 function ga { git add $args }
 function gap { git add -p $args }
 function gc { param([Parameter(Mandatory, Position=0)]$ref) git checkout $ref }
-function gsw { param([Parameter(Mandatory, Position=0)]$ref) Invoke-Expression "git switch --merge $ref" }
 function gcn { param([Parameter(Mandatory, Position=0)]$ref) Invoke-Expression "git switch -c $ref" }
 function gpu { git push }
 function gpuu { git push -u origin (git branch --show-current) }
@@ -236,7 +235,7 @@ function gcom { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
 function gca { git commit --amend $args }
 function gcaa { param ([Parameter(Mandatory)] [string]$msg) git commit --amend -a $args }
-function gre { param ([Parameter(Mandatory)] [string]$ref) git rebase $ref $args }
+function gr { param ([Parameter(Mandatory)] [string]$ref) git rebase $ref $args }
 function gsu { git submodule update $args }
 
 # function gbs {

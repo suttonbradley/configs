@@ -35,26 +35,34 @@ def --env e [dir: string] {
 source ~/code/configs/nu/nu_scripts/custom-completions/git/git-completions.nu
 
 alias gs = git status
-alias gc = git checkout
 alias gd = git diff
 alias gds = git diff --staged
 alias gdm = git diff --merge-base
 alias gdn = git diff --name-only
 alias gl = git log
 alias ga = git add
-# alias gap = git add -p $args
+alias gap = git add -p $args
 # alias gcp = git checkout -p $args
-alias gcn = git checkout -b
+alias gc = git checkout
+alias gcn = git switch -c
 alias gpu = git push
 alias gpuu = git push -u origin (git branch --show-current | str trim)
 alias gpuf = git push -f
 alias gpl = git pull
 alias glo = git log
 alias gb = git branch
-alias gcom = git commit -m
-alias gcam = git commit -am
-alias gca = git commit -a --amend
+alias gca = git commit --amend
+alias gcaa = git commit -a --amend
 alias gco = git commit --amend
+alias gr = git rebase
+
+def gcom [msg: string] {
+    git commit -m $msg
+}
+
+def gcam [msg: string] {
+    git commit -am $msg
+}
 
 # Find the last common ancestor of two refs
 def gmb [
@@ -72,6 +80,11 @@ def gmb [
 
 # ----- Branch deletion/renaming -----
 
+# ADD-ON Yield local branches + remote branches nonlocal without prefix
+def "nu-complete git remote branches local and nonlocal without prefix" [] {
+  mut result = nu-complete git local branches
+  $result ++ (nu-complete git remote branches nonlocal without prefix)
+}
 # Delete remote branch
 def gdrb [
     branchName: string@"nu-complete git remote branches local and nonlocal without prefix"
@@ -88,6 +101,7 @@ def gdrb [
         echo $"Did not delete remote branch $branchName"
     }
 }
+
 # Delete local branch
 def gdlb [
     branchName: string@"nu-complete git local branches"
