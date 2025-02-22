@@ -32,7 +32,7 @@ def --env e [dir: string] {
 }
 
 # ---------- git aliases ----------
-source ./custom-completions/git/git-completions.nu
+source ~/code/configs/nu/nu_scripts/custom-completions/git/git-completions.nu
 
 alias gs = git status
 alias gc = git checkout

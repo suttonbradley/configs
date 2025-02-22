@@ -7,11 +7,11 @@
 use std/dirs shells-aliases *
 
 # Completions
-source ~/code/configs/nu/custom-completions/cargo/cargo-completions.nu
-source ~/code/configs/nu/custom-completions/git/git-completions.nu
-source ~/code/configs/nu/custom-completions/rustup/rustup-completions.nu
-source ~/code/configs/nu/custom-completions/vscode/vscode-completions.nu
-source ~/code/configs/nu/custom-completions/winget/winget-completions.nu
+source ~/code/configs/nu/nu_scripts/custom-completions/cargo/cargo-completions.nu
+source ~/code/configs/nu/nu_scripts/custom-completions/git/git-completions.nu
+source ~/code/configs/nu/nu_scripts/custom-completions/rustup/rustup-completions.nu
+source ~/code/configs/nu/nu_scripts/custom-completions/vscode/vscode-completions.nu
+source ~/code/configs/nu/nu_scripts/custom-completions/winget/winget-completions.nu
 
 # Source other files
 source ~/code/configs/nu/aliases.nu
