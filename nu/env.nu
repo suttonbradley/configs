@@ -9,6 +9,5 @@
 git -C ~/code/configs pull | null
 
 $env.config.show_banner = false
-$env.config = {} # make config empty record so oh-my-posh.nu upsert doesn't fail
 source ~/.oh-my-posh.nu # Generate this per-machine with: `oh-my-posh init nu --config ~/code/configs/sutton.omp.json`
 source ~/.zoxide.nu # Generate this per-machine with: `zoxide init nushell | save -f ~/.zoxide.nu`

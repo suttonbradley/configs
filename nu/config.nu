@@ -3,6 +3,9 @@
 # Copy the next line into $nu.config-path (or just do `config nu`):
 #   source ~/code/configs/nu/config.nu
 
+# Enable dir switching via 'shells' aliases (shells, g, n, p, e/enter, dexit)
+use std/dirs shells-aliases *
+
 # Completions
 source ~/code/configs/nu/custom-completions/cargo/cargo-completions.nu
 source ~/code/configs/nu/custom-completions/git/git-completions.nu

@@ -121,7 +121,7 @@ function e {
 }
 
 # Exit shell
-function shellexit {
+function dexit {
     # Remove current, go to previous
     $SHELL_SWITCHER.shells = $SHELL_SWITCHER.shells | Where-Object -FilterScript { $_ -ne $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] }
     # Dumb powershell behavior where if there's only one element, it's not an array
