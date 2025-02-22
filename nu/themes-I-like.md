@@ -1,0 +1,24 @@
+- afterglow
+- Arthur
+- atom
+- ayu
+- azu
+- birds of paradise
+- bright
+- broadcast
+- chalk
+- circus
+- darktooth
+- default-dark
+- desert
+- desert-night**
+- edge-dark
+- espresso
+- gruvbox-material-dark-hard
+- harper
+- hemisu-dark
+- jellybeans
+- teerb
+- terminix-dark
+- tomorrow-night
+- tube
