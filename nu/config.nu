@@ -38,3 +38,6 @@ if (platform_is_windows) {
 
 # Editor
 $env.EDITOR = 'code'
+
+# THEME
+source ~/code/configs/nu/nu_scripts/themes/nu-themes/desert-night.nu

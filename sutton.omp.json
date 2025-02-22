@@ -11,7 +11,7 @@
           "template": "{{ if .SSHSession }}\ueba9 {{ .HostName }}{{ end }}",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
-          "background": "#004b06",
+          "background": "#24221c",
           "type": "session"
         },
         {
@@ -21,17 +21,17 @@
             }
           },
           "style": "powerline",
-          "foreground": "#ffffff",
+          "foreground": "#24221c",
           "powerline_symbol": "\ue0b0",
-          "background": "#6546ac",
+          "background": "#87765d",
           "type": "shell"
         },
         {
           "style": "powerline",
           "template": "{{if .Env.SDXROOT}}raz{{end}}",
-          "foreground": "#000000",
+          "foreground": "#24221c",
           "powerline_symbol": "\ue0b0",
-          "background": "#29dfff",
+          "background": "#d261a5",
           "type": "text"
         },
         {
@@ -40,9 +40,9 @@
           },
           "style": "powerline",
           "template": " {{ .Path }} ",
-          "foreground": "#000000",
+          "foreground": "#24221c",
           "powerline_symbol": "\ue0b0",
-          "background": "#E36464",
+          "background": "#e56b55",
           "type": "path"
         },
         {
@@ -58,9 +58,9 @@
             "tag_icon": "\u25b6 "
           },
           "style": "powerline",
-          "foreground": "#100e23",
+          "foreground": "#24221c",
           "powerline_symbol": "\ue0b0",
-          "background": "#95ffa4",
+          "background": "#949fb4",
           "type": "git"
         },
         {
@@ -69,9 +69,9 @@
           },
           "style": "powerline",
           "template": " {{ .CurrentDate | date .Format }} ",
-          "foreground": "#fff",
+          "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
-          "background": "lightMagenta",
+          "background": "#d261a5",
           "type": "time"
         },
         {
@@ -82,10 +82,10 @@
           "template": " \ue23a{{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }} ",
           "foreground": "#ffffff",
           "powerline_symbol": "\ue0b0",
-          "background": "#2e9599",
+          "background": "#99b05f",
           "type": "exit",
           "background_templates": [
-            "{{ if gt .Code 0 }}#f1184c{{ end }}"
+            "{{ if gt .Code 0 }}#ff0000{{ end }}"
           ]
         },
         {
@@ -95,9 +95,9 @@
           },
           "style": "powerline",
           "template": "\u231b{{ .FormattedMs }} ",
-          "foreground": "#000000",
+          "foreground": "#24221c",
           "powerline_symbol": "\ue0b0",
-          "background": "#ff5e00",
+          "background": "#e56b55",
           "type": "executiontime"
         }
       ]

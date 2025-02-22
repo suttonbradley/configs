@@ -23,6 +23,7 @@
 - `reduce` for reducing a list using a closure (use `--fold` to provide initial value)
   - `[1 2 3 4] | reduce { |item, total| $item + $total }` yields 10
   - `[1 2 3 4] | reduce --fold 10 { |item, total| $item + $total }` yields 20
+- TODO: && powershell equivalent
 
 ## Logging and exit codes
 - `complete` for gathering stdout, stderr, and exit code into one table
