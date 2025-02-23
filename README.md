@@ -68,7 +68,13 @@ New-Item -ItemType SymbolicLink -Path $env:APPDATA\nushell\env.nu -Value (Join-P
 New-Item -ItemType SymbolicLink -Path $env:APPDATA\nushell\config.nu -Value (Join-Path $env:USERPROFILE "code\configs\nu\config.nu")
 ```
 MacOS:
-**TODO**
+In nushell:
+```
+rm $nu.config-path
+rm $nu.env-path
+ln -s ~/code/configs/nu/config.nu $nu.config-path
+ln -s ~/code/configs/nu/env.nu $nu.env-path
+```
 
 ### powershell
 `code $profile` then paste `. $env:USERPROFILE\code\configs\pwsh\profile.ps1`
@@ -123,7 +129,7 @@ cp -Force $home/code/configs/espanso/config/default.yml $env:appdata/espanso/con
 ```
 
 ### Mac
-nushell
+To set up espanso via in nushell, do:
 ```nushell
 cp -f $"($env.home)/code/configs/espanso/config/default.yml" $"($env.home)/Library/Application Support/espanso/config"
 echo $"imports:\n  - \"($env.home)/code/configs/espanso/match/base.yml\"\n  - \"($env.home)/espanso.yml\"\n" | save -f $"($env.home)/Library/Application Support/espanso/match/base.yml"

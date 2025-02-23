@@ -33,3 +33,4 @@
 # Misc
 - `^<string>` to execute string as command
   - `let a = 'cargo'; ^$a` runs cargo
+- `with-env {foo: 'bar', baz: 'bat'} {<command>}` runs a command with $env.foo = 'bar' and $env.baz = 'bat

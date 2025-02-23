@@ -33,7 +33,12 @@ if not (platform_is_macos) {
 
 # PATH additions
 if (platform_is_windows) {
-    $env.Path = $env.Path | append ';C:\Program Files\CMake\bin\;C:\Program Files\Vim\vim82' | append ($env.LOCALAPPDATA | path join "VPack")
+    $env.PATH = $env.PATH | append ';C:\Program Files\CMake\bin\;C:\Program Files\Vim\vim82' | append ($env.LOCALAPPDATA | path join "VPack")
+}
+# PATH additions
+# For some reason, nushell doesn't like the standard bash path 
+if (platform_is_macos) {
+    $env.PATH = $env.PATH | append '~/.cargo/bin'
 }
 
 # Editor
