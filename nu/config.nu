@@ -26,11 +26,6 @@ def platform_is_macos [] {
     $nu.os-info.name == 'macos'
 }
 
-# Avoid sccache on MacOS -- TODO: broken
-if not (platform_is_macos) {
-    $env.RUSTC_WRAPPER = 'sccache'
-}
-
 # PATH additions
 if (platform_is_windows) {
     $env.PATH = $env.PATH | append ';C:\Program Files\CMake\bin\;C:\Program Files\Vim\vim82' | append ($env.LOCALAPPDATA | path join "VPack")
