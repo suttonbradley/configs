@@ -48,6 +48,7 @@ alias gcn = git switch -c
 alias gpu = git push
 alias gpuu = git push -u origin (git branch --show-current | str trim)
 alias gpuf = git push -f
+alias gf = git fetch
 alias gpl = git pull
 alias glo = git log
 alias gb = git branch
