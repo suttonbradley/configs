@@ -223,7 +223,7 @@ function gdn {
 function ga { git add $args }
 function gap { git add -p $args }
 function gc { param([Parameter(Mandatory, Position=0)]$ref) git checkout $ref }
-function gcn { param([Parameter(Mandatory, Position=0)]$ref) Invoke-Expression "git switch -c $ref" }
+function gcn { param([Parameter(Mandatory, Position=0)]$ref, [Parameter(Mandatory=$false, Position=1)]$root) Invoke-Expression "git switch -c $ref $root" }
 function gpu { git push }
 function gpuu { git push -u origin (git branch --show-current) }
 function gpuf { git push -f }
