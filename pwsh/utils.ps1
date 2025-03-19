@@ -1,6 +1,8 @@
 # This script consists of functions and aliases that can be reused.
 # Importing it should not run any code.
 
+function lg { lazygit $args}
+
 function Enter-DevPowershell {
     # Find vswhere
     $vswhere_path = "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"

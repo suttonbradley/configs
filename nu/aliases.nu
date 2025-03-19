@@ -3,6 +3,8 @@ if (platform_is_windows) {
     def where [exe: string] { pwsh -NoProfile -c $"Get-Command ($exe)" }
 }
 
+alias lg = lazygit
+
 # Sorted ripgrep for aliases that process ripgrep output.
 # Include line numbers in ACTUAL ripgrep output (normally doesn't go through pipe)
 # https://github.com/BurntSushi/ripgrep/issues/796
