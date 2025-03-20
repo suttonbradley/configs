@@ -100,3 +100,19 @@ Write a reg key `BingSearchEnabled` (DWord w/ value 0) under `Computer\HKEY_CURR
 ```powershell
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled" -Value 0 -Type DWord
 ```
+
+# nvim
+## Get nvim
+```powershell
+winget install Neovim.Neovim
+```
+
+## symlink nvim config to this repo
+```
+New-Item -ItemType SymbolicLink -Path (Join-Path $env:LOCALAPPDATA "nvim") -Value (Join-Path $env:USERPROFILE "code\configs\nvim")
+```
+
+## Get LLVM
+From [Github releases](https://github.com/llvm/llvm-project/releases) (winget doesn't add to path)
+
+

@@ -40,4 +40,4 @@ if (platform_is_macos) {
 $env.EDITOR = 'code'
 
 # THEME
-source ~/code/configs/nu/nu_scripts/themes/nu-themes/desert-night.nu
+source ~/code/configs/nu/catpuccin-mocha.nu
