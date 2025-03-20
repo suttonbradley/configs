@@ -2,7 +2,7 @@
 
 matches:
   # Print the current date
-  - trigger: ":date"
+  - trigger: ";date"
     replace: "{{mydate}}"
     vars:
       - name: mydate
@@ -11,41 +11,41 @@ matches:
           format: "%m/%d/%Y"
 
   # Kaomojis
-  - trigger: ":shrug"
+  - trigger: ";shrug"
     replace: "¯\\_(ツ)_/¯"
-  - trigger: ":wat"
+  - trigger: ";wat"
     replace: "(」°ロ°)」"
-  - trigger: ":doubt"
+  - trigger: ";doubt"
     replace: "(￢_￢)"
-  - trigger: ":hug"
+  - trigger: ";hug"
     replace: "(づ ◕‿◕ )づ"
-  - trigger: ":browraise"
+  - trigger: ";browraise"
     replace: "( ͠° ͟ʖ ͡°)"
-  - trigger: ":happy"
+  - trigger: ";happy"
     replace: "＼(￣▽￣)／"
-  - trigger: ":content"
+  - trigger: ";content"
     replace: "⸜( ´ ꒳ ` )⸝"
-  - trigger: ":smallsmile"
+  - trigger: ";smallsmile"
     replace: "ᵕ̈"
 
   # Copied link
-  - trigger: ":l:"
+  - trigger: ";l;"
     replace: "[]({{clip}})"
     vars:
       - name: "clip"
         type: "clipboard"
 
   # Copied link w/ hyperlink text
-  - regex: ":l(?P<desc>[^:]+):"
+  - regex: ";l(?P<desc>[^:]+);"
     replace: "[{{desc}}]({{clip}})"
     vars:
       - name: "clip"
         type: "clipboard"
 
   # Stars for obsidian
-  - trigger: ":stary"
+  - trigger: ";stary"
     replace: "<font color=\"#fff98a\">✩</font> "
-  - trigger: ":staro"
+  - trigger: ";staro"
     replace: "<font color=\"#fcb968\">✩</font> "
-  - trigger: ":starr"
+  - trigger: ";starr"
     replace: "<font color=\"#fc5858\">✩</font> "

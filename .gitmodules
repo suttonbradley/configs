@@ -1,3 +1,4 @@
 [submodule "nu_scripts"]
 	path = nu/nu_scripts
 	url = https://github.com/suttonbradley/nu_scripts.git
+	branch = user/suttonb/git-switch-complete-local-only
