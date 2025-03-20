@@ -28,7 +28,7 @@ def platform_is_macos [] {
 
 # PATH additions
 if (platform_is_windows) {
-    $env.PATH = $env.PATH | append ';C:\Program Files\CMake\bin\;C:\Program Files\Vim\vim82' | append ($env.LOCALAPPDATA | path join "VPack")
+    $env.PATH = $env.PATH | append ($env.LOCALAPPDATA | path join "VPack")
 }
 # PATH additions
 # For some reason, nushell doesn't like the standard bash path 
