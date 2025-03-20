@@ -98,7 +98,7 @@ ln -s ~/code/configs/vscode-snippets `~/Library/Application Support/Code/User/sn
 ```
 
 ## erdtree config
-Create a symbolic link from the location erdtree expects to the the `.erdtree.toml` here:
+Create a symbolic link from the location erdtree expects todw the `.erdtree.toml` here:
 ### Windows
 ```powershell
 if(Test-Path $env:APPDATA\erdtree) {
