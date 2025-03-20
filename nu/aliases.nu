@@ -4,6 +4,7 @@ if (platform_is_windows) {
 }
 
 alias lg = lazygit
+alias nv = nvim
 
 # Sorted ripgrep for aliases that process ripgrep output.
 # Include line numbers in ACTUAL ripgrep output (normally doesn't go through pipe)
