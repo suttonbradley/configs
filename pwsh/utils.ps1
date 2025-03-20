@@ -2,6 +2,7 @@
 # Importing it should not run any code.
 
 function lg { lazygit $args}
+function nv { nvim $args }
 
 function Enter-DevPowershell {
     # Find vswhere
