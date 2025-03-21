@@ -10,6 +10,5 @@ return {
         { "<C-n>", "<cmd>Neotree filesystem reveal left toggle=true<cr>", desc = "neo-tree" }
     },
     lazy = false, -- neo-tree will lazily load itself
-    ---@module "neo-tree"
-    ---@type neotree.Config?
 }
+
