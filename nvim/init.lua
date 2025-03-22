@@ -5,9 +5,12 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 -- Relative line numbers
 vim.cmd("set rnu")
+vim.cmd("set nu")
 
 -- Center screen on half-page scrolls
-vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true})
-vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true})
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
+vim.api.nvim_set_keymap("n", "<home>", "<S-^>", { noremap = true })
 
 require("config.lazy")
+

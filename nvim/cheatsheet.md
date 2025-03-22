@@ -6,10 +6,16 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `w`/`e`: jump forward word (beginning vs. end)
 - `b`/`ge`: jump backward word (beginning vs. end)
 - `y`/`d`: yank/delete (copy/cut)
+  - `yy`/`dd` yank/delete line
 - `u`: undo
 - `i`/`a`/`o`: insert (here, after cursor, after line)
 - `f`/`F`: goto next (backwards vs. fwds)
 - `zz`: center screen on cursor
+
+## Visual mode
+- `vi<char>` selects inside of pair of `<char>` (`'`, `"`, etc.). Shortcuts to this:
+  - `vib` select inside of `()`
+  - `viB` select inside of `()`
 
 ## Commands
 - Search: `/<query>` + enter, then `n`/`N` to seek
@@ -18,6 +24,8 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
   - Flags:
     - `g`: replace all occurrances on each line (default is first occurrance)
     - `c`: confirm before changing
+- Toggle relative/abs line numbers: `:set rnu!`
+- By default, config will show abs for current line, relative for rest
 ### Plugin Commands
 - `:Mason`: open mason for LSPs
 - `:LspInfo`: get diagnostics on LSPs

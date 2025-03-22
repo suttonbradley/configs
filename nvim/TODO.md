@@ -1,13 +1,13 @@
 ## Definitely
 - [ ] create/delete/rename file without going to terminal
-- [ ] show line numbers
 - [ ] show git change indicators per-line
 - [ ] match beginning/end parens/brackets
-- [ ] make home work as expected, should map to `^`
 - Better Rust support
   - [ ] consider using [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
   - [ ] [this blog post](https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/)
+- [x] show line numbers
 - [x] LSPs
+- [x] make home work as expected, should map to `^`
 
 ## Maybe
 - [ ] cargo fmt integration
