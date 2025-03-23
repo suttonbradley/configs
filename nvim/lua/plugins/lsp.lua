@@ -13,7 +13,7 @@ return {
                     "pest_ls",
                     "powershell_es",
                     "ruff", --python
-                    "rust_analyzer",
+                    -- "rust_analyzer", -- NOTE: must be installed by rustup, not Mason, for rustacean plugin
                     "taplo", -- toml
                     "yamlls",
                 }
@@ -31,10 +31,11 @@ return {
             lspconfig.pest_ls.setup({})
             lspconfig.powershell_es.setup({})
             lspconfig.ruff.setup({})
-            lspconfig.rust_analyzer.setup({})
+            -- lspconfig.rust_analyzer.setup({}) -- NOTE: purposefully omitted due to rustacean plugin
             lspconfig.taplo.setup({})
             lspconfig.yamlls.setup({})
+
+            vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
         end
     },
 }
-
