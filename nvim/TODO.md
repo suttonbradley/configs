@@ -2,6 +2,8 @@
 - [ ] create/delete/rename file without going to terminal
 - [ ] show git change indicators per-line
 - [ ] match beginning/end parens/brackets
+- [ ] snippets? [this video](https://www.youtube.com/watch?v=iXIwm4mCpuc&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&index=5)
+- [ ] debugger? [this video](https://www.youtube.com/watch?v=E2mKJ73M9pg) or [this video](https://www.youtube.com/watch?v=oYzZxi3SSnM&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&index=6)
 - Better Rust support
   - [x] consider using [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
 - [x] show line numbers
