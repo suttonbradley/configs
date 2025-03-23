@@ -28,6 +28,7 @@ return {
                 -- Avoid warnings r.e. unfound global 'vim'
                 settings = { Lua = { diagnostics = { globals = { 'vim' } } } }
             })
+            -- NOTE: completions won't work without adding to autocomplete.lua
             lspconfig.pest_ls.setup({})
             lspconfig.powershell_es.setup({})
             lspconfig.ruff.setup({})
