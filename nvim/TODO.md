@@ -3,8 +3,7 @@
 - [ ] show git change indicators per-line
 - [ ] match beginning/end parens/brackets
 - Better Rust support
-  - [ ] consider using [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
-  - [ ] [this blog post](https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/)
+  - [x] consider using [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
 - [x] show line numbers
 - [x] LSPs
 - [x] make home work as expected, should map to `^`

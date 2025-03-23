@@ -13,4 +13,3 @@ vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<home>", "<S-^>", { noremap = true })
 
 require("config.lazy")
-

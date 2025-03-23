@@ -108,11 +108,20 @@ winget install Neovim.Neovim
 ```
 
 ## symlink nvim config to this repo
-```
+(Windows)
+```powershell
 New-Item -ItemType SymbolicLink -Path (Join-Path $env:LOCALAPPDATA "nvim") -Value (Join-Path $env:USERPROFILE "code\configs\nvim")
 ```
+(MacOS/Linux)
+```bash
+rm -rf ~/.config/nvim
+ln -s ~/code/configs/nvim ~/.config/nvim
+```
+
+## Manual VIM setup:
+- rustaceanvim plugin:
+    - Install codelldb (not auto-installable by `Mason`): `:MasonInstall codelldb`
+    - Add rust-analyzer (`Mason` doesn't install at expected path): `rustup component add rust-analyzer`
 
 ## Get LLVM
 From [Github releases](https://github.com/llvm/llvm-project/releases) (winget doesn't add to path)
-
-
