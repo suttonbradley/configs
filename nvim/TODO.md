@@ -1,7 +1,6 @@
 ## Definitely
-- [ ] create/delete/rename file without going to terminal
-- [ ] match beginning/end parens/brackets
-- [ ] snippets? [this video](https://www.youtube.com/watch?v=iXIwm4mCpuc&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&index=5)
+- [ ] neotree toggle vs focus - better keybinds
+- [ ] insert matching beginning/end parens/brackets
 - [ ] debugger? [this video](https://www.youtube.com/watch?v=E2mKJ73M9pg) or [this video](https://www.youtube.com/watch?v=oYzZxi3SSnM&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&index=6)
 - [ ] code folding
 
@@ -20,6 +19,7 @@
   - [ ] way to focus without having to `ctrl+n` twice
 
 ## Done
+- [x] snippets [this video](https://www.youtube.com/watch?v=iXIwm4mCpuc&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&index=5)
 - [x] show git change indicators per-line
 - Better Rust support
   - [x] consider using [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
