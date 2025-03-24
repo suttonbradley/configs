@@ -29,6 +29,7 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 ### Plugin Commands
 - `:Mason`: open mason for LSPs
 - `:LspInfo`: get diagnostics on LSPs
+- `:Gitsigns`: actions for stuff like `:Gitsigns blame` to show blame in gutter
 
 ## neo-tree (file explorer)
 Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-file#longer-example-for-lazynvim)
@@ -38,10 +39,12 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `/`: fuzzy find
 
 ## Remapped
-- `ctrl+u`/`ctrl+d` for scroll half page
-  - remapped to center cursor using `zz`
-  - FIXME: `ctrl+d` kinda sucks for the left hand
+- `:qq` for `:qa`, `:qqq` for `:qa!`
 - `ctrl+n` to toggle finder
 - `ctrl+p` to open telescope (fuzzy finder)
 - `<leader>lg` for lazygit
   - _don't forget: `ctrl+c` to exit
+
+- `ctrl+u`/`ctrl+d` for scroll half page
+  - remapped to center cursor using `zz`
+  - FIXME: `ctrl+d` kinda sucks for the left hand

@@ -12,4 +12,8 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<home>", "<S-^>", { noremap = true })
 
+-- Alias qa and qa! (quicker to type)
+vim.cmd("cnorea qq qa")
+vim.cmd("cnorea qqq qa!")
+
 require("config.lazy")
