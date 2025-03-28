@@ -8,6 +8,12 @@ return {
                 function() require("telescope.builtin").find_files() end,
                 desc = "Find files",
             },
+            {
+                -- Actually <C-/>, but that's not what it sends so ¯\_(ツ)_/¯
+                "",
+                function() require("telescope.builtin").live_grep() end,
+                desc = "Live grep",
+            }
         },
         -- change some options
         opts = {

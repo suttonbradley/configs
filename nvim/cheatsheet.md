@@ -38,13 +38,16 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `backspace`: show parent dir
 - `/`: fuzzy find
 
+## Code modification and suggestions
+- `<leader>ca` code actions
+- `<leader>gc` to toggle comment
+- `shift+k` to see docs for hovered
+- 
+
 ## Remapped
 - `:qq` for `:qa`, `:qqq` for `:qa!`
-- `ctrl+n` to toggle finder
-- `ctrl+p` to open telescope (fuzzy finder)
+- `ctrl+n` to toggle finder TODO: better mapping
+- `ctrl+p` to find files (telescope)
+- `ctrl+/` to grep code (telescope)
 - `<leader>lg` for lazygit
   - _don't forget: `ctrl+c` to exit
-
-- `ctrl+u`/`ctrl+d` for scroll half page
-  - remapped to center cursor using `zz`
-  - FIXME: `ctrl+d` kinda sucks for the left hand
