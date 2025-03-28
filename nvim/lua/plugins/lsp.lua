@@ -37,6 +37,11 @@ return {
             lspconfig.yamlls.setup({})
 
             vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true })
+            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap = true })
+            vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true })
+
+            vim.lsp.inlay_hint.enable(true)
         end
     },
 }
