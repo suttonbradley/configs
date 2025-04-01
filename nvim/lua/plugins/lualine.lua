@@ -26,6 +26,12 @@ return {
                     -- List of LSP names to ignore (e.g., `null-ls`):
                     ignore_lsp = {}
                 }}
+            },
+            inactive_sections = {
+                lualine_c = {{
+                    'filename',
+                    path = 3
+                }}
             }
         })
     end
