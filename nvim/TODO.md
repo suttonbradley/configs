@@ -1,7 +1,10 @@
 ## Short list
 - [ ] harpoon
 - [ ] fix fzf
-- [ ] null ls?
+- [ ] powershell LSP
+- [ ] none-ls?
+- [ ] get terminals to persist across workspace changes
+  - might require something tmux-like which windows doesn't seem to have
 - [x] toggle term
 - [x] use keybinds from that video for buffer switching
 - [x] telescope bind to open file in new column
