@@ -1,11 +1,18 @@
+## Short list
+- [ ] harpoon
+- [ ] toggle term
+- [ ] null ls
+- [x] use keybinds from that video for buffer switching
+- [x] telescope bind to open file in new column
+
 ## Definitely
 - [ ] neotree toggle vs focus - better keybinds
 - [ ] terminal within nvim
 - [ ] keybinds for opening side by side code
-- [ ] workspaces. Wants:
+- [ ] insert matching beginning/end parens/brackets
+- [x] workspaces. Wants:
   - same files to be open when I open up a dir again
   - switch between dirs without leaving nvim
-- [ ] insert matching beginning/end parens/brackets
 
 ## Maybe
 - [ ] debugger [this video](https://www.youtube.com/watch?v=E2mKJ73M9pg) or [this video](https://www.youtube.com/watch?v=oYzZxi3SSnM&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&index=6)

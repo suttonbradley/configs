@@ -26,18 +26,22 @@
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
 
-# VSCode as diff tool (from https://www.roboleary.net/vscode/2020/09/15/vscode-git.html)
 [core]
-  editor = code --wait
-[diff]
-  tool = vscode
+  editor = nvim
+
+# ----- OLD -----
+# VSCode as diff tool (from https://www.roboleary.net/vscode/2020/09/15/vscode-git.html)
+# [core]
+#   editor = code --wait
+# [diff]
+#   tool = vscode
 # Makes "git diff" on command line open vscode. Instead use git-delta on command line, or in vscode use "GitLens: Open All Changes (difftool)"
 # [difftool "vscode"]
 #   cmd = code --wait --diff $LOCAL $REMOTE
-[merge]
-  tool = vscode
-[mergetool "vscode"]
-  cmd = code --wait $MERGED
+# [merge]
+#   tool = vscode
+# [mergetool "vscode"]
+#   cmd = code --wait $MERGED
 
 # Commit hooks
 [core]
