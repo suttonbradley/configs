@@ -54,3 +54,4 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
   - _don't forget: `ctrl+c` to exit
 - `<leader>ss` for to open session search window
 - `<leader>sc` to create a session for the current working dir
+- `<leader>tt` to open floating, persistent terminal
