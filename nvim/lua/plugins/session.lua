@@ -6,19 +6,18 @@ return {
     ---@module "auto-session"
     ---@type AutoSession.Config
     opts = {
-        suppressed_dirs = {}
-        -- log_level = 'debug',
+        -- Avoid session clutter!
+        auto_create = false
     },
-    config = function()
-        local plugin = require("auto-session")
-        plugin.setup({})
-
-        -- Vim session settings recommended on github page
-        vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-    end,
-    keys = {{
+    keys = { -- "s" for "session"
+    {
         "<leader>ss",
         "<cmd>SessionSearch<cr>",
-        desc = "SessionSearch"
+        desc = "Search sessions"
+    }, {
+        -- Create session for the dir that was passed to nvim (or working dir if none)
+        "<leader>sc",
+        "<cmd>SessionSave<cr>",
+        desc = "Create session"
     }}
 }
