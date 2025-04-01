@@ -30,6 +30,7 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `:Mason`: open mason for LSPs
 - `:LspInfo`: get diagnostics on LSPs
 - `:Gitsigns`: actions for stuff like `:Gitsigns blame` to show blame in gutter
+- `:SessionSearch` to search auto-session sessions. See all commands [here](https://github.com/rmagatti/auto-session?tab=readme-ov-file#-commands)
 
 ## neo-tree (file explorer)
 Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-file#longer-example-for-lazynvim)
@@ -42,7 +43,6 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `<leader>ca` code actions
 - `<leader>gc` to toggle comment
 - `shift+k` to see docs for hovered
-- 
 
 ## Remapped
 - `:qq` for `:qa`, `:qqq` for `:qa!`
