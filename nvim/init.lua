@@ -15,14 +15,17 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.keymap.set({ "n", "v" }, "<home>", "<S-^>", { noremap = true })
 
 -- Move across buffers
--- TODO try replacing with <leader> binds?
-vim.keymap.set("n", "<A-h>", "<C-\\><C-N><C-w>h", { noremap = true })
-vim.keymap.set("n", "<A-j>", "<C-\\><C-N><C-w>j", { noremap = true })
-vim.keymap.set("n", "<A-k>", "<C-\\><C-N><C-w>k", { noremap = true })
+-- "w" for "window"
+vim.keymap.set("n", "<A-h>", "<C-w>h", { noremap = true })
+vim.keymap.set("n", "<A-j>", "<C-w>j", { noremap = true })
+vim.keymap.set("n", "<A-k>", "<C-w>k", { noremap = true })
 vim.keymap.set("n", "<A-l>", "<C-w>l", { noremap = true })
 
 -- Alias qa and qa! (quicker to type)
 vim.cmd("cnorea qq qa")
 vim.cmd("cnorea qqq qa!")
+
+-- Vim session settings recommended on auto-session github page
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 require("config.lazy")

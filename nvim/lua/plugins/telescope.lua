@@ -39,7 +39,7 @@ return {{
                     ["<S-cr>"] = "file_vsplit"
                 },
                 n = {
-                    ["<S-':cr>"] = "file_vsplit"
+                    ["<S-cr>"] = "file_vsplit"
                 }
             }
         }

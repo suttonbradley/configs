@@ -1,7 +1,8 @@
 ## Short list
 - [ ] harpoon
-- [ ] toggle term
-- [ ] null ls
+- [ ] fix fzf
+- [ ] null ls?
+- [x] toggle term
 - [x] use keybinds from that video for buffer switching
 - [x] telescope bind to open file in new column
 
