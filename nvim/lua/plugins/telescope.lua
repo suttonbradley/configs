@@ -36,10 +36,12 @@ return {{
                 -- }
 
                 i = {
-                    ["<S-cr>"] = "file_vsplit"
+                    ["<s-cr>"] = "file_vsplit",
+                    ["<c-cr>"] = "file_split",
                 },
                 n = {
-                    ["<S-cr>"] = "file_vsplit"
+                    ["<s-cr>"] = "file_vsplit",
+                    ["<c-cr>"] = "file_split",
                 }
             }
         }

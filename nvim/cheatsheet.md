@@ -46,8 +46,11 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 
 ## Remapped
 - `:qq` for `:qa`, `:qqq` for `:qa!`
-- `ctrl+n` to toggle finder TODO: better mapping
-- `ctrl+p` to find files (telescope)
-- `ctrl+/` to grep code (telescope)
+- `ctrl+n` to toggle finder
+- `<leader>ff` to find files (telescope)
+  - For any telescope command, `shift+enter` creates a vertical split and `ctrl+enter` creates horizontal split
+- `<leader>fg` to grep code (telescope)
 - `<leader>lg` for lazygit
   - _don't forget: `ctrl+c` to exit
+- `<leader>ss` for to open session search window
+- `<leader>sc` to create a session for the current working dir
