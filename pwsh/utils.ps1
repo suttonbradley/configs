@@ -2,6 +2,11 @@
 # Importing it should not run any code.
 
 function lg { lazygit $args}
+# Remove 'nv' alias if it exists
+Get-Alias nv *>&1 | Out-Null
+if($?) {
+    Remove-Item alias:nv -Force
+}
 function nv { nvim $args }
 
 function rr { rustrover $args }
