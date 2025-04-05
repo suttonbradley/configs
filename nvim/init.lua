@@ -25,6 +25,8 @@ vim.keymap.set("n", "<A-l>", "<C-w>l", { noremap = true })
 vim.cmd("cnorea qq qa")
 vim.cmd("cnorea qqq qa!")
 
+vim.cmd("set mouse=")
+
 -- Vim session settings recommended on auto-session github page
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
