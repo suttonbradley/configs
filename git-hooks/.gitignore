@@ -1,0 +1,6 @@
+# Ignore all except specified hooks, to avoid clutter from git-generated hooks after symlinking. Add a new hook below to be able to commit it.
+**/*
+
+!.gitignore
+!pre-commit
+!pre-commit.ps1

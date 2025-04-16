@@ -15,11 +15,14 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.keymap.set({ "n", "v" }, "<home>", "<S-^>", { noremap = true })
 
 -- Move across buffers
--- "w" for "window"
 vim.keymap.set("n", "<A-h>", "<C-w>h", { noremap = true })
 vim.keymap.set("n", "<A-j>", "<C-w>j", { noremap = true })
 vim.keymap.set("n", "<A-k>", "<C-w>k", { noremap = true })
 vim.keymap.set("n", "<A-l>", "<C-w>l", { noremap = true })
+vim.keymap.set("n", "<A-H>", "<cmd>vert res -8<cr>", { noremap = true })
+vim.keymap.set("n", "<A-L>", "<cmd>vert res +8<cr>", { noremap = true })
+vim.keymap.set("n", "<A-K>", "<cmd>res -8<cr>", { noremap = true })
+vim.keymap.set("n", "<A-J>", "<cmd>res +8<cr>", { noremap = true })
 
 -- Alias qa and qa! (quicker to type)
 vim.cmd("cnorea qq qa")

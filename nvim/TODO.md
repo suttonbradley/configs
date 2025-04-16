@@ -1,5 +1,6 @@
 ## Short list
 - [ ] harpoon
+- [ ] New Rust-based LSP
 - [ ] fix fzf
 - [ ] powershell LSP
 - [ ] none-ls?
