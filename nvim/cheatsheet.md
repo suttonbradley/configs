@@ -55,3 +55,6 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `<leader>ss` for to open session search window
 - `<leader>sc` to create a session for the current working dir
 - `<leader>tt` to open floating, persistent terminal
+### Windows
+- `alt+h/j/k/l` to move cursor between windows
+- `alt+H/J/K/L` to resize windows
