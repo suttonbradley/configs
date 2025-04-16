@@ -9,6 +9,7 @@ return {
             require("mason-lspconfig").setup({
                 -- Available LSP servers at: https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
                 ensure_installed = {
+                    "clangd",
                     "lua_ls",
                     "pest_ls",
                     "powershell_es",
@@ -29,6 +30,7 @@ return {
                 settings = { Lua = { diagnostics = { globals = { 'vim' } } } }
             })
             -- NOTE: completions won't work without adding to autocomplete.lua
+            lspconfig.clangd.setup({})
             lspconfig.pest_ls.setup({})
             lspconfig.powershell_es.setup({})
             lspconfig.ruff.setup({})
