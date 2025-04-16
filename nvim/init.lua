@@ -28,7 +28,12 @@ vim.keymap.set("n", "<A-J>", "<cmd>res +8<cr>", { noremap = true })
 vim.cmd("cnorea qq qa")
 vim.cmd("cnorea qqq qa!")
 
+-- Disable mouse
 vim.cmd("set mouse=")
+
+-- Disable .editorconfig files enforced on repos
+-- This *can* be helpful, but sometimes causes large changes to whitespace that can get you git blame'd
+vim.g.editorconfig = false
 
 -- Vim session settings recommended on auto-session github page
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
