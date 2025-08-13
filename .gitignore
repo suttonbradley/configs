@@ -1,1 +1,4 @@
 .vscode
+git-hooks/*
+!git-hooks/pre-commit
+!git-hooks/pre-commit.ps1
