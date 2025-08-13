@@ -1,29 +1,13 @@
-# configs
+# About
 These are my configurations for terminals/shells and other dev environment things. They're pretty customized and include a lot of aliasing (git especially), custom commands, and prompt customization. Rip whatever you want at your own risk.
 
-# Setup
-## Installs from online
+# Basic Installs
 - [VS build tools](https://visualstudio.microsoft.com/downloads/)
 - [CaskaydiaCove nerd font](https://www.nerdfonts.com/font-downloads)
 - [PowerToys](https://aka.ms/installpowertoys)
+- Powershell 7 (`winget install Microsoft.Powershell`)
 
-## Get Powershell 7
-```powershell
-winget install Microsoft.Powershell
-```
-
-## Alias Windows Terminal settings to the file in this repo
-_probably don't do this on dev machines b/c Raz_
-```powershell
-$settings_json_path = Join-Path (Get-ChildItem (Join-Path $env:LOCALAPPDATA "Packages/Microsoft.WindowsTerminal_*"))[0].FullName "LocalState/settings.json"
-if(Test-Path $settings_json_path) {
-    Remove-Item $settings_json_path
-}
-New-Item -ItemType SymbolicLink -Path $settings_json_path -Value (Join-Path $env:USERPROFILE "code\configs\terminal.settings.json")
-```
-
-## Installs for all shells
-### oh-my-posh
+## oh-my-posh
 ```powershell
 winget install JanDeDobbeleer.OhMyPosh
 ```
@@ -35,7 +19,7 @@ In nushell:
 1. Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu`
 `source`ing done in `env.nu`
 
-### Rust and Rust-based utils
+## Rust and Rust-based utils
 - Install Rust toolchain (don't forget to install [VS Build Tools](https://visualstudio.microsoft.com/))
     ```powershell
     Invoke-WebRequest -Uri https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe -OutFile $env:USERPROFILE\rustup-init.exe
@@ -55,31 +39,6 @@ In nushell:
 
 ## Git Config
 - **Set up git** config (including git-delta, vscode, and hooks) by pasting [gitconfig](./gitconfig) into global git config (`git config --global --edit`)
-
-## Using the configs/profiles in this repo
-### nushell
-Windows:
-```powershell
-if(Test-Path $env:APPDATA\nushell) {
-    Remove-Item -Recurse $env:APPDATA\nushell
-}
-New-Item -ItemType Directory $env:APPDATA\nushell
-New-Item -ItemType SymbolicLink -Path $env:APPDATA\nushell\env.nu -Value (Join-Path $env:USERPROFILE "code\configs\nu\env.nu")
-New-Item -ItemType SymbolicLink -Path $env:APPDATA\nushell\config.nu -Value (Join-Path $env:USERPROFILE "code\configs\nu\config.nu")
-```
-MacOS:
-In nushell:
-```
-rm $nu.config-path
-rm $nu.env-path
-ln -s ~/code/configs/nu/config.nu $nu.config-path
-ln -s ~/code/configs/nu/env.nu $nu.env-path
-```
-
-### powershell
-`code $profile` then paste `. $env:USERPROFILE\code\configs\pwsh\profile.ps1`
-
-# Non-shell setup
 
 ## VSCode Snippets
 To incorporate `vscode-snippets`, you can create a symlink from the location VSCode expects to the `vscode-snippets` dir here by doing the following:
@@ -125,7 +84,7 @@ cp -Force $home/code/configs/espanso/config/default.yml $env:appdata/espanso/con
 For work:
 ```powershell
 cp -Force $home/code/configs/espanso/config/default.yml $env:appdata/espanso/config/
-"imports:`n  - `"$($home -replace '\\', '\\')\\code\\configs\\espanso\\match\\base.yml`"`n  - `"$($home -replace '\\', '\\')\\OneDrive - Microsoft\\espanso.yaml`"" | Out-File -Force $env:appdata/espanso/match/base.yml
+"imports:`n  - `"$($home -replace '\\', '\\')\\code\\configs\\espanso\\match\\base.yml`"`n  - `"$($home -replace '\\', '\\')\\<path-from-home-to>\\espanso.yaml`"" | Out-File -Force $env:appdata/espanso/match/base.yml
 ```
 
 ### Mac

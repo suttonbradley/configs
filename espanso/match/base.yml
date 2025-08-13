@@ -41,11 +41,3 @@ matches:
     vars:
       - name: "clip"
         type: "clipboard"
-
-  # Stars for obsidian
-  - trigger: ";stary"
-    replace: "<font color=\"#fff98a\">✩</font> "
-  - trigger: ";staro"
-    replace: "<font color=\"#fcb968\">✩</font> "
-  - trigger: ";starr"
-    replace: "<font color=\"#fc5858\">✩</font> "
