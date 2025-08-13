@@ -22,7 +22,7 @@ $env:POSH_GIT_ENABLED = $true
 oh-my-posh init pwsh --config $env:USERPROFILE\code\configs\sutton.omp.json | Invoke-Expression
 
 # Set rustc to use sccache
-$env:RUSTC_WRAPPER="sccache"
+# $env:RUSTC_WRAPPER="sccache"
 
 # Set PSReadLine history options
 Set-PSReadLineOption -PredictionSource History
