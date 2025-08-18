@@ -3,6 +3,8 @@
 
 function lg { lazygit $args}
 
+function rr { rustrover $args }
+
 function Enter-DevPowershell {
     # Find vswhere
     $vswhere_path = "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
