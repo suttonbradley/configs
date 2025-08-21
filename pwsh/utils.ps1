@@ -240,6 +240,7 @@ function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg 
 function gca { git commit --amend $args }
 function gcaa { param ([Parameter(Mandatory)] [string]$msg) git commit --amend -a $args }
 function gr { param ([Parameter(Mandatory)] [string]$ref) git rebase $ref $args }
+function grs { git reset $args }
 function gsu { git submodule update $args }
 
 # function gbs {
@@ -358,4 +359,4 @@ $COMPLETER_GetGitAllBranches = {
 
 Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitLocalBranches -ParameterName 'ref' -CommandName gc,gsw,gdlb,gdb,gd,gdm,gdn,glo
 Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitRemoteBranches -ParameterName 'ref' -CommandName gdrb
-Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitAllBranches -ParameterName 'ref' -CommandName gre
+Register-ArgumentCompleter -ScriptBlock $COMPLETER_GetGitAllBranches -ParameterName 'ref' -CommandName gr
