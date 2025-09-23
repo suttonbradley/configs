@@ -30,4 +30,4 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -EditMode Windows
 
 # Hook zoxide and replace cd with it
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
