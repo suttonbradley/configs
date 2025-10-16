@@ -13,7 +13,7 @@ if($?) {
 }
 function nv { nvim $args }
 
-function rr { rustrover $args }
+function rr { rustrover64 $args }
 
 function Enter-DevPowershell {
     # Find vswhere
