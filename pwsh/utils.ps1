@@ -70,24 +70,8 @@ function notif {
     if($args) {
         $args_string = $args -Join " "
         Invoke-Expression $args_string
-    } else {
-        $args_string = ""
+        New-BurntToastNotification -Text "Complete: $args_string", "Exit code: $lastexitcode"
     }
-
-    New-BurntToastNotification -Text "Command completed", $args_string
-}
-
-# Brings up a notification with the message parameter(s)
-# Usage: `<command> && notif-msg "Success" || notif-msg "Failure"
-function notif-msg {
-    param (
-        [Parameter(Mandatory, Position=0)]
-        $header,
-        [Parameter(Position=1)]
-        $footer=""
-    )
-
-    New-BurntToastNotification -Text $header, $footer
 }
 
 # ----- nushell-style dir switch -----
@@ -298,6 +282,27 @@ function gdb {
     )
     gdrb $ref
     gdlb $ref
+}
+
+function gclean {
+    $branches = git branch --format='%(refname:short)' | Where-Object {
+        -not (git ls-remote --heads origin $_ 2>$null)
+    }
+
+    if (-not $branches) {
+        Write-Host "Clean! No local branches without remotes found"
+        return
+    }
+
+    $branches | ForEach-Object {
+        $confirm = Read-Host - "Delete branch '$_'? (y/n)"
+        if ($confirm -eq 'y') {
+            gdlb $_ | Out-Null
+            Write-Host "Deleted"
+        } else {
+            Write-Host "Not deleted"
+        }
+    }
 }
 
 # Aliases for renaming branches
