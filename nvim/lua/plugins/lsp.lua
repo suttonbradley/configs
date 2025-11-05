@@ -56,6 +56,9 @@ return {{
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, {
             noremap = true
         })
+        vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, {
+            noremap = true
+        })
 
         vim.lsp.inlay_hint.enable(true)
     end
