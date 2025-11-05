@@ -12,12 +12,7 @@ return {
     keys = { -- "s" for "session"
     {
         "<leader>ss",
-        "<cmd>SessionSearch<cr>",
+        "<cmd>AutoSession search<cr>",
         desc = "Search sessions"
-    }, {
-        -- Create session for the dir that was passed to nvim (or working dir if none)
-        "<leader>sc",
-        "<cmd>SessionSave<cr>",
-        desc = "Create session"
-    }}
+    }
 }

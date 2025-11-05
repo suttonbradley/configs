@@ -31,6 +31,7 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `:LspInfo`: get diagnostics on LSPs
 - `:Gitsigns`: actions for stuff like `:Gitsigns blame` to show blame in gutter
 - `:SessionSearch` to search auto-session sessions. See all commands [here](https://github.com/rmagatti/auto-session?tab=readme-ov-file#-commands)
+- `:Lazy` to update plugins
 
 ## neo-tree (file explorer)
 Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-file#longer-example-for-lazynvim)
