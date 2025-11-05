@@ -47,10 +47,10 @@ return {{
         vim.lsp.enable({'lua_ls', 'clangd', 'pest_ls', 'powershell_es', 'ruff', 'taplo', 'yamlls'})
 
         vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {
+        vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, {
             noremap = true
         })
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {
+        vim.keymap.set('n', 'gD', vim.lsp.buf.definition, {
             noremap = true
         })
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, {

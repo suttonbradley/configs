@@ -65,3 +65,4 @@ vim.g.editorconfig = false
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 require("config.lazy")
+require("config.harpoon")
