@@ -14,5 +14,5 @@ return {
         "<leader>ss",
         "<cmd>AutoSession search<cr>",
         desc = "Search sessions"
-    }
+    }}
 }
