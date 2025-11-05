@@ -63,3 +63,7 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 ### Windows
 - `alt+h/j/k/l` to move cursor between windows
 - `alt+H/J/K/L` to resize windows
+### Harpooon
+- `ctrl+j/k/l/;/'` to go to pin at that index
+- `ctrl+e` to open harpoon menu (in telescope)
+- fwd/back doesn't work (yet)
