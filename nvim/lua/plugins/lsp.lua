@@ -53,6 +53,9 @@ return {{
         vim.keymap.set('n', 'gD', vim.lsp.buf.definition, {
             noremap = true
         })
+        vim.keymap.set('n', 'gu', '<C-T>', {
+            noremap = true
+        })
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, {
             noremap = true
         })

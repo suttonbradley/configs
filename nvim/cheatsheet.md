@@ -46,8 +46,8 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `shift+k` to see docs for hovered
 - `gd` to go to definition
 - `gD` to go to declaration
-- `gr` go to references
-- `ctrl+t` to jump back to previous jump point
+- `gr` to go to references
+- `gu` to "_g_o _u_p" (remapped from `ctrl+t`, which jumps back to previous jump point)
 
 ## Remapped
 - `:qq` for `:qa`, `:qqq` for `:qa!`
