@@ -44,6 +44,8 @@ return {{
             cmd = {'yaml-language-server', '--stdio'}
         }
 
+        vim.lsp.enable({'lua_ls', 'clangd', 'pest_ls', 'powershell_es', 'ruff', 'taplo', 'yamlls'})
+
         vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {
             noremap = true

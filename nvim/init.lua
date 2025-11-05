@@ -45,6 +45,10 @@ vim.keymap.set("n", "<A-K>", "<cmd>res -8<cr>", {
 vim.keymap.set("n", "<A-J>", "<cmd>res +8<cr>", {
     noremap = true
 })
+-- Undo
+vim.keymap.set("n", "<C-z>", "<cmd>undo<cr>", {
+    noremap = true
+})
 
 -- Alias qa and qa! (quicker to type)
 vim.cmd("cnorea qq qa")
