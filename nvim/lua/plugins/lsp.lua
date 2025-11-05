@@ -24,19 +24,16 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({
-                -- Avoid warnings r.e. unfound global 'vim'
+            vim.lsp.config.lua_ls = {
+                cmd = { 'lua-language-server' },
                 settings = { Lua = { diagnostics = { globals = { 'vim' } } } }
-            })
-            -- NOTE: completions won't work without adding to autocomplete.lua
-            lspconfig.clangd.setup({})
-            lspconfig.pest_ls.setup({})
-            lspconfig.powershell_es.setup({})
-            lspconfig.ruff.setup({})
-            -- lspconfig.rust_analyzer.setup({}) -- NOTE: purposefully omitted due to rustacean plugin
-            lspconfig.taplo.setup({})
-            lspconfig.yamlls.setup({})
+            }
+            vim.lsp.config.clangd = { cmd = { 'clangd' } }
+            vim.lsp.config.pest_ls = { cmd = { 'pest-language-server' } }
+            vim.lsp.config.powershell_es = { cmd = { 'PowerShellEditorServices' } }
+            vim.lsp.config.ruff = { cmd = { 'ruff', 'server' } }
+            vim.lsp.config.taplo = { cmd = { 'taplo', 'lsp', 'stdio' } }
+            vim.lsp.config.yamlls = { cmd = { 'yaml-language-server', '--stdio' } }
 
             vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true })
