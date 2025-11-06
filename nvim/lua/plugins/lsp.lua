@@ -15,7 +15,7 @@ return {{
 }, {
     "neovim/nvim-lspconfig",
     config = function()
-        vim.lsp.config.lua_ls = {
+        vim.lsp.config['lua_ls'] = {
             cmd = {'lua-language-server'},
             settings = {
                 Lua = {
@@ -25,22 +25,22 @@ return {{
                 }
             }
         }
-        vim.lsp.config.clangd = {
+        vim.lsp.config['clangd'] = {
             cmd = {'clangd'}
         }
-        vim.lsp.config.pest_ls = {
+        vim.lsp.config['pest_ls'] = {
             cmd = {'pest-language-server'}
         }
-        vim.lsp.config.powershell_es = {
+        vim.lsp.config['powershell_es'] = {
             cmd = {'PowerShellEditorServices'}
         }
-        vim.lsp.config.ruff = {
+        vim.lsp.config['ruff'] = {
             cmd = {'ruff', 'server'}
         }
-        vim.lsp.config.taplo = {
+        vim.lsp.config['taplo'] = {
             cmd = {'taplo', 'lsp', 'stdio'}
         }
-        vim.lsp.config.yamlls = {
+        vim.lsp.config['yamlls'] = {
             cmd = {'yaml-language-server', '--stdio'}
         }
 
