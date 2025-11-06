@@ -21,6 +21,10 @@ vim.keymap.set("n", "<C-'>", function() harpoon:list():select(4) end)
 -- vim.keymap.set("n", "<C-S-L>", function() harpoon:list():next() end)
 -- TODO: don't work?
 
+-- Highlight current file in list
+local harpoon_extensions = require("harpoon.extensions")
+harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
+
 -- basic telescope configuration
 local conf = require("telescope.config").values
 local function toggle_telescope(harpoon_files)
@@ -39,5 +43,5 @@ local function toggle_telescope(harpoon_files)
     }):find()
 end
 
-vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
+vim.keymap.set("n", "<leader>hp", function() toggle_telescope(harpoon:list()) end,
     { desc = "Open harpoon window" })
