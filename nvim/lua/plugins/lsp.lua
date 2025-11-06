@@ -13,20 +13,6 @@ return {{
         })
     end
 }, {
-    "maan2003/lsp_lines.nvim",
-    config = function()
-        require("lsp_lines").setup() -- defaults are fine
-        -- Disable default virtual_text and let lsp_lines show diagnostics below lines
-        vim.diagnostic.config({
-            virtual_text = false,
-            virtual_lines = true,
-            signs = true,
-            underline = true,
-            update_in_insert = false,
-            severity_sort = true,
-        })
-    end,
-}, {
     "neovim/nvim-lspconfig",
     config = function()
         vim.lsp.config['lua_ls'] = {

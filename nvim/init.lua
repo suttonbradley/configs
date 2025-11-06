@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", {
 })
 
 -- Fix home in certain modes
-vim.keymap.set({"n", "v"}, "<home>", "<S-^>", {
+vim.keymap.set({ "n", "v" }, "<home>", "<S-^>", {
     noremap = true
 })
 
@@ -64,5 +64,14 @@ vim.g.editorconfig = false
 -- Vim session settings recommended on auto-session github page
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- Diagnostics in virtual lines
+vim.diagnostic.config({
+    virtual_text = false,
+    virtual_lines = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})
 require("config.lazy")
 require("config.harpoon")
