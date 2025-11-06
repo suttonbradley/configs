@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # TODO: use git includeif to make sure this only runs on windows? Use a cross-platform scripting lang?
-pwsh.exe -NoProfile -File "$USERPROFILE\code\configs\git-hooks\pre-commit.ps1"
+pwsh.exe -NoProfile -File "$USERPROFILE\code\configs\git-hooks\pre-push.ps1"
