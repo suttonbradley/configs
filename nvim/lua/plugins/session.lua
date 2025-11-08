@@ -7,7 +7,8 @@ return {
     ---@type AutoSession.Config
     opts = {
         -- Avoid session clutter!
-        auto_create = false
+        auto_create = false,
+        auto_restore_last_session = true,
     },
     keys = { -- "s" for "session"
     {

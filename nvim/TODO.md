@@ -1,14 +1,9 @@
 ## Short list
-- [ ] harpoon
-- [ ] New Rust-based LSP
 - [ ] fix fzf
 - [ ] powershell LSP
 - [ ] none-ls?
 - [ ] get terminals to persist across workspace changes
   - might require something tmux-like which windows doesn't seem to have
-- [x] toggle term
-- [x] use keybinds from that video for buffer switching
-- [x] telescope bind to open file in new column
 
 ## Definitely
 - [ ] neotree toggle vs focus - better keybinds
@@ -36,6 +31,11 @@
   - [ ] way to focus without having to `ctrl+n` twice
 
 ## Done
+- [x] harpoon
+- [x] New Rust-based LSP
+- [x] toggle term
+- [x] use keybinds from that video for buffer switching
+- [x] telescope bind to open file in new column
 - [x] snippets [this video](https://www.youtube.com/watch?v=iXIwm4mCpuc&list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn&index=5)
 - [x] show git change indicators per-line
 - Better Rust support

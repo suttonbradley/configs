@@ -7,15 +7,17 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `b`/`ge`: jump backward word (beginning vs. end)
 - `y`/`d`: yank/delete (copy/cut)
   - `yy`/`dd` yank/delete line
-- `u`: undo
-- `i`/`a`/`o`: insert (here, after cursor, after line)
+- `u`: undo, `ctrl+r` redo
+- `i`/`a`/`A`/`o`/`O`: insert (here, after cursor, end of line, after line, before line)
 - `f`/`F`: goto next (backwards vs. fwds)
 - `zz`: center screen on cursor
+- `$` for end of line, `^` for beginning
+  - use throughout, like `v$` selects cursor through end of line in visual mode
 
 ## Visual mode
 - `vi<char>` selects inside of pair of `<char>` (`'`, `"`, etc.). Shortcuts to this:
   - `vib` select inside of `()`
-  - `viB` select inside of `()`
+  - `viB` select inside of `{}`
 
 ## Commands
 - Search: `/<query>` + enter, then `n`/`N` to seek
@@ -32,6 +34,7 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `:Gitsigns`: actions for stuff like `:Gitsigns blame` to show blame in gutter
 - `:SessionSearch` to search auto-session sessions. See all commands [here](https://github.com/rmagatti/auto-session?tab=readme-ov-file#-commands)
 - `:Lazy` to update plugins
+- `:checkhealth` is generally useful
 
 ## neo-tree (file explorer)
 Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-file#longer-example-for-lazynvim)
@@ -42,8 +45,10 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 
 ## Code modification and suggestions
 - `<leader>ca` code actions
-- `<leader>gc` to toggle comment
 - `shift+k` to see docs for hovered
+- `gcc` to toggle comment on this line
+- `gc<num>[j/k]` to comment this line + `num` more lines up/down
+  - or, visual (line) mode and gc within it
 - `gd` to go to definition
 - `gD` to go to declaration
 - `gr` to go to references
@@ -65,6 +70,10 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `alt+h/j/k/l` to move cursor between windows
 - `alt+H/J/K/L` to resize windows
 ### Harpooon
-- `ctrl+j/k/l/;/'` to go to pin at that index
-- `ctrl+e` to open harpoon menu (in telescope)
-- fwd/back doesn't work (yet)
+- `<leader>ha` to add this file to harpoon
+- `<leader>hp` to open harpoon menu (in telescope)
+  - Within that, `dd` to delete an entry, then `:wq` to save the new list
+- In normal mode, **_any number_** to go to pin at that index (single digit)
+- `ctrl+h`/`ctrl+l` to go fwd/back
+- TODO: figure out how to swap files around - seems like you can just edit the menu
+- TODO: telescope integration didn't work to delete files. Bring that back?

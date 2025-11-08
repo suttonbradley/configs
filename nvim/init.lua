@@ -45,8 +45,11 @@ vim.keymap.set("n", "<A-K>", "<cmd>res -8<cr>", {
 vim.keymap.set("n", "<A-J>", "<cmd>res +8<cr>", {
     noremap = true
 })
--- Undo
+-- Undo/Redo
 vim.keymap.set("n", "<C-z>", "<cmd>undo<cr>", {
+    noremap = true
+})
+vim.keymap.set("n", "<C-S-z>", "<cmd>redo<cr>", {
     noremap = true
 })
 
