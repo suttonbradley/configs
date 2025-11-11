@@ -21,8 +21,8 @@ vim.keymap.set("n", "<C-o>", function() harpoon:list():select(5) end)
 vim.keymap.set("n", "<C-p>", function() harpoon:list():select(6) end)
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-n>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<C-m>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<C-y>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-h>", function() harpoon:list():next() end)
 
 -- Highlight current file in list
 local harpoon_extensions = require("harpoon.extensions")
