@@ -1,4 +1,4 @@
-return {{
+return { {
     "williamboman/mason.nvim",
     config = true
 }, {
@@ -6,51 +6,57 @@ return {{
     config = function()
         require("mason-lspconfig").setup({
             -- Available LSP servers at: https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
-            ensure_installed = {"clangd", "lua_ls", "pest_ls", "powershell_es", "ruff", -- python
-            -- "rust_analyzer", -- NOTE: must be installed by rustup, not Mason, for rustacean plugin
-            "taplo", -- toml
-            "yamlls"}
+            ensure_installed = { "clangd", "lua_ls", "pest_ls", "powershell_es", "ruff", -- python
+                -- "rust_analyzer", -- NOTE: must be installed by rustup, not Mason, for rustacean plugin
+                "taplo",                                                                -- toml
+                "yamlls" }
         })
     end
 }, {
     "neovim/nvim-lspconfig",
     config = function()
         vim.lsp.config['lua_ls'] = {
-            cmd = {'lua-language-server'},
+            cmd = { 'lua-language-server' },
             settings = {
                 Lua = {
                     diagnostics = {
-                        globals = {'vim'}
+                        globals = { 'vim' }
                     }
                 }
             }
         }
         vim.lsp.config['clangd'] = {
-            cmd = {'clangd'}
+            cmd = { 'clangd' }
         }
         vim.lsp.config['pest_ls'] = {
-            cmd = {'pest-language-server'}
+            cmd = { 'pest-language-server' }
         }
         vim.lsp.config['powershell_es'] = {
-            cmd = {'PowerShellEditorServices'}
+            cmd = { 'PowerShellEditorServices' }
         }
         vim.lsp.config['ruff'] = {
-            cmd = {'ruff', 'server'}
+            cmd = { 'ruff', 'server' }
         }
         vim.lsp.config['taplo'] = {
-            cmd = {'taplo', 'lsp', 'stdio'}
+            cmd = { 'taplo', 'lsp', 'stdio' }
         }
         vim.lsp.config['yamlls'] = {
-            cmd = {'yaml-language-server', '--stdio'}
+            cmd = { 'yaml-language-server', '--stdio' }
         }
 
-        vim.lsp.enable({'lua_ls', 'clangd', 'pest_ls', 'powershell_es', 'ruff', 'taplo', 'yamlls'})
+        vim.lsp.enable({ 'lua_ls', 'clangd', 'pest_ls', 'powershell_es', 'ruff', 'taplo', 'yamlls' })
 
-        vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
-        vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, {
+        vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
+        vim.keymap.set('n', 'gd', function()
+            vim.lsp.buf.declaration()
+            vim.cmd('normal! zz')
+        end, {
             noremap = true
         })
-        vim.keymap.set('n', 'gD', vim.lsp.buf.definition, {
+        vim.keymap.set('n', 'gD', function()
+            vim.lsp.buf.definition()
+            vim.cmd('normal! zz')
+        end, {
             noremap = true
         })
         vim.keymap.set('n', 'gu', '<C-T>', {
@@ -77,4 +83,4 @@ return {{
 
         vim.lsp.inlay_hint.enable(true)
     end
-}}
+} }

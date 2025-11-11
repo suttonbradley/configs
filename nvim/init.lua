@@ -60,6 +60,7 @@ vim.cmd("cnorea qqq qa!")
 -- Disable mouse
 vim.cmd("set mouse=")
 -- Remove some annoying formatting options
+-- TODO: doesn't work?
 vim.cmd("set formatoptions-=cro")
 
 -- Disable .editorconfig files enforced on repos
