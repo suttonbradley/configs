@@ -229,12 +229,13 @@ function gf { git fetch $args }
 function gpl { git pull $args }
 function glo { param([Parameter(Position=0)]$ref) git log $ref }
 function gb { git branch }
-function gcom { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
+function gcm { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
 function gca { git commit --amend $args }
 function gcaa { param ([Parameter(Mandatory)] [string]$msg) git commit --amend -a $args }
 function gr { param ([Parameter(Mandatory)] [string]$ref) git rebase $ref $args }
 function grs { git reset $args }
+function grsh { git reset --hard $args }
 function gsu { git submodule update $args }
 
 # function gbs {
