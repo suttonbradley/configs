@@ -4,11 +4,7 @@ Write-Host -NoNewline "Git hook: cargo fmt check | "
 
 # Use git root, take dirs with Cargo.toml from this repo only, not submodules
 $git_root = git rev-parse --show-toplevel
-$submodules = git config --file (Join-Path $git_root .gitmodules) --get-regexp path | ForEach-Object { Join-Path $git_root ($_ -split ' ')[1] }
-$cargo_toml_dirs = Get-ChildItem -Path $git_root -Recurse -Filter "Cargo.toml" -File | Where-Object {
-    $file = $_
-    $file.FullName -notmatch '\.git\\' -and -not ($submodules | Where-Object { $file.FullName -like "$_\*" })
-} | ForEach-Object { Split-Path -Parent $_ }
+$cargo_toml_dirs = git ls-files '**/Cargo.toml' 'Cargo.toml' | ForEach-Object { Join-Path $git_root (Split-Path -Parent $_) }
 
 # Filter out dirs that haven't changed since last push
 $upstream = git rev-parse --abbrev-ref --symbolic-full-name '@{u}' 2>$null
