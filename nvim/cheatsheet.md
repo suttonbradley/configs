@@ -73,7 +73,16 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `<leader>ha` to add this file to harpoon
 - `<leader>hp` to open harpoon menu (in telescope)
   - Within that, `dd` to delete an entry, then `:wq` to save the new list
-- In normal mode, **_any number_** to go to pin at that index (single digit)
-- `ctrl+h`/`ctrl+l` to go fwd/back
-- TODO: figure out how to swap files around - seems like you can just edit the menu
+- In normal mode `ctrl` + any of `jkliop` are the file indexes
+- `ctrl+y`/`ctrl+h` for next/prev, like going down/up the list
 - TODO: telescope integration didn't work to delete files. Bring that back?
+
+## Macros
+- Record with `q<reg>` where `<reg>` is the register the macro is recorded to
+  - normally, `qq` for convenience
+- `q` in normal mode to stop recording
+- `@<reg>` to run the macro
+  - make use of numbers - `5@q` runs the macro 5 times
+
+## Misc
+- for weirdness with terminal escape sequences, you can use `:echo getcharstr()` and then hit a key combo to see what vim actually receives 
