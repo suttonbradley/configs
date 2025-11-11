@@ -1,9 +1,11 @@
 # ----- CARGO FMT -----
+$stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
+Write-Host -NoNewline "Git hook: cargo fmt check | "
 
 # Use git root, take dirs with Cargo.toml from this repo only, not submodules
 $git_root = git rev-parse --show-toplevel
 $submodules = git config --file (Join-Path $git_root .gitmodules) --get-regexp path | ForEach-Object { Join-Path $git_root ($_ -split ' ')[1] }
-$cargo_toml_dirs = Get-ChildItem -Path $git_root -Recurse -Filter "Cargo.toml" -File | Where-Object { 
+$cargo_toml_dirs = Get-ChildItem -Path $git_root -Recurse -Filter "Cargo.toml" -File | Where-Object {
     $file = $_
     $file.FullName -notmatch '\.git\\' -and -not ($submodules | Where-Object { $file.FullName -like "$_\*" })
 } | ForEach-Object { Split-Path -Parent $_ }
@@ -27,16 +29,13 @@ if ($changed_files) {
     }
 }
 
-# Guaranteed to have something to format now
-if ($cargo_toml_dirs.Count -gt 0) {
-    Write-Host "Git hook: running cargo fmt"
-}
-
 # Filter out parent directories to avoid multiple cargo fmt runs
 $cargo_toml_dirs = $cargo_toml_dirs | Where-Object {
     $dir = $_
     -not ($cargo_toml_dirs | Where-Object { $_ -ne $dir -and $_ -like "$dir\*" })
 }
+
+Write-Host -NoNewline "formatting $($cargo_toml_dirs.Count) dirs | "
 
 # Cargo fmt check each and look for errors
 $no_errors = $true
@@ -50,3 +49,6 @@ if (-not $no_errors) {
     Write-Host "Git hook: not committing due to failed cargo fmt"
     exit 1
 }
+
+Write-Host "took $($stopwatch.Elapsed.TotalSeconds.ToString('F2')) seconds"
+$stopwatch.Stop()
