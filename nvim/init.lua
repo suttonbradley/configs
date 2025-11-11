@@ -67,6 +67,16 @@ vim.cmd("set formatoptions-=cro")
 -- This *can* be helpful, but sometimes causes large changes to whitespace that can get you git blame'd
 vim.g.editorconfig = false
 
+-- Make searching fwd/back also center the screen
+vim.keymap.set('n', 'n', function()
+    vim.cmd('normal! n')
+    vim.cmd('normal! zz')
+end, { noremap = true, silent = true })
+vim.keymap.set('n', 'N', function()
+    vim.cmd('normal! N')
+    vim.cmd('normal! zz')
+end, { noremap = true, silent = true })
+
 -- Vim session settings recommended on auto-session github page
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 

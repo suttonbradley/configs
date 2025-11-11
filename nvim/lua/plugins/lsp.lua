@@ -8,7 +8,7 @@ return { {
             -- Available LSP servers at: https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
             ensure_installed = { "clangd", "lua_ls", "pest_ls", "powershell_es", "ruff", -- python
                 -- "rust_analyzer", -- NOTE: must be installed by rustup, not Mason, for rustacean plugin
-                "taplo",                                                                -- toml
+                "taplo",                                                                 -- toml
                 "yamlls" }
         })
     end
@@ -49,15 +49,19 @@ return { {
         vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
         vim.keymap.set('n', 'gd', function()
             vim.lsp.buf.declaration()
-            vim.cmd('normal! zz')
+            vim.defer_fn(function()
+                vim.cmd('normal! zz')
+            end, 50) -- defer 50ms
         end, {
-            noremap = true
+            noremap = true, silent = true
         })
         vim.keymap.set('n', 'gD', function()
             vim.lsp.buf.definition()
-            vim.cmd('normal! zz')
+            vim.defer_fn(function()
+                vim.cmd('normal! zz')
+            end, 50) -- defer 50ms
         end, {
-            noremap = true
+            noremap = true, silent = true
         })
         vim.keymap.set('n', 'gu', '<C-T>', {
             noremap = true
