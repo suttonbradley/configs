@@ -265,7 +265,7 @@ function gdrb {
         [Parameter(Mandatory, Position=0)] [string]$ref
     )
     Write-Host "Deleting remote branch $ref..."
-    git push --delete origin $ref
+    git push --no-verify --delete origin $ref
 }
 
 function gdlb {
