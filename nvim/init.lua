@@ -59,9 +59,6 @@ vim.cmd("cnorea qqq qa!")
 
 -- Disable mouse
 vim.cmd("set mouse=")
--- Remove some annoying formatting options
--- TODO: doesn't work?
-vim.cmd("set formatoptions-=cro")
 
 -- Disable .editorconfig files enforced on repos
 -- This *can* be helpful, but sometimes causes large changes to whitespace that can get you git blame'd
@@ -91,3 +88,6 @@ vim.diagnostic.config({
 })
 require("config.lazy")
 require("config.harpoon")
+-- Remove some annoying format options
+vim.cmd("set formatoptions-=cro")
+
