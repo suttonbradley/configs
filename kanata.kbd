@@ -1,7 +1,7 @@
 ;; Config guide: https://github.com/jtroo/kanata/blob/main/docs/config.adoc
 
 (defcfg
-
+  concurrent-tap-hold yes
 )
 
 (defsrc
@@ -17,6 +17,7 @@
 ;;     shift -> ctrl
 ;;     ctrl -> esc
 ;; arrow keys with ijkl when holding right alt
+;; copy/paste chords: xc for copy, xv for paste, add z for shift
 
 (deflayer default
                  _
@@ -30,6 +31,13 @@
   _            left down rght
   _            _    _    _    _    _
   _
+)
+
+(defchordsv2
+  (x c) C-c 50 first-release ()
+  (x v) C-v 50 first-release ()
+  ;; (z x c) S-C-c 50 first-release ()
+  ;; (z x v) S-C-v 50 first-release ()
 )
 
 (defalias
