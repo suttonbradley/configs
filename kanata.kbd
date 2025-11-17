@@ -1,0 +1,65 @@
+#|
+This minimal config changes Caps Lock to act as Caps Lock on quick tap, but
+if held, it will act as Left Ctrl. It also changes the backtick/grave key to
+act as backtick/grave on quick tap, but change ijkl keys to arrow keys on hold.
+
+This text between the two pipe+octothorpe sequences is a multi-line comment.
+|#
+
+;; Text after double-semicolons are single-line comments.
+
+#|
+One defcfg entry may be added, which is used for configuration key-pairs. These
+configurations change kanata's behaviour at a more global level than the other
+configuration entries.
+|#
+
+(defcfg
+  #|
+  This configuration will process all keys pressed inside of kanata, even if
+  they are not mapped in defsrc. This is so that certain actions can activate
+  at the right time for certain input sequences. By default, unmapped keys are
+  not processed through kanata due to a Windows issue related to AltGr. If you
+  use AltGr in your keyboard, you will likely want to follow the simple.kbd
+  file while unmapping lctl and ralt from defsrc.
+  |#
+  process-unmapped-keys yes
+)
+
+;; Only one defsrc is allowed.
+;;
+;; defsrc defines the keys that will be intercepted by kanata. The order of the
+;; keys matches with deflayer declarations and all deflayer declarations must
+;; have the same number of keys as defsrc. Any keys not listed in defsrc will
+;; be passed straight to the operating system.
+(defsrc
+                 i
+  caps      j    k    l
+  lsft           ralt
+  lctl
+)
+
+;; Sutton notes on what's remapped:
+;; On the left, to be like split keyb:
+;;     caps -> shift
+;;     shift -> ctrl
+;;     ctrl -> esc
+;; arrow keys with ijkl when holding right alt
+
+(deflayer default
+                 _
+  lsft      _    _    _
+  lctl           @arr
+  esc    
+)
+
+(deflayer arrows
+                    up
+  _            left down rght
+  _                 _
+  _
+)
+
+(defalias
+  arr (tap-hold-press 200 200 ralt (layer-toggle arrows))
+)
