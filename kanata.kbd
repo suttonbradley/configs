@@ -5,9 +5,9 @@
 )
 
 (defsrc
-                 i
-  caps      j    k    l
-  lsft      z    x    c    v    ralt
+                    i
+  caps    h    j    k    l    ;
+  lsft    z    x    c    v    ralt
   lctl
 )
 
@@ -20,16 +20,16 @@
 ;; copy/paste chords: xc for copy, xv for paste, add z for shift
 
 (deflayer default
-                 _
-  lsft      _    _    _
-  lctl      _    _    _    _    @arr
+                    _
+  lsft    _    _    _    _    _
+  lctl    _    _    _    _    @arr
   esc    
 )
 
 (deflayer arrows
-                    up
-  _            left down rght
-  _            _    _    _    _    _
+                      up
+  _      home left down rght end
+  _      _     _   _    _    _
   _
 )
 
