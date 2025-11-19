@@ -1,19 +1,19 @@
-return {{
+return { {
     "nvim-telescope/telescope.nvim",
-    dependencies = {'nvim-lua/plenary.nvim'},
-    keys = {{
-        "<leader>ff",
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = { {
+        "<leader>fd",
         function()
             require("telescope.builtin").find_files()
         end,
         desc = "Find files"
     }, {
-        "<leader>fg",
+        "<leader>rg",
         function()
             require("telescope.builtin").live_grep()
         end,
         desc = "Live grep"
-    }},
+    } },
     -- change some options
     opts = {
         defaults = {
@@ -51,9 +51,9 @@ return {{
     config = function()
         require("telescope").setup {
             extensions = {
-                ["ui-select"] = {require("telescope.themes").get_dropdown {}}
+                ["ui-select"] = { require("telescope.themes").get_dropdown {} }
             }
         }
         require("telescope").load_extension("ui-select")
     end
-}}
+} }
