@@ -63,7 +63,7 @@ return { {
         end, {
             noremap = true, silent = true
         })
-        vim.keymap.set('n', 'gu', '<C-T>', {
+        vim.keymap.set('n', 'gu', '<C-T>zz', {
             noremap = true
         })
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, {

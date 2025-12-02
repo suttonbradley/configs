@@ -229,6 +229,11 @@ function gf { git fetch $args }
 function gpl { git pull $args }
 function glo { param([Parameter(Position=0)]$ref) git log $ref }
 function gb { git branch }
+# Remove existing gcm command
+Get-Alias gcm *>&1 | Out-Null
+if($?) {
+    Remove-Item alias:gcm -Force
+}
 function gcm { param ([Parameter(Mandatory)] [string]$msg) git commit -m $msg }
 function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg }
 function gca { git commit --amend $args }
