@@ -7,11 +7,11 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set rnu")
 vim.cmd("set nu")
 
--- Center screen on half-page scrolls
-vim.keymap.set("n", "<C-d>", "<C-d>zz", {
+-- Remap + center screen on half-page scrolls
+vim.keymap.set("n", "<C-y>", "<C-u>zz", {
     noremap = true
 })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", {
+vim.keymap.set("n", "<C-h>", "<C-d>zz", {
     noremap = true
 })
 
@@ -59,6 +59,10 @@ vim.cmd("cnorea qqq qa!")
 
 -- Disable mouse
 vim.cmd("set mouse=")
+
+-- Set splits to go right and below
+vim.cmd("set splitright")
+vim.cmd("set splitbelow")
 
 -- Disable .editorconfig files enforced on repos
 -- This *can* be helpful, but sometimes causes large changes to whitespace that can get you git blame'd

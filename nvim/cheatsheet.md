@@ -13,6 +13,7 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `zz`: center screen on cursor
 - `$` for end of line, `^` for beginning
   - use throughout, like `v$` selects cursor through end of line in visual mode
+- `ctrl+y/h` for half page up/down + center the screen
 
 ## Visual mode
 - `vi<char>` selects inside of pair of `<char>` (`'`, `"`, etc.). Shortcuts to this:
@@ -65,7 +66,6 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
   - _don't forget: `ctrl+c` to exit
 - `<leader>ss` for to open session search window
 - `<leader>tt` to open floating, persistent terminal
-- `<leader>hp` to open harpoon
 ### Windows
 - `alt+h/j/k/l` to move cursor between windows
 - `alt+H/J/K/L` to resize windows
@@ -73,8 +73,8 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `<leader>ha` to add this file to harpoon
 - `<leader>hp` to open harpoon menu (in telescope)
   - Within that, `dd` to delete an entry, then `:wq` to save the new list
-- In normal mode `ctrl` + any of `jkliop` are the file indexes
-- `ctrl+y`/`ctrl+h` for next/prev, like going down/up the list
+- In normal mode `ctrl` + any of `jkluiop` are the file indexes
+- `<leader>v` on a menu item to open in a vsplit to the right
 - TODO: telescope integration didn't work to delete files. Bring that back?
 
 ## Macros
