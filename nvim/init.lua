@@ -1,3 +1,7 @@
+-- Set leader key for remappings later
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Tabs as 4 spaces
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
@@ -52,6 +56,9 @@ vim.keymap.set("n", "<C-z>", "<cmd>undo<cr>", {
 vim.keymap.set("n", "<C-S-z>", "<cmd>redo<cr>", {
     noremap = true
 })
+-- yank to clipboard
+vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
+vim.keymap.set({ "v", "x" }, "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
 
 -- Alias qa and qa! (quicker to type)
 vim.cmd("cnorea qq qa")
@@ -92,6 +99,15 @@ vim.diagnostic.config({
 })
 require("config.lazy")
 require("config.harpoon")
--- Remove some annoying format options
-vim.cmd("set formatoptions-=cro")
+-- Remove some annoying format options (comment wrapping, etc.)
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "*",
+    callback = function()
+        vim.schedule(function()
+            vim.opt.formatoptions:remove({ "c", "r", "o" })
+        end)
+    end,
+})
+
+
 
