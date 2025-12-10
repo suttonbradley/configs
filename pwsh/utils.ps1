@@ -316,7 +316,7 @@ function gclean {
 }
 
 # Aliases for renaming branches
-function grlb {
+function grnl {
     param (
         [Parameter(Mandatory)] [string]$branchName
     )
@@ -324,7 +324,7 @@ function grlb {
     git branch -m $branchName
 }
 
-function grb {
+function grn {
     param (
         [Parameter(Mandatory)] [string]$branchName
     )
@@ -332,7 +332,7 @@ function grb {
     $oldBranch = git branch --show-current
     git push origin origin/$($oldBranch):refs/heads/$branchName :$oldBranch
 
-    grlb  $branchName
+    grnl  $branchName
 }
 
 # ----- MISC ALIASES -----
