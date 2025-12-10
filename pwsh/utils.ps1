@@ -239,7 +239,9 @@ function gcam { param ([Parameter(Mandatory)] [string]$msg) git commit -am $msg 
 function gca { git commit --amend $args }
 function gcaa { git commit --amend -a $args }
 function grb { param ([Parameter(Mandatory)] [string]$ref) git rebase $ref $args }
-function grbi { param ([Parameter(Mandatory)] [string]$ref) git rebase -i $ref $args }
+function grbi { git rebase -i $args }
+function grbc { git rebase --continue $args }
+function grba { git rebase --abort $args }
 function grs { git reset $args }
 function grsh { git reset --hard $args }
 function grshh { git reset --hard head $args }
