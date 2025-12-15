@@ -185,7 +185,7 @@ if($?) {
 }
 # Standard git aliases
 function gs { git status $args }
-function gdi {
+function gd {
     param(
         [Parameter(Position=0)]$ref,
         [Parameter(Position=1)]$ref2
@@ -196,7 +196,7 @@ function gdi {
         git diff $ref
     }
 }
-function gdim {
+function gdi {
     param(
         [Parameter(Position=0)]$ref,
         [Parameter(Position=1)]$ref2
@@ -207,7 +207,7 @@ function gdim {
         git diff --merge-base $ref
     }
 }
-function gdin {
+function gdi {
     param(
         [Parameter(Position=0)]$ref,
         [Parameter(Position=1)]$ref2
