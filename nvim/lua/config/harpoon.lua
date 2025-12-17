@@ -12,13 +12,13 @@ harpoon:setup({
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "harpoon",
     callback = function()
-        vim.keymap.set("n", "<leader>v", function()
+        vim.keymap.set("n", "<leader>sv", function()
             local line = vim.fn.line(".")
             vim.cmd("close")
             vim.cmd("vsplit")
             harpoon:list("default"):select(line)
         end, { buffer = true, noremap = true })
-        vim.keymap.set("n", "<leader>h", function()
+        vim.keymap.set("n", "<leader>sh", function()
             local line = vim.fn.line(".")
             vim.cmd("close")
             vim.cmd("split")

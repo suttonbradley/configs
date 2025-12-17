@@ -67,6 +67,8 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `<leader>ss` for to open session search window
 - `<leader>tt` to open floating, persistent terminal
 ### Windows
+- `<leader>sv`/`<leader>sh` on a menu item in normal mode within telescope, harpoon, or just an open file to split pane
+  - With just a standard file open, duplicates that file
 - `alt+h/j/k/l` to move cursor between windows
 - `alt+H/J/K/L` to resize windows
 ### Harpooon
@@ -74,7 +76,6 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `<leader>hp` to open harpoon menu (in telescope)
   - Within that, `dd` to delete an entry, then `:wq` to save the new list
 - In normal mode `ctrl` + any of `jkluiop` are the file indexes
-- `<leader>v` on a menu item to open in a vsplit to the right
 - TODO: telescope integration didn't work to delete files. Bring that back?
 
 ## Macros

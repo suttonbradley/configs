@@ -35,13 +35,9 @@ return { {
                 --     "keys": "alt+shift+d"
                 -- }
 
-                i = {
-                    ["<leader>v"] = "file_vsplit",
-                    ["<leader>h"] = "file_split"
-                },
                 n = {
-                    ["<leader>v"] = "file_vsplit",
-                    ["<leader>h"] = "file_split"
+                    ["<leader>sv"] = "file_vsplit",
+                    ["<leader>sh"] = "file_split"
                 }
             }
         }

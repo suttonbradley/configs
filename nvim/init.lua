@@ -65,6 +65,9 @@ vim.keymap.set("n", "<C-S-z>", "<cmd>redo<cr>", {
 -- yank to clipboard
 vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
 vim.keymap.set({ "v", "x" }, "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
+-- Split current file
+vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<cr>", { noremap = true, silent = true, desc = "Split vertically" })
+vim.keymap.set("n", "<leader>sh", "<cmd>split<cr>", { noremap = true, silent = true, desc = "Split horizontally" })
 
 -- Alias qa and qa! (quicker to type)
 vim.cmd("cnorea qq qa")
