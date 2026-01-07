@@ -290,8 +290,8 @@ function gde {
     param (
         [Parameter(Mandatory, Position=0)] [string]$ref
     )
-    gdrb $ref
-    gdlb $ref
+    gder $ref
+    gdel $ref
 }
 
 function gclean {
@@ -307,7 +307,7 @@ function gclean {
     $branches | ForEach-Object {
         $confirm = Read-Host - "Delete branch '$_'? (y/n)"
         if ($confirm -eq 'y') {
-            gdlb $_ | Out-Null
+            gdel $_ | Out-Null
             Write-Host "Deleted"
         } else {
             Write-Host "Not deleted"
