@@ -36,6 +36,8 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `:SessionSearch` to search auto-session sessions. See all commands [here](https://github.com/rmagatti/auto-session?tab=readme-ov-file#-commands)
 - `:Lazy` to update plugins
 - `:checkhealth` is generally useful
+- `<leader>xx` to show diagnostics /w trouble plugin
+  - `<leader>xX` to show diagnostics just for this buffer
 
 ## neo-tree (file explorer)
 Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-file#longer-example-for-lazynvim)
