@@ -16,12 +16,12 @@ def --env sourcebat [
     lines
       | split column '#'
       | get column1
-      | filter {($in | str length) > 0} 
+      | where {($in | str length) > 0} 
       | parse "{key}={value}"
       | update value {str trim -c '"'}
       | transpose -r -d
   }
 
-  let vars = $vars | from env | transpose | filter { |in| $in.column0 != 'PWD' and $in.column0 != 'CURRENT_FILE' and $in.column0 != 'FILE_PWD' } | transpose -r -d;
+  let vars = $vars | from env | transpose | where { |in| $in.column0 != 'PWD' and $in.column0 != 'CURRENT_FILE' and $in.column0 != 'FILE_PWD' } | transpose -r -d;
   load-env $vars
 }

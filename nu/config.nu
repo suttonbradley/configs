@@ -41,3 +41,4 @@ $env.EDITOR = 'code'
 
 # THEME
 source ~/code/configs/nu/catpuccin-mocha.nu
+source $"($nu.home-path)/.cargo/env.nu"

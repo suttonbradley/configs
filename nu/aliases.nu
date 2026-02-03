@@ -44,7 +44,7 @@ alias gdm = git diff --merge-base
 alias gdn = git diff --name-only
 alias gl = git log
 alias ga = git add
-alias gap = git add -p $args
+def gap [...args] { git add -p ...$args }
 # alias gcp = git checkout -p $args
 alias gc = git switch
 alias gcn = git switch -c

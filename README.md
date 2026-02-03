@@ -8,16 +8,34 @@ These are my configurations for terminals/shells and other dev environment thing
 - Powershell 7 (`winget install Microsoft.Powershell`)
 
 ## oh-my-posh
+
+### Windows
 ```powershell
 winget install JanDeDobbeleer.OhMyPosh
 ```
 
 In Powershell: `Install-Module posh-git`
 
-In nushell:
-1. Generate oh-my-posh script: `oh-my-posh init nu --config ~/code/configs/sutton.omp.json` (saves file to `~/.oh-my-posh.nu`)
-1. Generate zoxide script: `zoxide init nushell | save -f ~/.zoxide.nu`
-`source`ing done in `env.nu`
+### Linux/WSL
+```bash
+curl -s https://ohmyposh.dev/install.sh | bash -s
+```
+
+### Nushell Setup (All Platforms)
+1. Generate oh-my-posh script:
+   ```bash
+   oh-my-posh init nu --config ~/code/configs/sutton.omp.json > ~/.oh-my-posh.nu
+   ```
+2. Install and generate zoxide script:
+   ```bash
+   # Install zoxide
+   curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+   # Generate config
+   zoxide init nushell > ~/.zoxide.nu
+   ```
+3. Link nushell config (see [Nushell Config Setup](#nushell-config-setup) below)
+
+Note: `source`ing of these files is done in `env.nu`
 
 ## Rust and Rust-based utils
 - Install Rust toolchain (don't forget to install [VS Build Tools](https://visualstudio.microsoft.com/))
@@ -40,6 +58,22 @@ In nushell:
 ## Git Config
 - **Set up git** config (including git-delta, vscode, and hooks) by pasting [gitconfig](./gitconfig) into global git config (`git config --global --edit`)
 
+## Nushell Config Setup
+Link the nushell config files from this repo to the expected nushell config location:
+
+### Linux/WSL
+```bash
+mkdir -p ~/.config/nushell
+ln -sf ~/code/configs/nu/env.nu ~/.config/nushell/env.nu
+ln -sf ~/code/configs/nu/config.nu ~/.config/nushell/config.nu
+```
+
+### Windows
+```powershell
+New-Item -ItemType SymbolicLink -Path (Join-Path $env:APPDATA "nushell\env.nu") -Value (Join-Path $env:USERPROFILE "code\configs\nu\env.nu") -Force
+New-Item -ItemType SymbolicLink -Path (Join-Path $env:APPDATA "nushell\config.nu") -Value (Join-Path $env:USERPROFILE "code\configs\nu\config.nu") -Force
+```
+
 ## VSCode Snippets
 To incorporate `vscode-snippets`, you can create a symlink from the location VSCode expects to the `vscode-snippets` dir here by doing the following:
 1. Remove the old `snippets` dir, **after making sure there's nothing valuable there**
@@ -57,7 +91,7 @@ ln -s ~/code/configs/vscode-snippets `~/Library/Application Support/Code/User/sn
 ```
 
 ## erdtree config
-Create a symbolic link from the location erdtree expects todw the `.erdtree.toml` here:
+Create a symbolic link from the location erdtree expects to the `.erdtree.toml` here:
 ### Windows
 ```powershell
 if(Test-Path $env:APPDATA\erdtree) {
@@ -66,8 +100,11 @@ if(Test-Path $env:APPDATA\erdtree) {
 New-Item -ItemType Directory $env:APPDATA\erdtree
 New-Item -ItemType SymbolicLink -Path $env:APPDATA\erdtree\.erdtree.toml -Value (Join-Path $env:USERPROFILE "code\configs\.erdtree.toml")
 ```
-### Mac/Linux
-TODO
+### Linux/WSL
+```bash
+mkdir -p ~/.config/erdtree
+ln -sf ~/code/configs/.erdtree.toml ~/.config/erdtree/.erdtree.toml
+```
 
 
 ## espanso
