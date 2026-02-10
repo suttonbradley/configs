@@ -18,14 +18,6 @@ source ~/code/configs/nu/aliases.nu
 source ~/code/configs/nu/ripgrep-open.nu
 source ~/code/configs/nu/sourcebat.nu
 
-# Functions for platform
-def platform_is_windows [] {
-    $nu.os-info.name == 'windows'
-}
-def platform_is_macos [] {
-    $nu.os-info.name == 'macos'
-}
-
 # PATH additions
 if (platform_is_windows) {
     $env.PATH = $env.PATH | append ($env.LOCALAPPDATA | path join "VPack")
@@ -41,4 +33,4 @@ $env.EDITOR = 'code'
 
 # THEME
 source ~/code/configs/nu/catpuccin-mocha.nu
-source $"($nu.home-path)/.cargo/env.nu"
+source $"($nu.home-dir)/.cargo/env.nu"

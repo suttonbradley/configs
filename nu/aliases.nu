@@ -1,8 +1,17 @@
+# Functions for platform
+def platform_is_windows [] {
+    $nu.os-info.name == 'windows'
+}
+def platform_is_macos [] {
+    $nu.os-info.name == 'macos'
+}
+
 alias cat = open
 if (platform_is_windows) {
     def where [exe: string] { pwsh -NoProfile -c $"Get-Command ($exe)" }
 }
 
+alias k = kiro-cli
 alias lg = lazygit
 alias nv = nvim
 
@@ -38,35 +47,67 @@ def --env e [dir: string] {
 source ~/code/configs/nu/nu_scripts/custom-completions/git/git-completions.nu
 
 alias gs = git status
-alias gd = git diff
-alias gds = git diff --staged
-alias gdm = git diff --merge-base
-alias gdn = git diff --name-only
-alias gl = git log
+def gd [ref?: string, ref2?: string] {
+    if $ref2 != null {
+        git diff $ref $ref2
+    } else if $ref != null {
+        git diff $ref
+    } else {
+        git diff
+    }
+}
+def gdi [ref?: string, ref2?: string] {
+    if $ref2 != null {
+        git diff --merge-base $ref $ref2
+    } else if $ref != null {
+        git diff --merge-base $ref
+    } else {
+        git diff --merge-base
+    }
+}
+def gdn [ref?: string, ref2?: string] {
+    if $ref2 != null {
+        git diff --name-only $ref $ref2
+    } else if $ref != null {
+        git diff --name-only $ref
+    } else {
+        git diff --name-only
+    }
+}
 alias ga = git add
 def gap [...args] { git add -p ...$args }
-# alias gcp = git checkout -p $args
-alias gc = git switch
-alias gcn = git switch -c
+def gc [ref: string] { git checkout $ref }
+def gcn [ref: string, root?: string] {
+    if $root != null {
+        git switch -c $ref $root
+    } else {
+        git switch -c $ref
+    }
+}
 alias gpu = git push
 alias gpuu = git push -u origin (git branch --show-current | str trim)
 alias gpuf = git push -f
 alias gf = git fetch
 alias gpl = git pull
-alias glo = git log
+def glo [ref?: string] {
+    if $ref != null {
+        git log $ref
+    } else {
+        git log
+    }
+}
 alias gb = git branch
+def gcm [msg: string] { git commit -m $msg }
+def gcam [msg: string] { git commit -am $msg }
 alias gca = git commit --amend
-alias gcaa = git commit -a --amend
-alias gco = git commit --amend
-alias gr = git rebase
-
-def gcom [msg: string] {
-    git commit -m $msg
-}
-
-def gcam [msg: string] {
-    git commit -am $msg
-}
+alias gcaa = git commit --amend -a
+alias grbi = git rebase -i
+alias grbc = git rebase --continue
+alias grba = git rebase --abort
+alias grs = git reset
+alias grsh = git reset --hard
+alias grshh = git reset --hard HEAD
+alias gsu = git submodule update
 
 # Find the last common ancestor of two refs
 def gmb [
