@@ -14,6 +14,7 @@ if (platform_is_windows) {
 alias k = kiro-cli
 alias lg = lazygit
 alias nv = nvim
+alias python = python3
 
 # Sorted ripgrep for aliases that process ripgrep output.
 # Include line numbers in ACTUAL ripgrep output (normally doesn't go through pipe)

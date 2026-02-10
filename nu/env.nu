@@ -13,3 +13,4 @@ source ~/.oh-my-posh.nu # Generate this per-machine with: `oh-my-posh init nu --
 source ~/.zoxide.nu # Generate this per-machine with: `zoxide init nushell | save -f ~/.zoxide.nu`
 
 $env.RUSTC_WRAPPER = 'sccache'
+$env.EDITOR = 'nvim'

@@ -28,9 +28,6 @@ if (platform_is_macos) {
     $env.PATH = $env.PATH | append '~/.cargo/bin'
 }
 
-# Editor
-$env.EDITOR = 'code'
-
 # THEME
 source ~/code/configs/nu/catpuccin-mocha.nu
 source $"($nu.home-dir)/.cargo/env.nu"
