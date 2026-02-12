@@ -196,28 +196,7 @@ function gd {
         git diff $ref
     }
 }
-function gdi {
-    param(
-        [Parameter(Position=0)]$ref,
-        [Parameter(Position=1)]$ref2
-    )
-    if($ref2) {
-        git diff --merge-base $ref $ref2
-    } else {
-        git diff --merge-base $ref
-    }
-}
-function gdi {
-    param(
-        [Parameter(Position=0)]$ref,
-        [Parameter(Position=1)]$ref2
-    )
-    if($ref2) {
-        git diff --name-only $ref $ref2
-    } else {
-        git diff --name-only $ref
-    }
-}
+
 function ga { git add $args }
 function gap { git add -p $args }
 function gc { param([Parameter(Mandatory, Position=0)]$ref) git checkout $ref }

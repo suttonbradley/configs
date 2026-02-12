@@ -47,8 +47,8 @@ def --env e [dir: string] {
 # ---------- git aliases ----------
 source ~/code/configs/nu/nu_scripts/custom-completions/git/git-completions.nu
 
-alias gs = git status
-def gd [ref?: string, ref2?: string] {
+def gs [...args] { git status ...$args }
+def gd [ref?: string@"nu-complete git refs", ref2?: string@"nu-complete git refs"] {
     if $ref2 != null {
         git diff $ref $ref2
     } else if $ref != null {
@@ -57,27 +57,9 @@ def gd [ref?: string, ref2?: string] {
         git diff
     }
 }
-def gdi [ref?: string, ref2?: string] {
-    if $ref2 != null {
-        git diff --merge-base $ref $ref2
-    } else if $ref != null {
-        git diff --merge-base $ref
-    } else {
-        git diff --merge-base
-    }
-}
-def gdn [ref?: string, ref2?: string] {
-    if $ref2 != null {
-        git diff --name-only $ref $ref2
-    } else if $ref != null {
-        git diff --name-only $ref
-    } else {
-        git diff --name-only
-    }
-}
-alias ga = git add
+def ga [...args] { git add ...$args }
 def gap [...args] { git add -p ...$args }
-def gc [ref: string] { git checkout $ref }
+def gc [ref: string@"nu-complete git checkout"] { git checkout $ref }
 def gcn [ref: string, root?: string] {
     if $root != null {
         git switch -c $ref $root
@@ -90,7 +72,7 @@ alias gpuu = git push -u origin (git branch --show-current | str trim)
 alias gpuf = git push -f
 alias gf = git fetch
 alias gpl = git pull
-def glo [ref?: string] {
+def glo [ref?: string@"nu-complete git local branches"] {
     if $ref != null {
         git log $ref
     } else {
@@ -102,17 +84,23 @@ def gcm [msg: string] { git commit -m $msg }
 def gcam [msg: string] { git commit -am $msg }
 alias gca = git commit --amend
 alias gcaa = git commit --amend -a
+def grb [ref: string@"nu-complete git mergable sources"] { git rebase $ref }
 alias grbi = git rebase -i
 alias grbc = git rebase --continue
 alias grba = git rebase --abort
-alias grs = git reset
-alias grsh = git reset --hard
+def grs [...args: string@"nu-complete git refs"] { git reset ...$args }
+def grsh [ref?: string@"nu-complete git refs"] {
+    if $ref != null {
+        git reset --hard $ref
+    } else {
+        git reset --hard
+    }
+}
 alias grshh = git reset --hard HEAD
 alias gsu = git submodule update
 
-# Find the last common ancestor of two refs
 def gmb [
-    rev_one?: string@"nu-complete git local branches" = "main"
+    rev_one: string@"nu-complete git local branches" = "main"
     rev_two?: string@"nu-complete git local branches"
 ] {
     let rev_two = if $rev_two == null {
@@ -120,70 +108,38 @@ def gmb [
     } else {
         $rev_two
     }
+    print $"Common ancestor between ($rev_one) and ($rev_two):"
     git merge-base $rev_one $rev_two
 }
 
-
-# ----- Branch deletion/renaming -----
-
-# ADD-ON Yield local branches + remote branches nonlocal without prefix
-def "nu-complete git remote branches local and nonlocal without prefix" [] {
-  mut result = nu-complete git local branches
-  $result ++ (nu-complete git remote branches nonlocal without prefix)
-}
 # Delete remote branch
-def gdrb [
-    branchName: string@"nu-complete git remote branches local and nonlocal without prefix"
-    no_fail: bool = false
-] {
-    let conf = (input $"Are you sure you would like to delete branch ($branchName) on the remote \(y/n\)? ")
-    if $conf == "y" {
-        if $no_fail {
-            git push --delete origin $branchName | complete
-        } else {
-            git push --delete origin $branchName
-        }
-    } else {
-        echo $"Did not delete remote branch $branchName"
-    }
+def gder [ref: string@"nu-complete git remote branches with prefix"] {
+    print $"Deleting remote branch ($ref)..."
+    git push --no-verify --delete origin $ref
 }
 
 # Delete local branch
-def gdlb [
-    branchName: string@"nu-complete git local branches"
-] {
-    git branch -D $branchName
+def gdel [ref: string@"nu-complete git local branches"] {
+    print $"Deleting local branch  ($ref)..."
+    git branch -D $ref
 }
 
 # Delete local and remote branch
-def gdb [
-    branchName: string@"nu-complete git local branches"
-] {
-    gdrb $branchName true #no_fail so that local deletion still works
-    gdlb $branchName
-}
-
-# Rename remote branch
-def grrb [
-    branchName: string
-] {
-    let oldBranch = git branch --show-current | str trim
-    git push origin $"origin/($oldBranch):refs/heads/($branchName)" $":($oldBranch)"
+def gde [ref: string@"nu-complete git local branches"] {
+    gder $ref
+    gdel $ref
 }
 
 # Rename local branch
-def grlb [
-    branchName: string
-] {
+def grnl [branchName: string] {
+    print "Renaming local branch..."
     git branch -m $branchName
-    git branch -u $"origin/($branchName)"
 }
 
-# Rename local and remote branch
-def grb [
-    branchName: string
-] {
-    grrb $branchName
-    grlb  $branchName
+# Rename remote and local branch
+def grn [branchName: string] {
+    print "Renaming remote branch..."
+    let oldBranch = git branch --show-current | str trim
+    git push origin $"origin/($oldBranch):refs/heads/($branchName)" $":($oldBranch)"
+    grnl $branchName
 }
-# ---------------------------------
