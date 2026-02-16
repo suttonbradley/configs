@@ -26,6 +26,7 @@ if (platform_is_windows) {
 # For some reason, nushell doesn't like the standard bash path 
 if (platform_is_macos) {
     $env.PATH = $env.PATH | append '~/.cargo/bin'
+    $env.PATH = $env.PATH | append '~/.local/bin'
 }
 
 # THEME
