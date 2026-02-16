@@ -2,9 +2,6 @@
 def platform_is_windows [] {
     $nu.os-info.name == 'windows'
 }
-def platform_is_macos [] {
-    $nu.os-info.name == 'macos'
-}
 
 alias cat = open
 if (platform_is_windows) {

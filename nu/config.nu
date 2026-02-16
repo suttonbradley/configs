@@ -23,8 +23,9 @@ if (platform_is_windows) {
     $env.PATH = $env.PATH | append ($env.LOCALAPPDATA | path join "VPack")
 }
 # PATH additions
-# For some reason, nushell doesn't like the standard bash path 
-if (platform_is_macos) {
+# For some reason, nushell doesn't like the standard bash path
+# Apply to both Linux (including WSL) and macOS
+if not (platform_is_windows) {
     $env.PATH = $env.PATH | append '~/.cargo/bin'
     $env.PATH = $env.PATH | append '~/.local/bin'
 }
