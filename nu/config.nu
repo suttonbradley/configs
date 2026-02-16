@@ -30,4 +30,3 @@ if (platform_is_macos) {
 
 # THEME
 source ~/code/configs/nu/catpuccin-mocha.nu
-source $"($nu.home-dir)/.cargo/env.nu"
