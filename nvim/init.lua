@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 
 -- Harpoon - load default list
 vim.schedule(function()
-  require("harpoon"):list("default")
+    require("harpoon"):list("default")
 end)
 
 
@@ -16,6 +16,8 @@ vim.cmd("set shiftwidth=4")
 -- Relative line numbers
 vim.cmd("set rnu")
 vim.cmd("set nu")
+-- Case-insensitive search
+vim.cmd("set ignorecase")
 
 -- Remap + center screen on half-page scrolls
 vim.keymap.set("n", "<C-y>", "<C-u>zz", {
@@ -117,6 +119,3 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
         end)
     end,
 })
-
-
-
