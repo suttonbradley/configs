@@ -6,9 +6,9 @@ return { {
     config = function()
         require("mason-lspconfig").setup({
             -- Available LSP servers at: https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
-            ensure_installed = { "clangd", "lua_ls", "pest_ls", "powershell_es", "ruff", -- python
+            ensure_installed = { "clangd", "lua_ls", "powershell_es", "ruff", -- python
                 -- "rust_analyzer", -- NOTE: must be installed by rustup, not Mason, for rustacean plugin
-                "taplo",                                                                 -- toml
+                "taplo",                                                      -- toml
                 "yamlls" }
         })
     end
@@ -28,9 +28,6 @@ return { {
         vim.lsp.config['clangd'] = {
             cmd = { 'clangd' }
         }
-        vim.lsp.config['pest_ls'] = {
-            cmd = { 'pest-language-server' }
-        }
         vim.lsp.config['powershell_es'] = {
             cmd = { 'PowerShellEditorServices' }
         }
@@ -44,7 +41,7 @@ return { {
             cmd = { 'yaml-language-server', '--stdio' }
         }
 
-        vim.lsp.enable({ 'lua_ls', 'clangd', 'pest_ls', 'powershell_es', 'ruff', 'taplo', 'yamlls' })
+        vim.lsp.enable({ 'lua_ls', 'clangd', 'powershell_es', 'ruff', 'taplo', 'yamlls' })
 
         vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
         vim.keymap.set('n', 'gd', function()

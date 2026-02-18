@@ -28,6 +28,7 @@ if (platform_is_windows) {
 if not (platform_is_windows) {
     $env.PATH = $env.PATH | append '~/.cargo/bin'
     $env.PATH = $env.PATH | append '~/.local/bin'
+    $env.PATH = $env.PATH | append '/opt/nvim-linux-x86_64/bin'
 }
 
 # THEME

@@ -1,7 +1,7 @@
-return {{
+return { {
     "L3MON4D3/LuaSnip",
-    dependencies = {"saadparwaiz1/cmp_luasnip"}
-}, {"hrsh7th/cmp-nvim-lsp"}, {
+    dependencies = { "saadparwaiz1/cmp_luasnip" }
+}, { "hrsh7th/cmp-nvim-lsp" }, {
     "hrsh7th/nvim-cmp",
     config = function()
         local cmp = require 'cmp'
@@ -25,23 +25,23 @@ return {{
                     select = true
                 }) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
             }),
-            sources = cmp.config.sources({{
+            sources = cmp.config.sources({ {
                 name = 'luasnip'
             }, {
                 name = 'nvim_lsp'
             }, {
                 name = 'buffer'
-            }})
+            } })
         })
 
         -- Set up capabilities for LSP servers
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
         -- Update vim.lsp.config with capabilities
-        for _, server in ipairs({'lua_ls', 'pest_ls', 'powershell_es', 'ruff', 'taplo', 'yamlls'}) do
+        for _, server in ipairs({ 'lua_ls', 'powershell_es', 'ruff', 'taplo', 'yamlls' }) do
             if vim.lsp.config[server] then
                 vim.lsp.config[server].capabilities = capabilities
             end
         end
     end
-}}
+} }
