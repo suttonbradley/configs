@@ -18,7 +18,8 @@ return { {
                 default_settings = {
                     ['rust-analyzer'] = {
                         cargo = {
-                            features = "all",
+                            -- TODO: use project-local features
+                            features = { "eve" },
                         },
                         checkOnSave = {
                             command = "clippy",

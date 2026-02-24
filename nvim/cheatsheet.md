@@ -94,5 +94,8 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `@<reg>` to run the macro
   - make use of numbers - `5@q` runs the macro 5 times
 
+## Rust
+- TODO: integrate [codesettings.nvim](https://github.com/mrjones2014/codesettings.nvim) for per-project rust-analyzer settings via `.vscode/settings.json` ([rustaceanvim docs](https://github.com/mrcjkb/rustaceanvim?tab=readme-ov-file#how-to-dynamically-load-different-rust-analyzer-settings-per-project))
+
 ## Misc
 - for weirdness with terminal escape sequences, you can use `:echo getcharstr()` and then hit a key combo to see what vim actually receives 
