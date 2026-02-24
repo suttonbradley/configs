@@ -22,6 +22,15 @@ return {
                 require("lualine").refresh()
             end,
         },
+        post_restore_cmds = {
+            function()
+                -- Re-init harpoon after session restore so it reads from
+                -- the data file matching the restored cwd.
+                local harpoon = require("harpoon")
+                harpoon:setup()
+                harpoon.lists = {}
+            end,
+        },
     },
     keys = { -- "s" for "session"
         {
