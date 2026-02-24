@@ -35,6 +35,7 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `:Gitsigns`: actions for stuff like `:Gitsigns blame` to show blame in gutter
 - `:SessionSearch` to search auto-session sessions. See all commands [here](https://github.com/rmagatti/auto-session?tab=readme-ov-file#-commands)
 - `:Lazy` to update plugins
+- `:TSUpdate` to reinstall/update treesitter parsers (run this after reinstalling nvim)
 - `:checkhealth` is generally useful
 - `<leader>xx` to show diagnostics /w trouble plugin
   - `<leader>xX` to show diagnostics just for this buffer
@@ -66,6 +67,10 @@ Full guide [here](https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-f
 - `<leader>fm` to format code
 - `<leader>lg` for lazygit
   - _don't forget: `ctrl+c` to exit
+- `<leader>dv` to open diffview (diff viewer / merge conflict tool)
+- `<leader>dc` to close diffview
+- `<leader>dh` to show file history for current file
+  - In merge tool (3-way split): `<leader>co/ct/cb` choose ours/theirs/base, `]x`/`[x` next/prev conflict, `dx` delete region
 - `<leader>ss` for to open session search window
 - `<leader>tt` to open floating, persistent terminal
 ### Windows

@@ -40,8 +40,13 @@ return { {
         vim.lsp.config['yamlls'] = {
             cmd = { 'yaml-language-server', '--stdio' }
         }
+        vim.lsp.config['nushell'] = {
+            -- NOTE: LSP is built into the nu binary, not installed via Mason
+            cmd = { 'nu', '--lsp' },
+            filetypes = { 'nu' },
+        }
 
-        vim.lsp.enable({ 'lua_ls', 'clangd', 'powershell_es', 'ruff', 'taplo', 'yamlls' })
+        vim.lsp.enable({ 'lua_ls', 'clangd', 'powershell_es', 'ruff', 'taplo', 'yamlls', 'nushell' })
 
         vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
         vim.keymap.set('n', 'gd', function()

@@ -25,7 +25,7 @@
   - What does the workflow look like with this and terminal stuff?
     - One terminal tab for each project, or using `nu` shell switcher + single vim window?
 - [ ] ADO integration -- see PR comments for easier fixing?
-- [ ] `nushell` LSP
+- [x] `nushell` LSP
 - neo-tree
   - [ ] change to glyphs for git changes in neo-tree
   - [ ] way to focus without having to `ctrl+n` twice
