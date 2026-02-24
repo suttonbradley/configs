@@ -1,17 +1,12 @@
 return { {
-    "williamboman/mason.nvim",
-    config = true
-}, {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-        require("mason-lspconfig").setup({
-            -- Available LSP servers at: https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
-            ensure_installed = { "clangd", "lua_ls", "powershell_es", "ruff", -- python
-                -- "rust_analyzer", -- NOTE: must be installed by rustup, not Mason, for rustacean plugin
-                "taplo",                                                      -- toml
-                "yamlls" }
-        })
-    end
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+        ensure_installed = { "clangd", "lua_ls", "powershell_es", "ruff", "taplo", "yamlls" },
+    },
+    dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig",
+    },
 }, {
     "neovim/nvim-lspconfig",
     config = function()
@@ -46,7 +41,8 @@ return { {
             filetypes = { 'nu' },
         }
 
-        vim.lsp.enable({ 'lua_ls', 'clangd', 'powershell_es', 'ruff', 'taplo', 'yamlls', 'nushell' })
+        -- nushell is not mason-managed, enable manually
+        vim.lsp.enable('nushell')
 
         vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
         vim.keymap.set('n', 'gd', function()
