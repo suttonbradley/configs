@@ -2,11 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Harpoon - load default list
-vim.schedule(function()
-    require("harpoon"):list("default")
-end)
-
 
 -- Tabs as 4 spaces
 vim.cmd("set expandtab")
