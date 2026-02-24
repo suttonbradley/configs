@@ -6,10 +6,13 @@ return { {
         vim.g.rustaceanvim = {
             server = {
                 default_settings = {
-                    ['rust_analyzer'] = {
+                    ['rust-analyzer'] = {
+                        cargo = {
+                            features = "all",
+                        },
                         checkOnSave = {
-                            command = "clippy"
-                        }
+                            command = "clippy",
+                        },
                     }
                 },
                 capabilities = {
