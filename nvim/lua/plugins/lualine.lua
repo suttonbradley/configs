@@ -7,11 +7,16 @@ return {
                 theme = 'dracula'
             },
             sections = {
-                -- Replace with abs path
-                lualine_c = {{
-                    'filename',
-                    path = 3
-                }},
+                lualine_c = {
+                    function()
+                        local session = require("auto-session.lib").current_session_name(true)
+                        local filename = vim.fn.expand("%:.")  -- relative to cwd
+                        if session and session ~= "" then
+                            return session .. " | " .. filename
+                        end
+                        return filename
+                    end,
+                },
                 lualine_z = {{
                     'lsp_status',
                     icon = '', -- f013

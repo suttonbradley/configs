@@ -33,7 +33,9 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
 - `:Mason`: open mason for LSPs
 - `:LspInfo`: get diagnostics on LSPs
 - `:Gitsigns`: actions for stuff like `:Gitsigns blame` to show blame in gutter
-- `:SessionSearch` to search auto-session sessions. See all commands [here](https://github.com/rmagatti/auto-session?tab=readme-ov-file#-commands)
+- `:AutoSession save [name]` to save
+  - `nvim` restores last session; `nvim .` or `nvim <file_or_dir>` opens session-less
+  - cwd-based sessions (no name) auto-restore on startup; named sessions must be restored via picker
 - `:Lazy` to update plugins
 - `:TSUpdate` to reinstall/update treesitter parsers (run this after reinstalling nvim)
 - `:checkhealth` is generally useful
