@@ -3,7 +3,7 @@ def platform_is_windows [] {
     $nu.os-info.name == 'windows'
 }
 
-alias cat = open
+alias cat = bat
 if (platform_is_windows) {
     def where [exe: string] { pwsh -NoProfile -c $"Get-Command ($exe)" }
 }

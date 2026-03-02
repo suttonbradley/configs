@@ -31,3 +31,5 @@ Set-PSReadLineOption -EditMode Windows
 
 # Hook zoxide and replace cd with it
 Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
+# Alias cat with bat
+function cat { bat @args }

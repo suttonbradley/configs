@@ -52,7 +52,8 @@ Note: `source`ing of these files is done in `env.nu`
     cargo install sccache
     cargo install cork
     cargo install tokei
-    cargo install zoxide --locked
+    cargo install --locked zoxide
+    cargo install --locked bat
     ```
 
 ## Git Config
