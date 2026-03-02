@@ -13,7 +13,12 @@ if($?) {
 }
 function nv { nvim $args }
 
-function rr { rustrover64 $args }
+# Alias cat with bat
+Get-Alias cat *>&1 | Out-Null
+if($?) {
+    Remove-Item alias:cat -Force
+}
+function cat { bat $args }
 
 function Enter-DevPowershell {
     # Find vswhere
