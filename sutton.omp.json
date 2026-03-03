@@ -61,6 +61,7 @@
           "foreground": "#1e1e2e",
           "powerline_symbol": "\ue0b0",
           "background": "#b4befe",
+          "refresh": 500,
           "type": "git"
         },
         {
