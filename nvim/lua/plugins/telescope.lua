@@ -8,6 +8,12 @@ return { {
         end,
         desc = "Find files"
     }, {
+        "<leader>fi",
+        function()
+            require("telescope.builtin").find_files({ no_ignore = true, hidden = true })
+        end,
+        desc = "Find files (including ignored)"
+    }, {
         "<leader>rg",
         function()
             require("telescope.builtin").live_grep()
