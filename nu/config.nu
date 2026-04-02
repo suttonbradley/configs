@@ -19,10 +19,6 @@ source ~/code/configs/nu/ripgrep-open.nu
 source ~/code/configs/nu/sourcebat.nu
 
 # PATH additions
-if (platform_is_windows) {
-    $env.PATH = $env.PATH | append ($env.LOCALAPPDATA | path join "VPack")
-}
-# PATH additions
 # For some reason, nushell doesn't like the standard bash path
 # Apply to both Linux (including WSL) and macOS
 if not (platform_is_windows) {
@@ -37,3 +33,8 @@ source ~/code/configs/nu/catpuccin-mocha.nu
 # Machine-specific add-on — not tracked in configs repo, lives only on this machine
 # Create an empty ~/config.nu on machines that don't need it
 source ~/config.nu
+
+# ----- PROMPT -----
+# oh-my-posh: https://ohmyposh.dev/docs/installation/prompt?shell=nu
+oh-my-posh init nu -c ~/code/configs/sutton.omp.json
+
