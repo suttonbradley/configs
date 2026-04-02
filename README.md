@@ -56,6 +56,17 @@ Note: `source`ing of these files is done in `env.nu`
     cargo install --locked bat
     ```
 
+## Zsh Setup (Linux/WSL)
+1. Install [oh-my-zsh](https://ohmyz.sh/):
+   ```bash
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
+2. Install [fzf](https://github.com/junegunn/fzf#installation) (used by zoxide and the oh-my-zsh fzf plugin)
+3. Symlink zshrc:
+   ```bash
+   ln -sf ~/code/configs/zsh/zshrc ~/.zshrc
+   ```
+
 ## Git Config
 - **Set up git** config (including git-delta, vscode, and hooks) by pasting [gitconfig](./gitconfig) into global git config (`git config --global --edit`)
 

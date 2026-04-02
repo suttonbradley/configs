@@ -1,0 +1,46 @@
+# Keep configs repo up to date, warn if changes were pulled
+if git -C ~/code/configs pull 2>/dev/null | grep -qv 'Already up to date.'; then
+  echo "configs repo updated — restart your shell to pick up changes"
+fi
+
+# Environment variables
+export RUSTC_WRAPPER='sccache'
+export EDITOR='nvim'
+
+# Oh My Zsh
+export ZSH=~/.oh-my-zsh
+# Plugins
+plugins=(
+  rust
+  gitfast
+  git-auto-fetch
+  fzf # binary must be installed manually
+)
+# Enable it
+source $ZSH/oh-my-zsh.sh
+
+# History
+HISTFILE=~/.zsh_history
+setopt EXTENDED_HISTORY
+# expire duplicates first
+setopt HIST_EXPIRE_DUPS_FIRST
+# do not store duplications
+setopt HIST_IGNORE_DUPS
+# ignore duplicates when searching
+setopt HIST_FIND_NO_DUPS
+# removes blank lines from history
+setopt HIST_REDUCE_BLANKS
+# adds commands as they are typed, not at shell exit
+setopt INC_APPEND_HISTORY
+# share history across multiple zsh sessions
+setopt SHARE_HISTORY
+# append to history
+setopt APPEND_HISTORY
+# never beep
+setopt NO_BEEP
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+# Prompt
+eval "$(oh-my-posh init zsh -c ~/code/configs/sutton.omp.json)"
