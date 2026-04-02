@@ -33,3 +33,7 @@ if not (platform_is_windows) {
 
 # THEME
 source ~/code/configs/nu/catpuccin-mocha.nu
+
+# Machine-specific add-on — not tracked in configs repo, lives only on this machine
+# Create an empty ~/config.nu on machines that don't need it
+source ~/config.nu
