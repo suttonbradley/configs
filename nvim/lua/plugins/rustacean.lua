@@ -25,7 +25,7 @@ return { {
                             setTest = false,
                         },
                         cargo = {
-                            -- TODO: use project-local features
+                            -- TODO: use project-local features? could just modify features via the RustFeatures command below
                             features = { "eve" },
                         },
                     }
@@ -41,5 +41,36 @@ return { {
                 },
             },
         }
+
+        vim.api.nvim_create_user_command('RustFeatures', function(opts)
+            if opts.args == '' then
+                local features = vim.deepcopy(vim.g.rustaceanvim.server.default_settings['rust-analyzer'].cargo.features)
+                local msg = #features == 0 and 'default' or table.concat(features, ', ')
+                vim.notify('rust-analyzer features: ' .. msg, vim.log.levels.INFO)
+            else
+                local features = opts.args == 'default' and {} or vim.tbl_filter(function(f) return f ~= '' end,
+                    vim.split(opts.args, ',', { trimempty = true }))
+                local cfg = vim.deepcopy(vim.g.rustaceanvim)
+                cfg.server.default_settings['rust-analyzer'].cargo.features = features
+                vim.g.rustaceanvim = cfg
+                require('rustaceanvim.config.internal').server.default_settings['rust-analyzer'].cargo.features =
+                    features
+                local msg = #features == 0 and '(none)' or table.concat(features, ', ')
+                if vim.fn.exists(':RustAnalyzer') ~= 2 then
+                    vim.notify('rust-analyzer features set to: ' .. msg .. ' (open a .rs file to start LSP)',
+                        vim.log.levels.WARN)
+                    return
+                end
+                vim.notify('rust-analyzer features set to: ' .. msg .. ', restarting...', vim.log.levels.INFO)
+                vim.cmd('RustAnalyzer restart')
+                vim.defer_fn(function()
+                    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+                        if vim.api.nvim_buf_is_loaded(bufnr) and vim.bo[bufnr].filetype == 'rust' then
+                            vim.lsp.semantic_tokens.force_refresh(bufnr)
+                        end
+                    end
+                end, 5000)
+            end
+        end, { nargs = '?' })
     end,
 } }
