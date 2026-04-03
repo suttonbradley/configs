@@ -51,6 +51,9 @@ source ~/code/configs/zsh/git-aliases.zsh
 # Nushell-style shell switching (e, n, p, g, dexit, shells)
 source ~/code/configs/zsh/shells.zsh
 
+# Notification prefix command
+source ~/code/configs/zsh/notif.zsh
+
 # Zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
