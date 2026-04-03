@@ -52,6 +52,7 @@ Note: `source`ing of these files is done in `env.nu`
     cargo install sccache
     cargo install cork
     cargo install tokei
+    cargo install eza
     cargo install --locked zoxide
     cargo install --locked bat
     ```
@@ -62,7 +63,11 @@ Note: `source`ing of these files is done in `env.nu`
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
    ```
 2. Install [fzf](https://github.com/junegunn/fzf#installation) (used by zoxide and the oh-my-zsh fzf plugin)
-3. Symlink zshrc:
+3. Install [fzf-tab](https://github.com/Aloxaf/fzf-tab) into oh-my-zsh custom plugins:
+   ```bash
+   git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+   ```
+4. Symlink zshrc:
    ```bash
    ln -sf ~/code/configs/zsh/zshrc ~/.zshrc
    ```
