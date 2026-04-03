@@ -49,7 +49,7 @@ alias la='eza -la --icons --group-directories-first --git'
 source ~/code/configs/zsh/git-aliases.zsh
 
 # Zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # Prompt
 eval "$(oh-my-posh init zsh -c ~/code/configs/sutton.omp.json)"
