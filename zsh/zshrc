@@ -39,6 +39,9 @@ setopt APPEND_HISTORY
 # never beep
 setopt NO_BEEP
 
+# Git aliases (must be after oh-my-zsh for compdef)
+source ~/code/configs/zsh/git-aliases.zsh
+
 # Zoxide
 eval "$(zoxide init zsh)"
 
