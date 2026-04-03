@@ -40,6 +40,9 @@ setopt APPEND_HISTORY
 # never beep
 setopt NO_BEEP
 
+# Key bindings (Windows Terminal escape sequences)
+source ~/code/configs/zsh/keybindings.zsh
+
 # ls -> eza alias
 alias ls='eza --oneline --icons --group-directories-first'
 alias ll='eza -l --icons --group-directories-first --git'
