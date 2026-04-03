@@ -17,6 +17,7 @@ notif() {
     # Escape single quotes for PowerShell
     title="${title//\'/\'\'}"
     message="${message//\'/\'\'}"
+    # NOTE: Must install burnt toast within powershell for this to work
     "$pwsh" -NoProfile -Command "Import-Module BurntToast; New-BurntToastNotification -Text '$title', '$message'" >/dev/null 2>&1
   else
     # TODO: notification system for linux/macos
