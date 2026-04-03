@@ -40,6 +40,11 @@ setopt APPEND_HISTORY
 # never beep
 setopt NO_BEEP
 
+# ls -> eza alias
+alias ls='eza --oneline --icons --group-directories-first'
+alias ll='eza -l --icons --group-directories-first --git'
+alias la='eza -la --icons --group-directories-first --git'
+
 # Git aliases (must be after oh-my-zsh for compdef)
 source ~/code/configs/zsh/git-aliases.zsh
 
