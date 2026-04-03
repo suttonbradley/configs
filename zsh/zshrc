@@ -48,6 +48,9 @@ alias la='eza -la --icons --group-directories-first --git'
 # Git aliases (must be after oh-my-zsh for compdef)
 source ~/code/configs/zsh/git-aliases.zsh
 
+# Nushell-style shell switching (e, n, p, g, dexit, shells)
+source ~/code/configs/zsh/shells.zsh
+
 # Zoxide
 eval "$(zoxide init zsh --cmd cd)"
 

@@ -168,6 +168,8 @@ function g {
 
 # List all shell locations
 function shells {
+    # Update current entry with actual pwd before displaying
+    $SHELL_SWITCHER.shells[$SHELL_SWITCHER.idx] = $(Get-Location)
     Write-Host -NoNewline "Shell locations ("
     Write-Host -NoNewline -ForegroundColor Blue "active in blue"
     Write-Host "):"
