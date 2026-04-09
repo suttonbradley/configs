@@ -38,6 +38,7 @@ _NOTE ON PLUGINS_: In lazy.nvim lua setup scripts, pass `opts = {}` or `config =
   - cwd-based sessions (no name) auto-restore on startup; named sessions must be restored via picker
 - `:Lazy` to update plugins
 - `:TSUpdate` to reinstall/update treesitter parsers (run this after reinstalling nvim)
+- `:TSInstall <lang>` to add highlighting for a new language (e.g. `:TSInstall json`)
 - `:checkhealth` is generally useful
 - `<leader>xx` to show diagnostics /w trouble plugin
   - `<leader>xX` to show diagnostics just for this buffer

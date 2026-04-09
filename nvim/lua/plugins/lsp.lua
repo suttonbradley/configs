@@ -1,7 +1,7 @@
 return { {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-        ensure_installed = { "clangd", "lua_ls", "powershell_es", "ruff", "taplo", "yamlls" },
+        ensure_installed = { "clangd", "jsonls", "lua_ls", "powershell_es", "ruff", "taplo", "yamlls" },
     },
     dependencies = {
         { "mason-org/mason.nvim", opts = {} },
@@ -34,6 +34,9 @@ return { {
         }
         vim.lsp.config['yamlls'] = {
             cmd = { 'yaml-language-server', '--stdio' }
+        }
+        vim.lsp.config['jsonls'] = {
+            cmd = { 'vscode-json-language-server', '--stdio' }
         }
         vim.lsp.config['nushell'] = {
             -- NOTE: LSP is built into the nu binary, not installed via Mason
