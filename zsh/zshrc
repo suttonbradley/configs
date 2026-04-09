@@ -60,6 +60,9 @@ source ~/code/configs/zsh/shells.zsh
 # Notification prefix command
 source ~/code/configs/zsh/notif.zsh
 
+# Source local overrides if present
+[[ -f ~/local.zsh ]] && source ~/local.zsh
+
 # Zoxide
 eval "$(zoxide init zsh --cmd cd)"
 

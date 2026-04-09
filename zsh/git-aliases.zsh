@@ -3,7 +3,8 @@
 
 # ---------- Simple aliases (flags pass through naturally) ----------
 alias gs='git status'
-alias ga='git add'
+alias ga='git add -u'
+alias gA='git add'
 alias gap='git add -p'
 alias gpu='git push'
 alias gpuf='git push -f'
