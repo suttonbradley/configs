@@ -13,6 +13,7 @@ alias gpl='git pull'
 alias gb='git branch'
 alias gca='git commit --amend'
 alias gcaa='git commit --amend -a'
+alias gcp='git cherry-pick'
 alias grbi='git rebase -i'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
@@ -24,6 +25,7 @@ alias gsu='git submodule update'
 
 # Push current branch and set upstream
 gpuu() { git push -u origin "$(git branch --show-current)" }
+gpuuf() { git push --force -u origin "$(git branch --show-current)" }
 
 # Checkout
 gc() { git checkout "$@" }
