@@ -65,6 +65,14 @@
           "type": "git"
         },
         {
+          "style": "powerline",
+          "template": "{{if .Env.MEDIAX_OUTPUT_DIR}} {{ trimPrefix .Env.BUILD .Env.MEDIAX_OUTPUT_DIR | trimPrefix \"/\" }} {{end}}",
+          "foreground": "#1e1e2e",
+          "powerline_symbol": "\ue0b0",
+          "background": "#f9e2af",
+          "type": "text"
+        },
+        {
           "properties": {
             "time_format": "15:04"
           },

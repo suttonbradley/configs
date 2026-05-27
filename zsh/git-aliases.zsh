@@ -21,7 +21,7 @@ alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
 alias grs='git reset'
 alias grshh='git reset --hard HEAD'
-alias gsu='git submodule update'
+alias gsu='git submodule update --recursive'
 
 # ---------- Functions (need branch args or special logic) ----------
 
