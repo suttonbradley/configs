@@ -100,7 +100,7 @@ grn() {
   echo "Renaming remote branch..."
   local old_branch
   old_branch="$(git branch --show-current)"
-  git push origin "origin/$old_branch:refs/heads/$1" ":$old_branch"
+  git push origin "origin/${old_branch}:refs/heads/$1" ":$old_branch"
   grnl "$1"
 }
 

@@ -45,16 +45,17 @@ Note: `source`ing of these files is done in `env.nu`
     ```
 - Cargo-installable utils
     ```
-    cargo install erdtree
-    cargo install git-delta
-    cargo install ripgrep
-    cargo install fd-find
-    cargo install sccache
-    cargo install cork
-    cargo install tokei
-    cargo install eza
-    cargo install --locked zoxide
-    cargo install --locked bat
+    cargo install cargo-binstall
+    cargo binstall erdtree
+    cargo binstall git-delta
+    cargo binstall ripgrep
+    cargo binstall fd-find
+    cargo binstall sccache
+    cargo binstall cork
+    cargo binstall tokei
+    cargo binstall eza
+    cargo binstall --locked zoxide
+    cargo binstall --locked bat
     ```
 
 ## Zsh Setup (Linux/WSL)

@@ -1,5 +1,4 @@
 # Prefix any command with `notif` to get a toast notification on completion
-
 notif() {
   if [[ -z "$*" ]]; then
     echo "Usage: notif <command>"
@@ -23,6 +22,31 @@ notif() {
     # TODO: notification system for linux/macos
     echo "(notif: no notification backend for this platform)"
   fi
+
+  return $exit_code
+}
+
+# Prefix any command with `push-notif` to get a push notification on the Pushover app
+# Requires: PUSHOVER_TOKEN (application API token), PUSHOVER_USER (user key)
+push-notif() {
+  if [[ -z "$*" ]]; then
+    echo "Usage: push-notif <command>"
+    return 1
+  fi
+
+  if [[ -z "$PUSHOVER_TOKEN" || -z "$PUSHOVER_USER" ]]; then
+    echo "push-notif: PUSHOVER_TOKEN and PUSHOVER_USER must be set"
+    return 1
+  fi
+
+  eval "$@"
+  local exit_code=$?
+
+  curl -s \
+    --form-string "token=$PUSHOVER_TOKEN" \
+    --form-string "user=$PUSHOVER_USER" \
+    --form-string "message=$(if [[ $exit_code -eq 0 ]]; then echo "Success: $*"; else echo "Failed (code $exit_code): $*"; fi)" \
+    https://api.pushover.net/1/messages.json >/dev/null
 
   return $exit_code
 }
