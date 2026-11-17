@@ -68,3 +68,6 @@ eval "$(zoxide init zsh --cmd cd)"
 
 # Prompt
 eval "$(oh-my-posh init zsh -c ~/code/configs/sutton.omp.json)"
+
+#Vega CLI
+source "/root/vega/env"
