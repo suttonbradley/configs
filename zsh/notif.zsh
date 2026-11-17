@@ -50,3 +50,33 @@ push-notif() {
 
   return $exit_code
 }
+
+# Send a push notification to the Pushover app with a custom message (no command run)
+# Requires: PUSHOVER_TOKEN (application API token), PUSHOVER_USER (user key)
+push-notif-msg() {
+  if [[ -z "$*" ]]; then
+    echo "Usage: push-notif-msg <message> [title] [url] [url_title]"
+    return 1
+  fi
+
+  if [[ -z "$PUSHOVER_TOKEN" || -z "$PUSHOVER_USER" ]]; then
+    echo "push-notif-msg: PUSHOVER_TOKEN and PUSHOVER_USER must be set"
+    return 1
+  fi
+
+  local title_arg=()
+  [[ -n "$2" ]] && title_arg=(--form-string "title=$2")
+
+  # url_title is only rendered by Pushover when a url is present
+  local url_arg=()
+  [[ -n "$3" ]] && url_arg=(--form-string "url=$3")
+  [[ -n "$3" && -n "$4" ]] && url_arg+=(--form-string "url_title=$4")
+
+  curl -s \
+    --form-string "token=$PUSHOVER_TOKEN" \
+    --form-string "user=$PUSHOVER_USER" \
+    --form-string "message=$1" \
+    "${title_arg[@]}" \
+    "${url_arg[@]}" \
+    https://api.pushover.net/1/messages.json >/dev/null
+}
