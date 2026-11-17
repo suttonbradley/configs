@@ -125,6 +125,22 @@ ln -sf ~/code/configs/.erdtree.toml ~/.config/erdtree/.erdtree.toml
 ```
 
 
+## herdr config
+[herdr](https://herdr.dev) keeps everything in one file. The rest of
+`~/.config/herdr/` is runtime state (sockets, logs, `session.json`), so only
+`config.toml` gets linked:
+### Linux/WSL
+```bash
+mkdir -p ~/.config/herdr
+ln -sf ~/code/configs/herdr.toml ~/.config/herdr/config.toml
+```
+### Windows
+```powershell
+New-Item -ItemType SymbolicLink -Path (Join-Path $env:APPDATA "herdr\config.toml") -Value (Join-Path $env:USERPROFILE "code\configs\herdr.toml") -Force
+```
+After editing: `herdr config check` to validate, `herdr server reload-config` to apply.
+
+
 ## espanso
 [Install espanso](https://espanso.org/install/), then:
 

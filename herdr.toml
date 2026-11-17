@@ -1,0 +1,48 @@
+onboarding = false
+# herdr — terminal workspace manager for coding agents.
+# Symlinked to ~/.config/herdr/config.toml (see README).
+# Full annotated reference: `herdr --default-config`
+# Validate: `herdr config check`   Apply: `herdr server reload-config`
+
+[keys]
+# ctrl+b is an awkward reach with kanata putting ctrl on the physical left
+# shift. ctrl+space is the well-worn tmux alternative and a pinky+thumb roll.
+# Safe here only because nvim stays outside herdr — it's nvim's cmp trigger
+# (nvim/lua/plugins/autocomplete.lua). herdr has no send-prefix-literally
+# escape hatch, so whatever the prefix shadows is gone for good inside herdr.
+prefix = "ctrl+space"
+
+# Direct pane focus, same keys as Windows Terminal panes and nvim windows.
+# Windows Terminal binds alt+h/j/k/l to moveFocus *globally* (no per-profile
+# scoping), but per microsoft/terminal#6219 it should mark the chord unhandled
+# and pass it through when there's no pane to move to — which is always true in
+# a tab where herdr is the only pane. Under test; if it doesn't pass through,
+# switch these four to ctrl+alt+... or prefix+... .
+# Must be LEFT alt: kanata makes right alt a tap-hold arrow layer.
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
+
+# Direct workspace switching. alt+1..9 is free in Windows Terminal (its tab
+# switching is on ctrl+alt+1..9) and only shadows readline's digit-argument in zsh.
+switch_workspace = "alt+1..9"
+# Tabs back on the herdr default.
+switch_tab = "prefix+1..9"
+
+# Everything else stays on herdr defaults, now behind ctrl+space:
+#   prefix+c new tab      prefix+1..9 switch tab    prefix+v / prefix+minus split right / down
+#   prefix+w workspaces   prefix+z zoom    prefix+x close pane
+#   prefix+q detach       prefix+? full keybinding list
+
+[ui]
+agent_panel_sort = "spaces"
+status_indicators = "dots"
+show_agent_labels_on_pane_borders = false
+
+[ui.toast]
+delivery = "herdr"
+
+[worktrees]
+# Share the root Claude Code uses; herdr nests as <repo>/<branch-slug> under it.
+directory = "~/code/git-worktrees"
