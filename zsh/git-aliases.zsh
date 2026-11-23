@@ -27,6 +27,8 @@ alias gsu='git submodule update --recursive'
 
 # Push current branch and set upstream
 gpuu() { git push -u origin "$(git branch --show-current)" }
+
+# Force-push current branch and set upstream
 gpuuf() { git push --force -u origin "$(git branch --show-current)" }
 
 # Checkout
@@ -49,6 +51,8 @@ glo() { git log "$@" }
 
 # Commit with message
 gcm() { git commit -m "$1" }
+
+# Commit all tracked changes with message
 gcam() { git commit -am "$1" }
 
 # Rebase
